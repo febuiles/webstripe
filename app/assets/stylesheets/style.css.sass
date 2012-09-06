@@ -1,29 +1,42 @@
 body
   font-family: "Source Sans Pro", sans-serif
-
-h1
-  font-size: "Anton", "Source Sans Pro", sans-serif
+h1, h2, h3, h4, h5
+  font-size: "Anton", "Source Sans Pro", sans-serif !important
+h2
   font-size: 26px
   line-height: 26px
   margin-bottom: 0
   margin-top: 0
 
-div.admin-content
 
+div.admin-content
+  padding-top: 100px
   float: relative
   margin-left: 300px
-
+  h2
+    height: 45px
+    line-height: 40px
+    color: black
+    padding-right: 20px
 div.admin-sidebar
   position: fixed
-
+  border-right: 1px solid #ddd
   width: 275px
+  padding-top: 10px
   h1
+    font-size: 38px
+    color: black
+    margin-bottom: 40px
+    text-align: center
+  h2
+    padding-left: 10px
+    height: 45px
+    line-height: 40px
+    color: white
     i
       margin-right: 10px
-    padding: 8px 5px
-    color: white
     &.projects
-      background-color: #396000
+      background-color: #369bca
     &.services
       background-color: #93000f
   ul li
@@ -37,3 +50,8 @@ a.important
   font-weight: 600
   i
     float: none !important
+
+a.submit
+  font-size: 18px
+  i
+    margin-right: 5px
