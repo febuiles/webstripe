@@ -1,19 +1,22 @@
 class StripesController < ApplicationController
   layout "admin"
-  before_filter :load_stripes, :only => [:new, :index, :edit]
+  before_filter :load_stripes, :only => [:new, :index, :edit, :show]
 
   def index
   end
 
+  def show
+    @stripe = Stripe.find(params[:id])
+  end
+
   def new
     @stripe = Stripe.new
-    3.times { @stripe.stripe_items.build }
   end
 
   def create
     @stripe = Stripe.new(params[:stripe])
     if @stripe.save
-      redirect_to stripes_path, :notice => "Your stripe has been created."
+      redirect_to stripe_path(@stripe), :notice => "Your stripe has been created."
     else
       render :new
     end

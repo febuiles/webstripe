@@ -16,15 +16,20 @@
     <div class="wrap">
       <div class="admin-sidebar">
         <h1 class="admin-header">webstripe</h1>
-        <h2 class="projects"><i class="icon-briefcase"></i> Stripes</h2>
+        <h2 class="projects"><i class="icon-tasks"></i> Stripes</h2>
         <ul class="nav nav-pills nav-stacked">
           <% @stripes.each do |stripe| %>
-            <li><a href=""><%= stripe.title%> <i class="icon-circle-arrow-right"></i></a></li>
+            <li>
+              <%= link_to stripe_path(stripe) do %>
+                <%= stripe.title%> <i class="icon-circle-arrow-right"></i></a></li>
+              <% end %>
+            </li>
           <% end %>
           <li><%= link_to "Create New Stripe", new_stripe_path, :class => "important" %></li>
         </ul>
       </div>
       <div class="admin-content">
+        <%= render "shared/notices" %>
         <%= yield %>
       </div>
     </div>

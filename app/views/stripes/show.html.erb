@@ -1,0 +1,21 @@
+<div class="stripe">
+  <h2><%= @stripe.title %></h2>
+  <% @stripe.stripe_items.each_with_index do |item, i| %>
+    <div>
+      <h4><%= i + 1 %></h4>
+      <% if item.text? %>
+        <p>
+          <%= h(item.content).gsub(/\n/, '<br/>').html_safe %>
+          <%= item.content %>
+        </p>
+      <% elsif item.image? %>
+        <div>
+          <%= image_tag item.image_url %>
+        </div>
+      <% elsif item.embed? %>
+        <%= h item.content.html_safe %>
+      <% end %>
+    </div>
+    <hr/>
+  <% end %>
+</div>

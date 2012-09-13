@@ -6,6 +6,7 @@ gem "jquery-rails"
 gem "twitter-bootstrap-rails"
 gem "devise"
 gem "carrierwave"
+gem "fog"
 
 group :development, :test do
   gem "rspec-rails"

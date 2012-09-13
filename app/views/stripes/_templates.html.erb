@@ -8,14 +8,15 @@
 
   <div id="image-template">
     <h4>Image</h4>
-    <input name="stripe[stripe_items_attributes][new_{{seed}}][image]" type="file" />
-    <input type="hidden" name="stripe[stripe_items_attributes][new_{{seed}}][item_type]" value="text">
+    <input id="stripe_stripe_items_attributes_{{seed}}_image" name="stripe[stripe_items_attributes][{{seed}}][image]" type="file">
+    <input type="hidden" name="stripe[stripe_items_attributes][{{seed}}][item_type]" type="hidden" value="image">
+    <hr/>
   </div>
 
   <div id="embed-template">
     <h4>Embed</h4>
     <textarea class="input-xxlarge" cols="40" name="stripe[stripe_items_attributes][new_{{seed}}][content]" placeholder="Paste the embed code here." rows="3"></textarea>
-    <input type="hidden" name="stripe[stripe_items_attributes][new_{{seed}}][item_type]" value="text">
+    <input type="hidden" name="stripe[stripe_items_attributes][new_{{seed}}][item_type]" value="embed">
     <hr/>
   </div>
 </div>

@@ -4,5 +4,5 @@ class Stripe < ActiveRecord::Base
 
   attr_accessible :title, :user_id, :stripe_items_attributes
 
-  accepts_nested_attributes_for :stripe_items, :reject_if => lambda { |x| x[:content].blank? }
+  accepts_nested_attributes_for :stripe_items
 end
