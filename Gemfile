@@ -1,19 +1,19 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'rails', '3.2.8'
-gem 'sqlite3'
-gem 'jquery-rails'
+gem "rails", "3.2.8"
+gem "sqlite3"
+gem "jquery-rails"
 gem "twitter-bootstrap-rails"
 gem "devise"
-
+gem "carrierwave"
 
 group :development, :test do
   gem "rspec-rails"
 end
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'uglifier', '>= 1.0.3'
+  gem "sass-rails",   "~> 3.2.3"
+  gem "uglifier", ">= 1.0.3"
 end
 
 

@@ -4,6 +4,7 @@ class CreateStripeItems < ActiveRecord::Migration
       t.string :item_type
       t.integer :stripe_id
       t.text :content
+      t.string :image
 
       t.timestamps
     end

@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20120913002241) do
     t.string   "item_type"
     t.integer  "stripe_id"
     t.text     "content"
+    t.string   "image"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -41,6 +41,6 @@ $(function(){
 var addNewStripeItem = function(selector){
   var elem = $("#" + selector + "-template").clone();
   var seed = Math.random().toString().slice(2, -1);
-  var html = elem.html().replace("{{seed}}", seed);
+  var html = elem.html().replace(/\{\{seed\}\}/g, seed);
   $(".stripe-items").append(html);
 }
