@@ -13,6 +13,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <%= yield %>
+    <div class="wrap">
+      <div class="admin-sidebar">
+        <h1 class="admin-header">webstripe</h1>
+        <h2 class="projects"><i class="icon-briefcase"></i> Stripes</h2>
+        <ul class="nav nav-pills nav-stacked">
+          <% @stripes.each do |stripe| %>
+            <li><a href=""><%= stripe.title%> <i class="icon-circle-arrow-right"></i></a></li>
+          <% end %>
+          <li><%= link_to "Create New Stripe", new_stripe_path, :class => "important" %></li>
+        </ul>
+      </div>
+      <div class="admin-content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
+

@@ -13,4 +13,34 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require jquery_nested_form
 //= require_tree .
+
+$(function(){
+  $(".remove-stripe-item").click(function(e){
+    e.preventDefault();
+    $(this).parent().remove();
+  });
+
+  $("#add-new-text-item").click(function(e){
+    e.preventDefault()
+    addNewStripeItem("text");
+  });
+
+  $("#add-new-embed-item").click(function(e){
+    e.preventDefault();
+    addNewStripeItem("embed");
+  });
+
+  $("#add-new-image-item").click(function(e){
+    e.preventDefault();
+    addNewStripeItem("image");
+  });
+});
+
+var addNewStripeItem = function(selector){
+  var elem = $("#" + selector + "-template").clone();
+  var seed = Math.random().toString().slice(2, -1);
+  var html = elem.html().replace("{{seed}}", seed);
+  $(".stripe-items").append(html);
+}
