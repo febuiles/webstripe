@@ -1,22 +1,31 @@
 <div id="templates"  style="display: none;">
   <div id="text-template">
-    <h4>Text</h4>
-    <textarea class="input-xxlarge" cols="40" name="stripe[stripe_items_attributes][new_{{seed}}][content]" placeholder="Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice." rows="8"></textarea>
-    <input type="hidden" name="stripe[stripe_items_attributes][new_{{seed}}][item_type]" value="text">
-    <hr/>
+    <div>
+      <h4>Text</h4>
+      <textarea class="input-xxlarge" cols="40" name="stripe[stripe_items_attributes][new_{{seed}}][content]" placeholder="Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice." rows="8"></textarea>
+      <input type="hidden" name="stripe[stripe_items_attributes][new_{{seed}}][item_type]" value="text">
+      <p><a class="remove-stripe-item" href="javascript:void(0)">Remove</a></p>
+      <hr/>
+    </div>
   </div>
 
   <div id="image-template">
-    <h4>Image</h4>
-    <input id="stripe_stripe_items_attributes_{{seed}}_image" name="stripe[stripe_items_attributes][{{seed}}][image]" type="file">
-    <input type="hidden" name="stripe[stripe_items_attributes][{{seed}}][item_type]" type="hidden" value="image">
-    <hr/>
+    <div>
+      <h4>Image</h4>
+      <input id="stripe_stripe_items_attributes_{{seed}}_image" name="stripe[stripe_items_attributes][{{seed}}][image]" type="file">
+      <input type="hidden" name="stripe[stripe_items_attributes][{{seed}}][item_type]" type="hidden" value="image">
+      <p><a class="remove-stripe-item" href="javascript:void(0)">Remove</a></p>
+      <hr/>
+    </div>
   </div>
 
   <div id="embed-template">
-    <h4>Embed</h4>
-    <textarea class="input-xxlarge" cols="40" name="stripe[stripe_items_attributes][new_{{seed}}][content]" placeholder="Paste the embed code here." rows="3"></textarea>
-    <input type="hidden" name="stripe[stripe_items_attributes][new_{{seed}}][item_type]" value="embed">
-    <hr/>
+    <div>
+      <h4>Embed</h4>
+      <textarea class="input-xxlarge" cols="40" name="stripe[stripe_items_attributes][new_{{seed}}][content]" placeholder="Paste the embed code here." rows="3"></textarea>
+      <input type="hidden" name="stripe[stripe_items_attributes][new_{{seed}}][item_type]" value="embed">
+      <p><a class="remove-stripe-item" href="javascript:void(0)">Remove</a></p>
+      <hr/>
+    </div>
   </div>
 </div>

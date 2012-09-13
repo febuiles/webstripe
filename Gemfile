@@ -7,6 +7,7 @@ gem "twitter-bootstrap-rails"
 gem "devise"
 gem "carrierwave"
 gem "fog"
+gem "pg"
 
 group :development, :test do
   gem "rspec-rails"

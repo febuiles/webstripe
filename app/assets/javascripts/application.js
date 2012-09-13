@@ -16,10 +16,7 @@
 //= require_tree .
 
 $(function(){
-  $(".remove-stripe-item").click(function(e){
-    e.preventDefault();
-    $(this).parent().remove();
-  });
+
 
   $("#add-new-text-item").click(function(e){
     e.preventDefault()
@@ -39,7 +36,16 @@ $(function(){
 
 var addNewStripeItem = function(selector){
   var elem = $("#" + selector + "-template").clone();
+  elem.attr("id", "");
   var seed = Math.random().toString().slice(2, -1);
   var html = elem.html().replace(/\{\{seed\}\}/g, seed);
   $(".stripe-items").append(html);
+  addClickEventHandlers();
+}
+
+var addClickEventHandlers = function() {
+  $("a.remove-stripe-item").click(function(e){
+    e.preventDefault();
+    $(this).closest("div").remove();
+  });
 }
