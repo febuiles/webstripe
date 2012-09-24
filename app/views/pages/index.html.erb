@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="span2 offset1 dark-bg" id="landing-logo">
+    <%= link_to image_tag("logo-landing.png"), root_path %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span6 offset2 dark-bg" id="landing-intro">
+    <p>
+      Webstripe is a new way of creating engaging stories<br/>
+      on the internet. Multimedia stories made of woven<br/>
+      images, texts and videos.
+    </p>
+
+    <p>
+      We’re testing the concept — you’re invited to<br/>
+      <%= link_to "view our sampler" %> & <%= link_to "request an invite" %>.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span3 offset1 dark-bg" id="landing-login">
+    <%= form_for("user", :url => user_session_path) do |f| %>
+
+      <%= label_tag :username, "User:" %>
+      <%= f.text_field :username %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Login" %>
+    <% end %>
+  </div>
+</div>
+
+<footer class="row">
+  <div class="span10 offset1">
+    <nav>
+      <%= link_to "-contact" %>
+      <%= link_to "-about" %>
+      <%= link_to "-blog" %>
+      <%= link_to "-@webstripe", "http://twitter.com/webstripe" %>
+    </nav>
+  </div>
+</footer>
