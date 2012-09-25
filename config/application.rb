@@ -61,5 +61,6 @@ module Ov
 
     config.action_mailer.default_url_options = { host: "http://webstripe.herokuapp.com" }
     config.assets.initialize_on_precompile = false
+    config.assets.precompile += ["admin.css", "admin.js"]
   end
 end
