@@ -16,4 +16,8 @@ class StripeItem < ActiveRecord::Base
   def image?
     item_type == "image"
   end
+
+  def invalid?
+    content.blank? and image.blank?
+  end
 end

@@ -16,17 +16,21 @@
     <div class="wrap">
       <div class="admin-sidebar">
         <h1 class="admin-header">webstripe</h1>
+        <p>
+          You're logged in as <%= current_user.username %>
+          <em><span>(<%= link_to "logout", destroy_user_session_path, :method => :delete %>).</span></em>
+        </p>
         <h2 class="projects"><i class="icon-tasks"></i> Stripes</h2>
         <ul class="nav nav-pills nav-stacked">
           <% @stripes.each do |stripe| %>
             <li>
-              <%= link_to stripe_path(stripe) do %>
+              <%= link_to admin_stripe_path(stripe) do %>
                 <%= stripe.title%> <i class="icon-circle-arrow-right"></i></a></li>
               <% end %>
             </li>
           <% end %>
-          <li><%= link_to "Create New Stripe", new_stripe_path, :class => "important" %></li>
-          <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+          <li><%= link_to "Create New Stripe", new_admin_stripe_path, :class => "important" %></li>
+
         </ul>
       </div>
       <div class="admin-content">

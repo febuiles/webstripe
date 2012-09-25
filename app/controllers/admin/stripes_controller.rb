@@ -1,6 +1,7 @@
-class StripesController < ApplicationController
+class Admin::StripesController < ApplicationController
   layout "admin"
-  before_filter :load_stripes, :only => [:new, :index, :edit, :show]
+  before_filter :authenticate_user!
+  before_filter :load_stripes, :only => [:new, :index, :edit, :show, :create]
 
   def index
   end
@@ -14,9 +15,9 @@ class StripesController < ApplicationController
   end
 
   def create
-    @stripe = Stripe.new(params[:stripe])
+    @stripe = current_user.stripes.build(params[:stripe])
     if @stripe.save
-      redirect_to stripe_path(@stripe), :notice => "Your stripe has been created."
+      redirect_to admin_stripe_path(@stripe), :notice => "Your stripe has been created."
     else
       render :new
     end
@@ -32,7 +33,7 @@ class StripesController < ApplicationController
   def destroy
     @stripe = Stripe.find(params[:id])
     @stripe.destroy
-    redirect_to stripes_path
+    redirect_to admin_stripes_path
   end
 
   private
