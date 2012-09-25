@@ -7,6 +7,7 @@ gem "devise"
 gem "carrierwave"
 gem "fog"
 gem "pg"
+gem "airbrake"
 
 group :development, :test do
   gem "rspec-rails"
