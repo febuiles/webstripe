@@ -1,8 +1,7 @@
 <div id="templates"  style="display: none;">
   <div id="text-template">
-    <div>
-      <h4>Text</h4>
-      <textarea class="input-xxlarge" cols="40" name="stripe[stripe_items_attributes][new_{{seed}}][content]" placeholder="Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice." rows="8"></textarea>
+    <div class="active-template">
+      <textarea class="input-xxlarge" cols="40" name="stripe[stripe_items_attributes][new_{{seed}}][content]" placeholder="Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice..." rows="8"></textarea>
       <input type="hidden" name="stripe[stripe_items_attributes][new_{{seed}}][item_type]" value="text">
       <p><a class="remove-stripe-item" href="javascript:void(0)">Remove</a></p>
       <hr/>
@@ -10,8 +9,7 @@
   </div>
 
   <div id="image-template">
-    <div>
-      <h4>Image</h4>
+    <div class="active-template">
       <input id="stripe_stripe_items_attributes_{{seed}}_image" name="stripe[stripe_items_attributes][{{seed}}][image]" type="file">
       <input type="hidden" name="stripe[stripe_items_attributes][{{seed}}][item_type]" type="hidden" value="image">
       <p><a class="remove-stripe-item" href="javascript:void(0)">Remove</a></p>
@@ -19,9 +17,8 @@
     </div>
   </div>
 
-  <div id="embed-template">
-    <div>
-      <h4>Embed</h4>
+  <div id="embed-template" class="active-template">
+    <div class="active-template">
       <textarea class="input-xxlarge" cols="40" name="stripe[stripe_items_attributes][new_{{seed}}][content]" placeholder="Paste the embed code here." rows="3"></textarea>
       <input type="hidden" name="stripe[stripe_items_attributes][new_{{seed}}][item_type]" value="embed">
       <p><a class="remove-stripe-item" href="javascript:void(0)">Remove</a></p>

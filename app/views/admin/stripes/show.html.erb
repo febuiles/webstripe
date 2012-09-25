@@ -6,7 +6,6 @@
       <% if item.text? %>
         <p>
           <%= h(item.content).gsub(/\n/, '<br/>').html_safe %>
-          <%= item.content %>
         </p>
       <% elsif item.image? %>
         <div>

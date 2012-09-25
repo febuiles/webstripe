@@ -6,12 +6,6 @@
 <h4>Title</h4>
 <%= f.text_field :title, :class => "input-xlarge" %>
 
-<p class="controls">
-  <a href="javascript:void(0)" class="btn" id="add-new-text-item"><i class="icon-font"></i> Text</a>
-  <a href="javascript:void(0)" class="btn" id="add-new-image-item"><i class="icon-picture"></i> Image</a>
-  <a href="javascript:void(0)" class="btn" id="add-new-embed-item"><i class="icon-share"></i> Embed</a>
-</p>
-
 <% if @stripe.errors.any? %>
   <ul>
     <% @stripe.errors.full_messages.each do |msg| %>
@@ -20,8 +14,19 @@
   </ul>
 <% end %>
 
-<div class="stripe-items"></div>
 
+<div class="stripe-items">
+  <div class="stripe-item">
+    <p class="controls">
+      <a href="javascript:void(0)" class="btn add-new-text-item"><i class="icon-font"></i> Text</a>
+      <a href="javascript:void(0)" class="btn add-new-image-item"><i class="icon-picture"></i> Image</a>
+      <a href="javascript:void(0)" class="btn add-new-embed-item"><i class="icon-share"></i> Embed</a>
+    </p>
+  </div>
+</div>
+
+<div class="clearfix">
+</div>
 <p>
   <%= f.submit "Create Stripe", :class => "btn submit btn-primary" %>
 </p>

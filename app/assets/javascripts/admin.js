@@ -11,37 +11,41 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require bootstrap
+//= require_tree ./admin
 
 $(function(){
-
-  $("#add-new-text-item").click(function(e){
-    e.preventDefault()
-    addNewStripeItem("text");
-  });
-
-  $("#add-new-embed-item").click(function(e){
-    e.preventDefault();
-    addNewStripeItem("embed");
-  });
-
-  $("#add-new-image-item").click(function(e){
-    e.preventDefault();
-    addNewStripeItem("image");
-  });
+  initializeEventHandlers();
 });
 
-var addNewStripeItem = function(selector){
-  var elem = $("#" + selector + "-template").clone();
-  elem.attr("id", "");
-  var seed = Math.random().toString().slice(2, -1);
-  var html = elem.html().replace(/\{\{seed\}\}/g, seed);
-  $(".stripe-items").append(html);
-  addClickEventHandlers();
+var addNewStripeItem = function(itemType, target){
+  var existingChild = target.children(".active-template");
+  var html = new HTMLTemplate(itemType).toHTML();
+  if (existingChild.length > 0) {
+    existingChild.replaceWith(html);
+  } else {
+    target.append(html);
+  }
+  initializeEventHandlers();
 }
 
-var addClickEventHandlers = function() {
-  $("a.remove-stripe-item").click(function(e){
-    e.preventDefault();
-    $(this).closest("div").remove();
-  });
+var removeHandler = function(ev) {
+  $(this).closest("div").remove();
+}
+
+var stripeItems = new StripeItems();
+
+var clickHandler = function(itemType) {
+  return function(ev) {
+    stripeItems.addItem();
+    addNewStripeItem(itemType, $(this).closest("div"));
+    $(this).closest("p.controls").remove();
+  }
+}
+
+var initializeEventHandlers = function() {
+  $(".add-new-text-item, .add-new-embed-item, .add-new-image-item").unbind("click");
+  $(".add-new-text-item").click(clickHandler("text"));
+  $(".add-new-embed-item").click(clickHandler("embed"));
+  $(".add-new-image-item").click(clickHandler("image"));
+  $("a.remove-stripe-item").click(removeHandler);
 }
