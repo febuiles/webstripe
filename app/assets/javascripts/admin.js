@@ -17,11 +17,10 @@ $(function(){
   restartEventHandlers();
 });
 
-var stripeItems = new StripeItems();
-
 var clickHandler = function(itemType) {
   return function(ev) {
-    stripeItems.addItem(itemType);
+    new StripeItem(itemType).render()
+    restartEventHandlers();
   }
 }
 
