@@ -1,8 +1,12 @@
 var StripeItems = function() {
   this.addItem = function(itemType) {
-    var selector = $(".stripe-items");
-    var item = $(".stripe-item:last-child").clone();
+    var itemCollection = $(".stripe-items");
+    var item = $(".stripe-item:last");
+    var placeholder = $(".stripe-item:last").clone();
 
-    selector.append(item);
+    item.append(new HTMLTemplate(itemType).toHTML());
+    item.children(".controls").remove();
+    itemCollection.append(placeholder);
+    restartEventHandlers();
   }
 }

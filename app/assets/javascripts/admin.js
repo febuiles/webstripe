@@ -14,36 +14,22 @@
 //= require_tree ./admin
 
 $(function(){
-  initializeEventHandlers();
+  restartEventHandlers();
 });
-
-var addNewStripeItem = function(itemType, target){
-  var existingChild = target.children(".active-template");
-  var html = new HTMLTemplate(itemType).toHTML();
-  if (existingChild.length > 0) {
-    existingChild.replaceWith(html);
-  } else {
-    target.append(html);
-  }
-  initializeEventHandlers();
-}
-
-var removeHandler = function(ev) {
-  $(this).closest("div").remove();
-}
 
 var stripeItems = new StripeItems();
 
 var clickHandler = function(itemType) {
   return function(ev) {
-    stripeItems.addItem();
-    addNewStripeItem(itemType, $(this).closest("div"));
-    $(this).closest("p.controls").remove();
+    stripeItems.addItem(itemType);
   }
 }
 
-var initializeEventHandlers = function() {
-  $(".add-new-text-item, .add-new-embed-item, .add-new-image-item").unbind("click");
+var removeHandler = function(ev) {
+  $(this).closest("div.stripe-item").remove();
+}
+
+var restartEventHandlers = function() {
   $(".add-new-text-item").click(clickHandler("text"));
   $(".add-new-embed-item").click(clickHandler("embed"));
   $(".add-new-image-item").click(clickHandler("image"));
