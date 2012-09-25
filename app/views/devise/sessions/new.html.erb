@@ -1,6 +1,14 @@
 <h2>Sign in</h2>
-
+<div class="notices">
+  <% flash.each do |name, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+</div>
+<br /><br /><br />
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
   <div><%= f.label :username %><br />
   <%= f.email_field :username %></div>
 

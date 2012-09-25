@@ -26,6 +26,7 @@
             </li>
           <% end %>
           <li><%= link_to "Create New Stripe", new_stripe_path, :class => "important" %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
         </ul>
       </div>
       <div class="admin-content">
