@@ -6,7 +6,7 @@ $(window).load(function(){
     var lastChild = $(children[i - 1]);
     var childWidth = child.width();
     var moveFactor = parseInt(childWidth * 0.1);
-    var border = parseInt(child.css("border-width"));
+    var border = parseInt(child.css("border-left-width"));
 
     if (child.children("img").length > 0) {      // image
       var imgHeight = child.children("img").height();
