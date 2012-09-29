@@ -1,5 +1,5 @@
 class StripesController < ApplicationController
   def index
-    @alignment = "horizontal"
+    @alignment = "vertical"
   end
 end
