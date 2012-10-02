@@ -7,7 +7,7 @@ class Admin::StripesController < ApplicationController
   end
 
   def show
-    @stripe = Stripe.find(params[:id])
+    @stripe = current_user.stripes.find(params[:id])
   end
 
   def new
@@ -24,14 +24,14 @@ class Admin::StripesController < ApplicationController
   end
 
   def edit
-    @stripe = Stripe.find(params[:id])
+    @stripe = current_user.stripes.find(params[:id])
   end
 
   def update
   end
 
   def destroy
-    @stripe = Stripe.find(params[:id])
+    @stripe = current_user.stripes.find(params[:id])
     @stripe.destroy
     redirect_to admin_stripes_path
   end
@@ -39,6 +39,6 @@ class Admin::StripesController < ApplicationController
   private
 
   def load_stripes
-    @stripes = Stripe.all
+    @stripes = current_user.stripes
   end
 end

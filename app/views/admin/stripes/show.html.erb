@@ -1,3 +1,7 @@
+
+<%= link_to "View Stripe", stripe_path(@stripe), :class => "btn" %>
+</p>
+
 <div class="stripe">
   <h2><%= @stripe.title %></h2>
   <% @stripe.stripe_items.each_with_index do |item, i| %>

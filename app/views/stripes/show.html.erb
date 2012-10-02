@@ -1,0 +1,17 @@
+<div id="show-stripe" class="stripe">
+  <% @stripe.stripe_items.each do |item| %>
+    <div class="item">
+      <% if item.image? %>
+        <%= image_tag item.image_url %>
+      <% elsif item.text? %>
+        <p><%= item.content %></p>
+      <% else %>
+        <%= item.content.html_safe %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<style>
+.container { width: 100%; }
+</style>
