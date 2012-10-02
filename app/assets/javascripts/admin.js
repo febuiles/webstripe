@@ -24,13 +24,22 @@ var clickHandler = function(itemType) {
   }
 }
 
-var removeHandler = function(ev) {
+var removeNewItem = function(ev) {
   $(this).closest("div.stripe-item").remove();
+}
+
+var removeExistingItem = function(e) {
+  e.preventDefault();
+  $(this).prev().val("1");
+  $(this).closest("div").children("p.fields, h4, hr").remove();
+  $(this).remove();
 }
 
 var restartEventHandlers = function() {
   $(".add-new-text-item").click(clickHandler("text"));
   $(".add-new-embed-item").click(clickHandler("embed"));
   $(".add-new-image-item").click(clickHandler("image"));
-  $("a.remove-stripe-item").click(removeHandler);
+  $("a.remove-stripe-item").click(removeNewItem);
+  $("a#remove-existing-item").click(removeExistingItem);
 }
+

@@ -19,20 +19,39 @@
 <br/>
 
 <%= f.fields_for :stripe_items do |item| %>
-  <p>
-    <h4><%= @stripe.stripe_items.index(item.object) + 1 %></h4>
-    <% if item.object.image? %>
-      <%= image_tag item.object.image_url, :height => "100px" %><br/>
-      <%= item.file_field :image %>
-    <% else %>
-      <%= item.text_area :content, :class => "input-xxlarge", :cols => "40", :rows => 3 %>
-    <% end %>
-    <br/>
-    <%= item.check_box :_destroy %> Remove?
 
-  </p>
-  <hr/>
+
+  <div>
+    <h4><%= @stripe.stripe_items.index(item.object) + 1 %></h4>
+    <p class="fields">
+      <% if item.object.image? %>
+        <%= image_tag item.object.image_url, :height => "100px" %><br/>
+        <%= item.file_field :image %>
+      <% else %>
+        <%= item.text_area :content, :class => "input-xxlarge", :cols => "40", :rows => 3 %>
+      <% end %>
+    </p>
+
+    <p>
+      <%= item.hidden_field :_destroy, :value => 0 %>
+      <%= link_to "Remove", "javascript:void(0)", :id => "remove-existing-item" %>
+    </p>
+    <hr/>
+  </div>
+
 <% end %>
+
+<div class="stripe-items">
+  <div class="stripe-item">
+    <p class="controls">
+      <a href="javascript:void(0)" class="btn add-new-text-item">Add Text</a>
+      <a href="javascript:void(0)" class="btn add-new-image-item">Add Image</a>
+      <a href="javascript:void(0)" class="btn add-new-embed-item">Add Embed</a>
+    </p>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
 
 <p>
   <%= f.submit "Update Stripe", :class => "btn submit btn-primary" %>
