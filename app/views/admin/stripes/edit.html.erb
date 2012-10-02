@@ -1,0 +1,42 @@
+<h2>Edit Stripe</h2>
+
+<%= render "templates" %>
+
+<%= form_for [:admin, @stripe], :html => {:multipart => true} do |f| %>
+<h4>Title</h4>
+<%= f.text_field :title, :class => "input-xlarge" %>
+<h4>Alignment</h4>
+<%= f.select :alignment, [["Vertical", "vertical"], ["Horizontal", "horizontal"]], :class => "input-xlarge" %>
+
+<% if @stripe.errors.any? %>
+  <ul>
+    <% @stripe.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<br/>
+
+<%= f.fields_for :stripe_items do |item| %>
+  <p>
+    <h4><%= @stripe.stripe_items.index(item.object) + 1 %></h4>
+    <% if item.object.image? %>
+      <%= image_tag item.object.image_url, :height => "100px" %><br/>
+      <%= item.file_field :image %>
+    <% else %>
+      <%= item.text_area :content, :class => "input-xxlarge", :cols => "40", :rows => 3 %>
+    <% end %>
+    <br/>
+    <%= item.check_box :_destroy %> Remove?
+
+  </p>
+  <hr/>
+<% end %>
+
+<p>
+  <%= f.submit "Update Stripe", :class => "btn submit btn-primary" %>
+</p>
+<% end %>
+
+

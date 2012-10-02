@@ -7,7 +7,9 @@ class Stripe < ActiveRecord::Base
   before_save :set_title
   validate :number_of_stripe_items
 
-  accepts_nested_attributes_for :stripe_items, :reject_if => lambda { |item| StripeItem.new(item).invalid? }
+  accepts_nested_attributes_for :stripe_items,
+#                                :reject_if => lambda { |item| StripeItem.new(item).invalid? },
+                                :allow_destroy => true
 
   protected
 

@@ -1,7 +1,7 @@
 class Admin::StripesController < ApplicationController
   layout "admin"
   before_filter :authenticate_user!
-  before_filter :load_stripes, :only => [:new, :index, :edit, :show, :create]
+  before_filter :load_stripes
 
   def index
   end
@@ -28,6 +28,12 @@ class Admin::StripesController < ApplicationController
   end
 
   def update
+    @stripe = Stripe.find(params[:id])
+    if @stripe.update_attributes(params[:stripe])
+      redirect_to admin_stripe_path(@stripe), :notice => "Your stripe has been updated."
+    else
+      render :edit
+    end
   end
 
   def destroy
