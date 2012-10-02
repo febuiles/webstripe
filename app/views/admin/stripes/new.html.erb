@@ -5,6 +5,8 @@
 <%= form_for [:admin, @stripe], :html => {:multipart => true} do |f| %>
 <h4>Title</h4>
 <%= f.text_field :title, :class => "input-xlarge" %>
+<h4>Alignment</h4>
+<%= f.select :alignment, [["Vertical", "vertical"], ["Horizontal", "horizontal"]], :class => "input-xlarge" %>
 
 <% if @stripe.errors.any? %>
   <ul>

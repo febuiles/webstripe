@@ -2,7 +2,7 @@ class Stripe < ActiveRecord::Base
   has_many :stripe_items, :dependent => :destroy
   belongs_to :user
 
-  attr_accessible :title, :user_id, :stripe_items_attributes
+  attr_accessible :title, :user_id, :stripe_items_attributes, :alignment
 
   before_save :set_title
   validate :number_of_stripe_items

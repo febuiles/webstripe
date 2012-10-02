@@ -5,6 +5,5 @@ class StripesController < ApplicationController
 
   def show
     @stripe = Stripe.find(params[:id])
-    @alignment = "vertical"
   end
 end
