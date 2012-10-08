@@ -10,6 +10,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require raphael-min
-//= require jquery.scrollTo-min
-//= require_tree .
+//= require bootstrap

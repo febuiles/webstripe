@@ -1,5 +1,5 @@
-var Square = function(selector) {
-  var div = $(selector);
+var Square = function(element) {
+  var div = $(element);
   var scaleFactor = 0.05;
   var color = "#e7e6cb";
   var height = parseInt(div.height()) * scaleFactor;

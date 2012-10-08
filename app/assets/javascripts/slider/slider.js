@@ -14,7 +14,7 @@ var Slider = function(selector, width, height){
   }
 
   this.nextY = function() {
-    var factor = 5;
+    var factor = 3;
 
     if (squares.length % 2 == 0) {
       return (paper.height / 2) - factor;

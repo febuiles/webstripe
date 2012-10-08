@@ -8,6 +8,9 @@ $grayed: #cac9b0
 $serif: "Vollkorn", serif
 $sans: "Share", sans-serif
 
+.container
+  width: 100%
+
 div.stripe
   width: 760px
   margin: 0 auto
@@ -20,10 +23,8 @@ div.stripe
     position: absolute
     line-height: 150px
     min-width: 150px
-    max-width: 550px
-    max-width: 593px
+    max-width: 600px
     max-height: 445px
-
 
   p
     font-family: $serif
@@ -38,5 +39,35 @@ div.stripe
 
 body[data-alignment="horizontal"]
   .item
-    top: 300px
+    top: 150px
     min-width: 350px !important
+
+footer
+  height: 75px
+  background-color: $dark
+  width: 100%
+  bottom: 0
+  position: fixed
+  line-height: 75px
+  span
+    text-transform: uppercase
+    font-family: $sans
+    font-size: 22px
+    width: 350px
+    color: $light
+    margin-left: 30px
+    display: block
+    float: left
+    margin-right: 50px
+  #slider
+    width: 600px
+    float: left
+    height: 65px
+  img
+    float: right
+    margin-top: 35px
+    margin-right: 45px
+    display: block
+
+
+
