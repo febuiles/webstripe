@@ -11,6 +11,7 @@ $(window).load(function(){
   $("div.item").each(function(i, item) {
     slider.addSquare(item);
   });
+
   slider.initViewport();
 });
 

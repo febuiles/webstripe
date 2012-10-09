@@ -10,7 +10,16 @@ var Viewport = function(canvasHeight) {
     rect = paper.rect(4, y, 40, 32).attr({ "stroke": strokeColor, "stroke-width": strokeWidth });
   }
 
-  this.moveTo = function(x, rightLimit) {
+  this.moveTo = function(e, rightLimit) {
+    var x = e.hasOwnProperty('offsetX') ? e.offsetX : e.layerX;
+    var constructor = e.target.constructor;
+
+    if (constructor == HTMLSpanElement) { // clicked on the left side of the canvas
+      x = -1;
+    } else if (constructor == HTMLElement) { // too far to the right;
+      x = rightLimit;
+    }
+
     var newX = 0;
     if (x + width > rightLimit) { // going too far to the right (nextX)
       newX = rightLimit - width;

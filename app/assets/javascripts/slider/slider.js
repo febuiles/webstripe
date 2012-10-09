@@ -38,7 +38,7 @@ var Slider = function(selector, width, height){
   }
 
   this.setViewport = function(e) {
-    viewport.moveTo(e.offsetX, that.nextX());
+    viewport.moveTo(e, that.nextX());
   }
 
   this.initViewport = function() {
