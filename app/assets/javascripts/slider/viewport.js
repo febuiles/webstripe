@@ -28,8 +28,7 @@ var Viewport = function(canvasHeight) {
     } else {
       newX = x - (width / 2);
     }
-
-    $.scrollTo(newX * 20);
+    $.scrollTo(newX);
     rect.attr("x", newX + 4);
   }
 }
