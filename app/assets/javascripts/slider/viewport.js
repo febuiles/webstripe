@@ -13,6 +13,7 @@ var Viewport = function(canvasHeight) {
   this.moveTo = function(e, rightLimit) {
     var x = e.hasOwnProperty('offsetX') ? e.offsetX : e.layerX;
     var constructor = e.target.constructor;
+    var scrollFactor = 20;
 
     if (constructor == HTMLSpanElement) { // clicked on the left side of the canvas
       x = -1;
@@ -28,7 +29,7 @@ var Viewport = function(canvasHeight) {
     } else {
       newX = x - (width / 2);
     }
-    $.scrollTo(newX);
+    $.scrollTo(newX * scrollFactor);
     rect.attr("x", newX + 4);
   }
 }
