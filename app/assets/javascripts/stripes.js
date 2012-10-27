@@ -64,7 +64,7 @@ var alignHorizontally = function() {
     }
 
     if (i == 0) {
-      var left = 0;
+      var left = 400;
     } else {
       var lastLeft = parseInt(lastChild.css("left"));
       var lastWidth = lastChild.width();
