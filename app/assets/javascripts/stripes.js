@@ -31,7 +31,7 @@ var alignVertically = function() {
     }
 
     if (i == 0) {
-      var top = 0;
+      var top = 200;
     } else {
       var lastTop = parseInt(lastChild.css("top"));
       var lastHeight = lastChild.height();
