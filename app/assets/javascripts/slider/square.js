@@ -1,6 +1,6 @@
-var Square = function(element) {
+var Square = function(element, factor) {
   var div = $(element);
-  var scaleFactor = 0.05;
+  var scaleFactor = 0.05 * (factor || 1) ;
   var color = "#e7e6cb";
   var height = parseInt(div.height()) * scaleFactor;
   var width = parseInt(div.width()) * scaleFactor;

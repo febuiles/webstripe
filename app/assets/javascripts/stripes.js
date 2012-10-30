@@ -7,7 +7,7 @@ $(window).load(function(){
   }
 
   var numItems = $("div.item").length;
-  var slider = new Slider("slider", 600, 65);
+  var slider = new Slider("slider", 800, 65);
   $("div.item").each(function(i, item) {
     slider.addSquare(item);
   });

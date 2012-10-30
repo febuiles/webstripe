@@ -1,24 +1,41 @@
-var Viewport = function(canvasHeight) {
+var Viewport = function(canvasHeight, canvasWidth, factor) {
   var width = 40;
   var height = 32;
   var y = (canvasHeight / 2) - (height / 4);
   var strokeColor = "#bc1f19";
   var strokeWidth = 3;
   var rect = null;
+  var factor = factor || 1
+  var whitespace = null;    // initial left padding or margin-bottom for vertical stripes
 
-  this.addToPaper = function(paper) {
-    rect = paper.rect(4, y, 40, 32).attr({ "stroke": strokeColor, "stroke-width": strokeWidth });
+  // HACK ALERT: Fix this pos. code.
+
+  if ($("body").data("alignment") == "vertical") {
+    // 150 is the margin-bottom of the last element
+    whitespace = 150;
+    var scrollFactor = (($(document).height() + whitespace) / canvasWidth);
+    console.log(scrollFactor);
+  } else {
+    whitespace = 400;
+    var scrollFactor = (($(document).width() - whitespace) / canvasWidth);
   }
 
-  this.moveTo = function(e, rightLimit) {
+  this.addToPaper = function(paper) {
+    rect = paper.rect(4, y, width, height).attr({ "stroke": strokeColor, "stroke-width": strokeWidth });
+  }
+
+  this.move = function(e, rightLimit) {
     var x = e.hasOwnProperty('offsetX') ? e.offsetX : e.layerX;
     var constructor = e.target.constructor;
-    var scrollFactor = 20;
 
     if (constructor != SVGRectElement) {
       return
     }
 
+    this.moveTo(x, rightLimit);
+  }
+
+  this.moveTo = function(x, rightLimit) {
     var newX = 0;
     if (x + width > rightLimit) { // going too far to the right (nextX)
       newX = rightLimit - width;
@@ -27,7 +44,7 @@ var Viewport = function(canvasHeight) {
     } else {
       newX = x - (width / 2);
     }
-    $.scrollTo(newX * scrollFactor);
+    $.scrollTo((newX * scrollFactor) + whitespace);
     rect.attr("x", newX + 4);
   }
 }
