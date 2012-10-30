@@ -17,7 +17,7 @@
   <body>
     <div class="wrap">
       <div class="admin-sidebar">
-        <%= image_tag "logo-white.png" %>
+        <%= image_tag "logo-white.png", :class => "logo" %>
         <p class="center">
           <%= current_user.username %> |
           <%= link_to "logout", destroy_user_session_path, :method => :delete %>
@@ -29,7 +29,7 @@
             <br/><%= link_to "Invite User", new_user_invitation_path, :class => "big-link" %>
           <% end %>
         </p>
-
+        <h2>Your Webstripes</h2>
         <div class="sidebar-stripes">
           <% @stripes.each do |stripe| %>
             <p class="stripe">
@@ -39,6 +39,7 @@
         </div>
 
         <div class="sidebar-help">
+          <%= image_tag "info.png" %>
           Need help or inspiration?<br/>
           <%= link_to "read our guide", "" %>.
         </div>
