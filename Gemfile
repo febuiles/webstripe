@@ -8,6 +8,7 @@ gem "carrierwave"
 gem "fog"
 gem "pg"
 gem "airbrake"
+gem "devise_invitable"
 
 group :development, :test do
   gem "rspec-rails"

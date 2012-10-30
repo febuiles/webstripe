@@ -1,8 +1,10 @@
 Ov::Application.routes.draw do
+  devise_for :users
   get '/:id' => 'stripes#show', :constraints => {:id => /\d+/}
 
-  devise_for :users
+
   resources :stripes
+
   namespace :admin do
     resources :stripes
   end
