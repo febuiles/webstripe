@@ -4,7 +4,7 @@
       <% if item.image? %>
         <%= image_tag item.image_url %>
       <% elsif item.text? %>
-        <p><%= item.content %></p>
+        <p class="text-stripe"><%= item.content %></p>
       <% else %>
         <%= item.content.html_safe %>
       <% end %>
