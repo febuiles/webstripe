@@ -1,10 +1,12 @@
-<h2>Edit Stripe</h2>
-
 <%= render "templates" %>
 
 <%= form_for [:admin, @stripe], :html => {:multipart => true} do |f| %>
+
+<%= f.submit "Update Stripe", :class => "btn submit btn-inverse top-button" %>
+
 <h4>Title</h4>
 <%= f.text_field :title, :class => "input-xlarge" %>
+<br/><br/>
 <h4>Alignment</h4>
 <%= f.select :alignment, [["Vertical", "vertical"], ["Horizontal", "horizontal"]], :class => "input-xlarge" %>
 
@@ -16,11 +18,12 @@
   </ul>
 <% end %>
 
-<br/>
+<hr>
+</hr>
 
 <%= f.fields_for :stripe_items do |item| %>
-  <div>
-    <h4><%= @stripe.stripe_items.index(item.object) + 1 %></h4>
+  <div class="stripe-items">
+    <h6><%= @stripe.stripe_items.index(item.object) + 1 %></h6>
     <p class="fields">
       <% if item.object.image? %>
         <%= image_tag item.object.image_url, :height => "100px" %><br/>
@@ -52,7 +55,7 @@
 
 
 <p>
-  <%= f.submit "Update Stripe", :class => "btn submit btn-primary" %>
+  <%= f.submit "Update Stripe", :class => "btn submit btn-inverse" %>
 </p>
 <% end %>
 
