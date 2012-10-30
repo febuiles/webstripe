@@ -8,7 +8,7 @@ var Slider = function(selector, width, height){
   var $selector = $("#" + selector);
   var factor = 1;
   var viewport = null;
-  var busy = false;
+  var lastEvent = null;
 
 
   this.addSquare = function(selector) {
@@ -52,22 +52,49 @@ var Slider = function(selector, width, height){
   }
 
   this.setViewport = function(e) {
+    that.lockScroll();
     viewport.move(e, that.nextX());
   }
 
   this.handleScroll = function(e) {
+    if (that.isScrollLocked()) {
+      that.unlockScroll();
+      return;
+    }
+
     if ($("body").data("alignment") == "vertical") {
       var current = $(window).scrollTop();
     } else {
       var current = $(window).scrollLeft();
     }
+
     var delta = Math.abs(scrollPosition - current);
+
     if (current < scrollPosition ) { // scroll up
       viewport.moveLeft(delta);
     } else if (current > scrollPosition ) { // scroll down
       viewport.moveRight(delta);
     }
     scrollPosition = current;
+  }
+
+
+  this.lockScroll = function() {
+    lastEvent = "click";
+  }
+
+  this.isScrollLocked = function() {
+    return lastEvent == "click";
+  }
+
+  this.unlockScroll = function() {
+    if ($("body").data("alignment") == "vertical") {
+      var current = $(window).scrollTop();
+    } else {
+      var current = $(window).scrollLeft();
+    }
+    scrollPosition = current;
+    lastEvent = null;
   }
 
   this.initViewport = function() {
