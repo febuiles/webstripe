@@ -45,7 +45,8 @@ var alignVertically = function() {
     } else {
       child.css("margin-left", -moveFactor)
     }
-  };
+  }
+  $(children[children.length-1]).css("margin-bottom", "150px");
 }
 
 var alignHorizontally = function() {

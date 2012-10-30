@@ -15,10 +15,8 @@ var Viewport = function(canvasHeight) {
     var constructor = e.target.constructor;
     var scrollFactor = 20;
 
-    if (constructor == HTMLSpanElement) { // clicked on the left side of the canvas
-      x = -1;
-    } else if (constructor == HTMLElement) { // too far to the right;
-      x = rightLimit;
+    if (constructor != SVGRectElement) {
+      return
     }
 
     var newX = 0;

@@ -1,25 +1,51 @@
-<h2>Sign in</h2>
-<div class="notices">
-  <% flash.each do |name, msg| %>
-    <div>
-      <%= msg %>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="span2 offset1 dark-bg" id="landing-logo">
+    <%= link_to image_tag("logo-landing.png"), root_path %>
+  </div>
 </div>
-<br /><br /><br />
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-  <div><%= f.label :username %><br />
-  <%= f.email_field :username %></div>
+<div class="row">
+  <div class="span6 offset2 dark-bg" id="landing-intro">
+    <p>
+      Webstripe is a new way of creating engaging stories<br/>
+      on the internet. Multimedia stories made of woven<br/>
+      images, texts and videos.
+    </p>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+    <p>
+      We’re testing the concept — you’re invited to<br/>
+      <%= link_to "view our sampler", "http://webstripe.herokuapp.com/000011" %> & <%= link_to "request an invite", "mailto:info@webstripe.co?subject=Invite Request for Webstripe" %>.
+    </p>
+  </div>
+</div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+<div class="row">
+  <div class="span3 offset1 dark-bg" id="landing-login">
+    <%= form_for("user", :url => user_session_path) do |f| %>
+    <div class="red">
+      <% flash.each do |name, msg| %>
+          <%= msg %>
+      <% end %>
+    </div>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+      <%= label_tag :username, "User:" %>
+      <%= f.text_field :username %>
 
-<%= render "devise/shared/links" %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Login" %>
+    <% end %>
+  </div>
+</div>
+
+<footer class="row">
+  <div class="span10 offset1">
+    <nav>
+      <%= link_to "-contact", "mailto:info@webstripe.co" %>
+      <%= link_to "-about", "http://oficiosvarios.tumblr.com/post/34606969687/aboutwebstripe", :target => "_blank"%>
+      <%= link_to "-blog", "http://oficiosvarios.tumblr.com", :target => "_blank" %>
+      <%= link_to "-@webstripe", "http://twitter.com/webstripeco", :target => "_blank" %>
+    </nav>
+  </div>
+</footer>
