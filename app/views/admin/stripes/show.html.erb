@@ -1,13 +1,15 @@
-
-<%= link_to "View Stripe", path_to_stripe(@stripe), :class => "btn" %>
-<%= link_to "Edit Stripe", edit_admin_stripe_path(@stripe), :class => "btn" %>
-</p>
+<h3 class="title"><%= @stripe.title %></h3>
+<div class="stripe-actions">
+  <span>&ndash; <%= link_to "View", path_to_stripe(@stripe) %></span>
+  <span>&ndash; <%= link_to "Edit", edit_admin_stripe_path(@stripe) %></span>
+  <span>&ndash; <%= link_to "Delete", admin_stripe_path(@stripe), :method => :delete %></span>
+</div>
+<hr/>
 
 <div class="stripe">
-  <h2><%= @stripe.title %></h2>
   <% @stripe.stripe_items.each_with_index do |item, i| %>
     <div>
-      <h4><%= i + 1 %></h4>
+      <h6><%= i + 1 %></h6>
       <% if item.text? %>
         <p>
           <%= h(item.content).gsub(/\n/, '<br/>').html_safe %>
