@@ -8,34 +8,48 @@
     <%= stylesheet_link_tag    "admin", :media => "all" %>
     <%= javascript_include_tag "admin" %>
     <link href="/assets/favicon.ico" rel="icon">
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Vollkorn:400italic,400,700" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Share:400,700' rel='stylesheet' type='text/css'>
+
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <div class="wrap">
       <div class="admin-sidebar">
-        <h1 class="admin-header">webstripe</h1>
-        <p>
-          You're logged in as <%= current_user.username %>
-          <em><span>(<%= link_to "logout", destroy_user_session_path, :method => :delete %>).</span></em>
+        <%= image_tag "logo-white.png" %>
+        <p class="center">
+          <%= current_user.username %> |
+          <%= link_to "logout", destroy_user_session_path, :method => :delete %>
         </p>
-        <h2 class="projects"><i class="icon-tasks"></i> Stripes</h2>
-        <ul class="nav nav-pills nav-stacked">
-          <% @stripes.each do |stripe| %>
-            <li>
-              <%= link_to admin_stripe_path(stripe) do %>
-                <%= stripe.title%> <i class="icon-circle-arrow-right"></i></a></li>
-              <% end %>
-            </li>
-          <% end %>
-          <li><%= link_to "Create New Stripe", new_admin_stripe_path, :class => "important" %></li>
-          <% if current_user.admin? %>
-            <li><%= link_to "Invite User", new_user_invitation_path, :class => "important" %></li>
-          <% end %>
 
-        </ul>
+        <p>
+          <%= link_to "New Webstripe", new_admin_stripe_path, :class => "big-link" %>
+          <% if current_user.admin? %>
+            <br/><%= link_to "Invite User", new_user_invitation_path, :class => "big-link" %>
+          <% end %>
+        </p>
+
+        <div class="sidebar-stripes">
+          <% @stripes.each do |stripe| %>
+            <p class="stripe">
+              <%= link_to stripe.title, admin_stripe_path(stripe) %>
+            </p>
+          <% end %>
+        </div>
+
+        <div class="sidebar-help">
+          Need help or inspiration?<br/>
+          <%= link_to "read our guide", "" %>.
+        </div>
+
+        <div class="sidebar-footer">
+          <p>
+            Webstripe<br/>
+            <%= link_to "info@webstripe.co", "mailto:info@webstripe.co" %><br/>
+            <%= link_to "@WebstripeCo", "http://twitter.com/webstripeco" %>
+          </p>
+        </div>
       </div>
       <div class="admin-content">
         <%= render "shared/notices" %>

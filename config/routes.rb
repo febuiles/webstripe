@@ -4,7 +4,7 @@ Ov::Application.routes.draw do
 
 
   resources :stripes
-
+  get "/admin", to: "admin::stripes#index"
   namespace :admin do
     resources :stripes
   end
