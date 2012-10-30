@@ -8,6 +8,7 @@ var Slider = function(selector, width, height){
   var $selector = $("#" + selector);
   var factor = 1;
   var viewport = null;
+  var busy = false;
 
 
   this.addSquare = function(selector) {
@@ -55,9 +56,16 @@ var Slider = function(selector, width, height){
   }
 
   this.handleScroll = function(e) {
-    var current = $(window).scrollTop();
+    if ($("body").data("alignment") == "vertical") {
+      var current = $(window).scrollTop();
+    } else {
+      var current = $(window).scrollLeft();
+    }
+    var delta = Math.abs(scrollPosition - current);
     if (current < scrollPosition ) { // scroll up
+      viewport.moveLeft(delta);
     } else if (current > scrollPosition ) { // scroll down
+      viewport.moveRight(delta);
     }
     scrollPosition = current;
   }

@@ -14,7 +14,6 @@ var Viewport = function(canvasHeight, canvasWidth, factor) {
     // 150 is the margin-bottom of the last element
     whitespace = 150;
     var scrollFactor = (($(document).height() + whitespace) / canvasWidth);
-    console.log(scrollFactor);
   } else {
     whitespace = 400;
     var scrollFactor = (($(document).width() - whitespace) / canvasWidth);
@@ -46,5 +45,12 @@ var Viewport = function(canvasHeight, canvasWidth, factor) {
     }
     $.scrollTo((newX * scrollFactor) + whitespace);
     rect.attr("x", newX + 4);
+  }
+
+  this.moveRight = function(pixels) {
+    rect.attr("x", rect.attr("x") + pixels / scrollFactor);
+  }
+  this.moveLeft = function(pixels) {
+    rect.attr("x", rect.attr("x") - (pixels / scrollFactor));
   }
 }
