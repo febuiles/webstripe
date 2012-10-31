@@ -27,7 +27,9 @@ var alignVertically = function() {
 
     if (child.children("img").length > 0) {      // image
       var imgHeight = child.children("img").height();
+      var imgWidth = child.children("img").width();
       child.css("height", imgHeight);
+      child.css("width", imgWidth);
     }
 
     if (i == 0) {
@@ -46,7 +48,7 @@ var alignVertically = function() {
       child.css("margin-left", -moveFactor)
     }
   }
-  $(children[children.length-1]).css("margin-bottom", "150px");
+  $(children[children.length-1]).css("padding-bottom", "50px");
 }
 
 var alignHorizontally = function() {
