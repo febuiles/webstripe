@@ -59,8 +59,8 @@ module Ov
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.action_mailer.default_url_options = { host: "http://webstripe.herokuapp.com" }
     config.assets.initialize_on_precompile = false
     config.assets.precompile += ["admin.css", "admin.js", "landing.css", "landing.js"]
+    config.action_mailer.default_url_options = { host: 'webstripe.co' }
   end
 end
