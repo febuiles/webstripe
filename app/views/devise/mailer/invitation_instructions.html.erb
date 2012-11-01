@@ -1,8 +1,9 @@
-<p>Hello <%= @resource.email %>!</p>
+You're in.
 
-<p>Someone has invited you to <%= root_url %>, you can accept it through the link below.</p>
+<%= link_to "Click here", accept_invitation_url(@resource, :invitation_token => @resource.invitation_token) %> to sign up for Webstripe.
 
-<p><%= link_to 'Accept invitation', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token) %></p>
+Start creating. End of transmission.
 
-<p>If you don't want to accept the invitation, please ignore this email.<br />
-Your account won't be created until you access the link above and set your password.</p>
+—The management
+http://webstripe.co/
+http://twitter.com/WebstripeCo
