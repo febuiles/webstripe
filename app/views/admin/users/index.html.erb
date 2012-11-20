@@ -1,0 +1,23 @@
+<h2>Usuarios</h2>
+<p>Usuarios registrados: <%= User.invitation_accepted.count %></p>
+<p>Usuarios totales (con invitados): <%= User.count %></p>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th># of Stripes</th>
+      <th>Accepted Invitation?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.stripes.count %></td>
+        <td><%= user.accepted_invitation? ? "Yes" : "No" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

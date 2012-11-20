@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   def admin?
     role == "admin"
   end
+
+  def accepted_invitation?
+    invitation_accepted_at.present?
+  end
 end

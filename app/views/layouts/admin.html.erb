@@ -28,6 +28,7 @@
           <%= link_to "New Webstripe", new_admin_stripe_path, :class => "big-link" %>
           <% if current_user.admin? %>
             <br/><%= link_to "Invite User", new_user_invitation_path, :class => "big-link" %>
+            <br/><%= link_to "View Users", admin_users_path, :class => "big-link" %>
           <% end %>
         </p>
         <h2>Your Webstripes</h2>
