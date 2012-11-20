@@ -17,6 +17,7 @@ class Admin::StripesController < ApplicationController
   def create
     @stripe = current_user.stripes.build(params[:stripe])
     if @stripe.save
+      NotificationsMailer.new_stripe(@stripe).deliver
       redirect_to admin_stripe_path(@stripe), :notice => "Your stripe has been created."
     else
       render :new

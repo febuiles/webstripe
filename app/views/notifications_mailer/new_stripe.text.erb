@@ -1,0 +1,9 @@
+Hola,
+
+El usuario <%= @user.username %> ha subido un stripe nuevo. Se llama "<%= @stripe.title %>" y lo puedes ver aquí: <%= stripe_url(@stripe) %>.
+
+El stripe tiene:
+
+<%= @stripe.items_count["image"] %> Imágenes.
+<%= @stripe.items_count["embed"] %> Embeds.
+<%= @stripe.items_count["text"] %> Textos.
