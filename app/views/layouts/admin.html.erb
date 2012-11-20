@@ -20,7 +20,9 @@
       <div class="admin-sidebar">
         <%= image_tag "logo-white.png", :class => "logo" %>
         <p class="center">
-          <%= current_user.username %> |
+          <% if current_user.username.present? %>
+            <%= current_user.username %> |
+          <% end %>
           <%= link_to "logout", destroy_user_session_path, :method => :delete %>
         </p>
 

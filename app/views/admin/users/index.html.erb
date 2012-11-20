@@ -4,7 +4,6 @@
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>Username</th>
       <th>Email</th>
       <th># of Stripes</th>
       <th>Accepted Invitation?</th>
@@ -13,7 +12,6 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.username %></td>
         <td><%= user.email %></td>
         <td><%= user.stripes.count %></td>
         <td><%= user.accepted_invitation? ? "Yes" : "No" %></td>
