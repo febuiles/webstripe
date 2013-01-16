@@ -13,16 +13,25 @@ body
   width: 100%
 
 #show-stripe
+  margin: 0 auto
   text-align: center
+  padding-top: 200px
+  &:before, &:after
+    content: ""
+    display: table
+  &:after
+    clear: both
+
 div.stripe
   text-align: center
   width: 760px
   margin: 0 auto
   .item
+    position: absolute
+    display: inline-block
     text-align: center
     background-color: $dark
     border: 17px solid $dark
-    display: inline-block
     vertical-align: middle
     line-height: 150px
     min-width: 250px
@@ -34,6 +43,7 @@ div.stripe
     color: $light
     line-height: 36px
     text-align: left
+    min-width: 380px
     &.text-stripe
       padding: 15px
   img
