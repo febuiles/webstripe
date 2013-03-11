@@ -17,3 +17,5 @@
 psd/
 
 public/uploads
+
+/config/database.yml
