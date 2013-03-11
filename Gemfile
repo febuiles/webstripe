@@ -9,6 +9,7 @@ gem "fog"
 gem "pg"
 gem "airbrake"
 gem "devise_invitable"
+gem "seed-fu"
 
 group :development, :test do
   gem "rspec-rails"
