@@ -10,6 +10,7 @@ gem "pg"
 gem "airbrake"
 gem "devise_invitable"
 gem "seed-fu"
+gem "backbone-on-rails"
 
 group :development, :test do
   gem "rspec-rails"

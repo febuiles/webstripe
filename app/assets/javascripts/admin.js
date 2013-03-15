@@ -11,6 +11,14 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require bootstrap
+//= require underscore
+//= require backbone
+//= require ./admin/stripe_admin
+//= require_tree ../templates
+//= require_tree ./admin/models
+//= require_tree ./admin/collections
+//= require_tree ./admin/views
+//= require_tree ./admin/routers
 //= require_tree ./admin
 
 $(function(){
