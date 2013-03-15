@@ -1,22 +1,12 @@
-
 <%= render "templates" %>
 
 <%= form_for [:admin, @stripe], :html => {:multipart => true} do |f| %>
-
-<div class="cp-input">
-  <h4>Title</h4>
-  <%= f.text_field :title, :class => "input-xlarge" %>
-</div>
-
-<div class="cp-input">
-  <h4>Alignment</h4>
-  <%= f.select :alignment, [["Vertical", "vertical"], ["Horizontal", "horizontal"]], :class => "input-xlarge" %>
-</div>
-
-<% if current_user.admin? %>
-  <%= render "premium_fields", :f => f %>
-<% end %>
-<hr/>
+<h4>Title</h4>
+<%= f.text_field :title, :class => "input-xxlarge" %>
+<br/><br/>
+<h4>Alignment</h4>
+<%= f.select :alignment, [["Vertical", "vertical"], ["Horizontal", "horizontal"]], :class => "input-xlarge" %>
+hr/>
 
 <% if @stripe.errors.any? %>
   <ul>
@@ -44,4 +34,3 @@
   <%= f.submit "Create Stripe", :class => "btn submit btn-inverse" %>
 </p>
 <% end %>
-

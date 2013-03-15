@@ -1,66 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Webstripe</title>
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    <![endif]-->
-    <%= stylesheet_link_tag    "admin", :media => "all" %>
+	  <meta charset="utf-8" />
+	  <title>Webstripe</title>
+		<%= stylesheet_link_tag    "admin", :media => "all" %>
     <%= javascript_include_tag "admin" %>
-    <link href="/assets/favicon.ico" rel="icon">
+		<link href="/assets/favicon.ico" rel="icon">
     <link href="http://fonts.googleapis.com/css?family=Vollkorn:400italic,400,700" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Share:400,700' rel='stylesheet' type='text/css'>
-
-    <%= csrf_meta_tags %>
+	  <!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	  <![endif]-->
+		<%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= render "shared/ga" %>
-  </head>
+	</head>
   <body>
-    <div class="wrap">
-      <div class="admin-sidebar">
-        <%= image_tag "logo-white.png", :class => "logo" %>
-        <p class="center">
-          <% if current_user.username.present? %>
-            <%= current_user.username %> |
+		<!--start header-->
+  	<header>
+		<%= link_to "", admin_path, :id => "logo"%>
+			<nav id="top-left">
+      	<ul>
+      		<li><%= link_to "New", new_admin_stripe_path%></li>
+      		<li class="last"><%= link_to "Help", "" %></li>
+      	</ul>
+      </nav>
+			<nav id="top-right">
+      	<ul>
+      		<li class="first"><%= link_to "Profile", "" %></li>
+					<% if current_user.admin? %>
+            <li><%= link_to "Invite User", new_user_invitation_path %></li>
+            <li><%= link_to "View Users", admin_users_path %></li>
           <% end %>
-          <%= link_to "logout", destroy_user_session_path, :method => :delete %>
-        </p>
-
-        <p>
-          <%= link_to "New Webstripe", new_admin_stripe_path, :class => "big-link" %>
-          <% if current_user.admin? %>
-            <br/><%= link_to "Invite User", new_user_invitation_path, :class => "big-link" %>
-            <br/><%= link_to "View Users", admin_users_path, :class => "big-link" %>
-          <% end %>
-        </p>
-        <h2>Your Webstripes</h2>
-        <div class="sidebar-stripes">
-          <% @stripes.each do |stripe| %>
-            <p class="stripe">
-              <%= link_to stripe.title, admin_stripe_path(stripe) %>
-            </p>
-          <% end %>
-        </div>
-
-        <div class="sidebar-help">
-          <%= image_tag "info.png" %>
-          Need help or inspiration?<br/>
-          <%= link_to "read our guide", "" %>.
-        </div>
-
-        <div class="sidebar-footer">
-          <p>
-            Webstripe<br/>
-            <%= link_to "info@webstripe.co", "mailto:info@webstripe.co" %><br/>
-            <%= link_to "@WebstripeCo", "http://twitter.com/webstripeco" %>
-          </p>
-        </div>
-      </div>
-      <div class="admin-content">
+					<% if current_user.username.present? %>
+      		<li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+					<li><%= link_to "Login", new_user_session_path, :method => :delete %></li>
+					<%end%>
+      	</ul>
+      </nav>
+		</header>
+		<!--end header-->
+		<!--container-->
+      <div class="container">
         <%= render "shared/notices" %>
         <%= yield %>
       </div>
-    </div>
+		<!--end-container-->
+		<!--footer-->
+				<footer>
+					<p> Copyright © 2013 | WebStripe</br>
+		        <%= link_to "info@webstripe.co", "mailto:info@webstripe.co" %></br>
+		        <%= link_to "@WebstripeCo", "http://twitter.com/webstripeco" %>
+		      </p>
+				</footer>
+		<!--end-footer-->
   </body>
 </html>
-
