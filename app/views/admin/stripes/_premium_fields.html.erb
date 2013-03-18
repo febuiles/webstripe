@@ -1,0 +1,42 @@
+<div class="cp-input">
+  <h4>Premium?</h4>
+  <%= f.check_box :premium %>
+</div>
+
+<div class="cp-input">
+  <h4>Company Name</h4>
+  <%= f.text_field :company, placeholder: "Oficios Varios" %>
+</div>
+
+<div class="cp-input">
+  <h4>Company URL</h4>
+  <div class="input-prepend inline">
+    <span class="add-on">http://</span>
+    <%= f.text_field :company_url, placeholder: "www.oficiosvarios.co" %>
+  </div>
+</div>
+
+<div class="cp-input">
+  <h4>Page Background</h4>
+  <div class="input-prepend inline">
+    <span class="add-on">#</span>
+    <%= f.text_field :page_bg_color %>
+  </div>
+</div>
+
+<div class="cp-input">
+  <h4>Stripe Background</h4>
+  <div class="input-prepend inline">
+    <span class="add-on">#</span>
+    <%= f.text_field :stripe_bg_color %>
+  </div>
+</div>
+
+<div class="cp-input">
+  <h4>Link Color</h4>
+  <div class="input-prepend inline">
+    <span class="add-on">#</span>
+    <%= f.text_field :fg_color %>
+  </div>
+</div>
+

@@ -3,6 +3,8 @@ class Stripe < ActiveRecord::Base
   belongs_to :user
 
   attr_accessible :title, :user_id, :stripe_items_attributes, :alignment
+  attr_accessible :premium, :company, :company_url, :page_bg_color, :stripe_bg_color, :fg_color
+
 
   before_save :set_title
   validate :number_of_stripe_items
