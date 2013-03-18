@@ -33,6 +33,14 @@
 </div>
 
 <div class="cp-input">
+  <h4>Text Color</h4>
+  <div class="input-prepend inline">
+    <span class="add-on">#</span>
+    <%= f.text_field :text_color %>
+  </div>
+</div>
+
+<div class="cp-input">
   <h4>Link Color</h4>
   <div class="input-prepend inline">
     <span class="add-on">#</span>
@@ -40,3 +48,7 @@
   </div>
 </div>
 
+<div class="cp-input">
+  <h4>Company Logo</h4>
+  <%= f.file_field :company_logo %>
+</div>

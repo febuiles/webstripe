@@ -2,12 +2,12 @@ class Stripe < ActiveRecord::Base
   has_many :stripe_items, :dependent => :destroy
   belongs_to :user
 
-  attr_accessible :title, :user_id, :stripe_items_attributes, :alignment
-  attr_accessible :premium, :company, :company_url, :page_bg_color, :stripe_bg_color, :fg_color
-
+  attr_protected :id
 
   before_save :set_title
   validate :number_of_stripe_items
+
+  mount_uploader :company_logo, ImageUploader
 
   accepts_nested_attributes_for :stripe_items,
                                 :reject_if => lambda { |item| StripeItem.new(item).invalid? },

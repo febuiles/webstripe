@@ -1,3 +1,11 @@
+<% if @stripe.premium? %>
+  <div class="header">
+    <span><%= @stripe.title %></span>
+    <%= link_to @stripe.company, @stripe.company_url %>
+    <%= image_tag @stripe.company_logo_url %>
+  </div>
+<% end %>
+
 <div id="show-stripe" class="stripe">
   <% @stripe.stripe_items.each do |item| %>
     <div class="item">
@@ -12,9 +20,21 @@
   <% end %>
 </div>
 
-<footer>
-  <span><%= @stripe.title %></span>
-  <div id="slider">
-  </div>
-  <%= link_to image_tag("powered-by.png"), root_path %>
-</footer>
+<% unless @stripe.premium? %>
+  <footer>
+    <span><%= @stripe.title %></span>
+    <div id="slider">
+    </div>
+    <%= link_to image_tag("powered-by.png"), root_path %>
+  </footer>
+<% end %>
+
+
+<% if @stripe.premium? %>
+  <style>
+    body { background-color: #<%= @stripe.page_bg_color %> !important; }
+    div.header, .item { background-color: #<%= @stripe.stripe_bg_color %> !important; }
+    div.header a { color: #<%= @stripe.fg_color %> !important; }
+    div.header span, div.stripe p { color: #<%= @stripe.text_color %> !important; }
+  </style>
+<% end %>
