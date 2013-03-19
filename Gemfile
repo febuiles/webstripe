@@ -14,6 +14,7 @@ gem "backbone-on-rails"
 
 group :development, :test do
   gem "rspec-rails"
+  gem "jasminerice"
 end
 
 group :assets do
