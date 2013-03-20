@@ -1,7 +1,7 @@
 class StripeItem < ActiveRecord::Base
   belongs_to :stripe
 
-  attr_accessible :content, :item_type, :stripe_id, :image, :_destroy
+  attr_accessible :content, :item_type, :stripe_id, :image, :_destroy, :position
   attr_accessor :_destroy
 
   mount_uploader :image, ImageUploader

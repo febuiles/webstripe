@@ -4,7 +4,7 @@
 			<textarea id="stripe-input-content" class="stripe-input-content">  </textarea>
 		</div>
 		<div class="stripe-options">
-			<div class="stripe-number"><span class="number"><%= @slide.get('position') %></span></div>
+			<div class="stripe-number"><span class="number"><%= @stripe_item.get('position') %></span></div>
 			<ul id="stripe-menu">
 				<li class="arrow-up"><a href="#"><img src="/assets/redarrow.png" alt="Move up"/><span class="link-text">Move up</span></a></li>
 				<li class="arrow-down"><a href="#"><img src="/assets/redarrowdown.png" alt="Move down"/><span class="link-text">Move down</span></a></li>
@@ -24,43 +24,3 @@
 		</div>
 	</div>
 <!--end-stripe-container-->
-
-
-	<!--done-stripe-container-->
-	<div class="done-stripe-container">
-	<div class="spripe-box-top">
-		<div class="stripe-done-left">
-			<p class="title">Give your story name:</p>
-			<div class="stripe-name">
-				<input name="stripe-name" type="text" class="stripe-name-input">
-			</div>
-			<div class="align-options">
-				<p class="title">And choose the orientation:</p>
-				<div id="vertical">
-			<input type="radio" name="alignment" value="vertical" /><br /></div>
-				<div id="horizontal">
-			<input type="radio" name="alignment" value="horizontal" /><br /></div>
-			</div>
-			<div class="clearfix"></div>
-			<div class="done-button">
-				<a href="#"><img src="/assets/doneredicon.png" alt="Done"/>Done</a>
-			</div>
-		</div>
-		<div class="stripe-options">
-			<ul id="stripe-menu">
-				<li class="back-to-editor"><a href="#"><img src="/assets/backtoeditoricon.png" alt="Back to editor"/><span class="link-text">Back to editor</span></a></li>
-			</ul>
-		</div>
-		
-	</div>
-	</div>
-<!--end-done-stripe-container-->
-
-<!--show-stripe-container-->
-
-
-<div class="show-stripe-item">
-	<p>Dow Dow Dow Dow</p>
-</div>
-
-<!--end-show-stripe-container-->

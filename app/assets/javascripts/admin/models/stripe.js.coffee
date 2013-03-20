@@ -1,12 +1,14 @@
-class StripeAdmin.Models.Stripe extends Backbone.RelationalModel.extend
+class StripeAdmin.Models.Stripe extends Backbone.RelationalModel
+  paramRoot: 'stripe'
   urlRoot: '/admin/stripes'
-  idAttribute: '_id'
-  relations: [{
-    type: Backbone.HasMany,
-    key: 'stripe_items',
-    relatedModel: 'StripeAdmin.Models.StripeItem',
-    reverseRelation: {
-      key: 'stripe',
-      includeInJSON: '_id',
-    }
-  }]
+
+  relations: [
+    type: Backbone.HasMany
+    key: 'stripe_items'
+    relatedModel: 'StripeAdmin.Models.StripeItem'
+    collectionType: 'StripeAdmin.Collections.StripeItems'
+    includeInJSON: false
+    reverseRelation:
+      key: 'stripe_id'
+      includeInJSON: 'id'
+  ]

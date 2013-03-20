@@ -1,0 +1,5 @@
+<!--show-stripe-item-container-->
+<div class="show-stripe-item">
+	<p><%= @stripe_item.get('content') %></p>
+</div>
+<!--end-show-stripe-item-container-->

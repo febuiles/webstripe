@@ -10,10 +10,13 @@ gem "pg"
 gem "airbrake"
 gem "devise_invitable"
 gem "seed-fu"
-gem "backbone-on-rails"
+gem "rails-backbone"
+gem "eco"
+gem 'backbone-support', github: 'nhocki/backbone-support'
 
 group :development, :test do
   gem "rspec-rails"
+  gem "pry"
   gem "jasminerice"
 end
 

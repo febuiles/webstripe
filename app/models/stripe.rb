@@ -5,7 +5,6 @@ class Stripe < ActiveRecord::Base
   attr_protected :id
 
   before_save :set_title
-  validate :number_of_stripe_items
 
   mount_uploader :company_logo, ImageUploader
 
@@ -25,11 +24,5 @@ class Stripe < ActiveRecord::Base
 
   def set_title
     self.title = "Untitled" unless title.present?
-  end
-
-  def number_of_stripe_items
-    if stripe_items.size < 1
-      errors.add(:base, "The stripe must contain at least one item.")
-    end
   end
 end
