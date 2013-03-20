@@ -13,6 +13,7 @@
 //= require bootstrap
 //= require underscore
 //= require backbone
+//= require backbone-relational
 //= require ./admin/stripe_admin
 //= require_tree ../templates
 //= require_tree ./admin/models

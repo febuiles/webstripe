@@ -1,1 +1,4 @@
 <%= @slide.get('stripe_id') %>
+<%= @slide.get('position') %>
+<a class="queue add">Add new slide</a>
+<a class="queue remove">Remove slide</a>

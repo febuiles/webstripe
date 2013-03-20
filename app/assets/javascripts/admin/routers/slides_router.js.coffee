@@ -3,8 +3,9 @@ class StripeAdmin.Routers.Slides extends Backbone.Router
     'admin/stripes/new': 'new'
 
   initialize: ->
-    @slide = new StripeAdmin.Models.Slide({stripe_id: "one"})
+    @slides = new StripeAdmin.Collections.Slides([{stripe_id: "one"}])
 
   new: ->
-    view = new StripeAdmin.Views.Slide(model: @slide)
+    view = new StripeAdmin.Views.Slides(collection: @slides)
+    $('#container').empty()
     $('#container').html(view.render().el)

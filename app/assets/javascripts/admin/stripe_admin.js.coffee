@@ -4,10 +4,6 @@ window.StripeAdmin =
   Views: {}
   Routers: {}
 
-  sanity :->
-    alert "juaaaa"
-    true
-
   initialize: ->
     new StripeAdmin.Routers.Slides()
     Backbone.history.start(pushState: true)

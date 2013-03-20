@@ -3,6 +3,8 @@ class Admin::StripesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :load_stripes
 
+  respond_to :json
+
   def index
   end
 
@@ -11,7 +13,7 @@ class Admin::StripesController < ApplicationController
   end
 
   def new
-    @stripe = Stripe.new
+    @stripe = current_user.stripes.create(state: "unpublished")
   end
 
   def create
