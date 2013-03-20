@@ -63,6 +63,8 @@ header {
 
 #top-left ul li.last a {
  border-right: 1px #bbb8ac solid;
+ color: rgba(219, 9, 9, 0.7);
+ text-decoration: line-through;
 }
 
 #top-right ul li.first a {
@@ -147,7 +149,7 @@ article:first-child {
 .story-menu {
 	float:left;
 	display:block;
-	margin-top: 8px;
+	margin-top: 10px;
 }
 .story-menu ul {
 	list-style: none;
