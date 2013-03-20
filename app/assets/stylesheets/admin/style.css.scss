@@ -195,8 +195,6 @@ footer {
 }
 
 footer p {
-	font: 18px 'Vollkorn', Arial, sans-serif;
-	color: #050011;
 	text-align: left;
 	margin-left: 168px;
 	padding-bottom: 10px;
@@ -205,4 +203,20 @@ footer p {
 footer a {
 	font: 16px 'Vollkorn', Arial, sans-serif;
 	color: #0088cc;;
+}
+
+#footer-data {
+	font: 18px 'Vollkorn', Arial, sans-serif;
+	color: #050011;
+}
+
+#footer-tool {
+	font: 18px 'Vollkorn', Arial, sans-serif;
+	color: #b0ac9c;
+}
+
+#footer-tool a {
+	font: 17px 'Vollkorn', Arial, sans-serif;
+	color: #b0ac9c;
+	text-decoration: underline;
 }
