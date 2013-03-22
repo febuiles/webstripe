@@ -17,19 +17,19 @@ a#remove-existing-item
 	/*New stripe*/
 
 
-	.new-stripe-container {
+.new-stripe-container {
 		width: 570px;
 		margin: 0 auto;
 		padding-top: 50px;
 	}
 
-	.spripe-box-top {
+.spripe-box-top {
 		width: 550px;
 		height: 350px;
 		border: 10px solid #050011;
 	}
 
-	.stripe-input {
+.stripe-input {
 		margin: 15px;
 		height: 270px;
 		float:left;
@@ -37,60 +37,55 @@ a#remove-existing-item
 		border: 2px solid #050011;
 	}
 
-	.stripe-options {
+.stripe-options {
 		float: right;
-		margin-right: 20px;
+		margin-right: 7px;
 			text-align: center;
 	}
 
-	.stripe-number {
+.stripe-number {
 		width: 25px;
 		height: 25px;
 		margin: 20px;
 	}
-	.number {
+	
+.number {
 		font: 12px verdana;
 		font-weight:bold;
 		text-align: center;
 	}
 
-	#stripe-menu{
+#stripe-menu{
+	width: 95px;
 	}
 
-	#stripe-menu a{
+#stripe-menu a{
 		font: 14px 'Vollkorn', Arial, sans-serif;
 		color: #cac7b8;
 		text-decoration: none;
+		
+		img {
+			margin-right: 45px;
+			margin-left: 38px;
+		}
 	}
 
-	#stripe-menu li{
-		margin-bottom:40px;
+#stripe-menu li{
+		margin-bottom: 20px;
 	}
 
-	.arrow-up {
-
-	}
-
-	.arrow-down {
-
-	}
-
-	.delete-stripe {
-
-	}
-
-	.add-image-container {
+.add-image-container {
 		clear: both;
 		font: 18px 'Vollkorn', Arial, sans-serif;
 		color: #050011;
 		margin: 10px 0px 0px 15px;
 	}
-	.add-image-container a {
+.add-image-container a {
 		color: #db0909;
 		text-decoration: none;
 	}
 
-	.stripe-box-bottom {
+.stripe-box-bottom {
 		width: 510px;
 		margin: 0 auto;
 		height: 150px;
@@ -100,6 +95,23 @@ a#remove-existing-item
 
 	}
 
-	.stripe-bottom-options {
-
+.stripe-bottom-options {
+	width: 125px;
+	margin: 0 auto;
+	padding-top: 30px;
 	}
+	
+#stripe-bottom-menu a {
+	font: 18px 'Share', Arial, sans-serif;
+	color: #050011;
+	text-decoration: none;
+	
+	img {
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+}
+
+#stripe-bottom-menu li {
+	margin-bottom: 20px;
+}
