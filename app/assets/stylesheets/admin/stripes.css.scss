@@ -12,9 +12,9 @@ form, div.stripe
 a#remove-existing-item
   color: #D7524D*/
 
-	/*Stripe page*/
+/*Stripe page*/
 
-	/*New stripe*/
+/*New stripe*/
 
 
 .new-stripe-container {
@@ -76,13 +76,18 @@ a#remove-existing-item
 
 .add-image-container {
 		clear: both;
-		font: 18px 'Vollkorn', Arial, sans-serif;
+		font: 20px 'Vollkorn', Arial, sans-serif;
 		color: #050011;
 		margin: 10px 0px 0px 15px;
 	}
+	
 .add-image-container a {
 		color: #db0909;
 		text-decoration: none;
+	}
+	
+	.add-image-container a:hover {
+			text-decoration: underline;
 	}
 
 .stripe-box-bottom {
