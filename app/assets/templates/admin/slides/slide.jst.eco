@@ -6,13 +6,13 @@
 		<div class="stripe-options">
 			<div class="stripe-number"><span class="number"><%= @slide.get('position') %></span></div>
 			<ul id="stripe-menu">
-				<li class="arrow-up"><a href="#">Move up</a></li>
+				<li class="arrow-up"><a href="#"><img src="info.png" alt="Move up"/>Move up</a></li>
 				<li class="arrow-down"><a href="#">Move down</a></li>
 				<li class="delete-stripe"><a href="#">Delete</a></li>
 			</ul>
 		</div>
 		<div class="add-image-container">
-			<p>or select an image to upload</p>
+			<p>or <a href="#">select an image</a> to upload</p>
 		</div>
 	</div>
 	<div class="stripe-box-bottom">

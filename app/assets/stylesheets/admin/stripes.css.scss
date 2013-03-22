@@ -69,7 +69,7 @@ a#remove-existing-item
 
 	.arrow-up {
 
-		}
+	}
 
 	.arrow-down {
 
@@ -81,6 +81,13 @@ a#remove-existing-item
 
 	.add-image-container {
 		clear: both;
+		font: 18px 'Vollkorn', Arial, sans-serif;
+		color: #050011;
+		margin: 10px 0px 0px 15px;
+	}
+	.add-image-container a {
+		color: #db0909;
+		text-decoration: none;
 	}
 
 	.stripe-box-bottom {
