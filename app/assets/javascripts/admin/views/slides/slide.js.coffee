@@ -1,6 +1,6 @@
 class StripeAdmin.Views.Slide extends Backbone.View
   template: JST['admin/slides/slide']
-  tagName:'li'
+  tagName:'div'
 
   events:
     'click .queue.add': 'newSlide'

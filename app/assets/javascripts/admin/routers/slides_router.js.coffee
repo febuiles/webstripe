@@ -7,5 +7,5 @@ class StripeAdmin.Routers.Slides extends Backbone.Router
 
   new: ->
     view = new StripeAdmin.Views.Slides(collection: @slides)
-    $('#container').empty()
-    $('#container').html(view.render().el)
+    $('.new-stripe-container').empty()
+    $('.new-stripe-container').html(view.render().el)

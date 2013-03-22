@@ -1,4 +1,27 @@
-<%= @slide.get('stripe_id') %>
-<%= @slide.get('position') %>
-<a class="queue add">Add new slide</a>
-<a class="queue remove">Remove slide</a>
+<!--stripe-container-->
+	<div class="spripe-box-top">
+		<div class="stripe-input">
+
+		</div>
+		<div class="stripe-options">
+			<div class="stripe-number"><span class="number"><%= @slide.get('position') %></span></div>
+			<ul id="stripe-menu">
+				<li class="arrow-up"><a href="#">Move up</a></li>
+				<li class="arrow-down"><a href="#">Move down</a></li>
+				<li class="delete-stripe"><a href="#">Delete</a></li>
+			</ul>
+		</div>
+		<div class="add-image-container">
+			<p>or select an image to upload</p>
+		</div>
+	</div>
+	<div class="stripe-box-bottom">
+		<div class="stripe-bottom-options">
+			<ul id="stripe-bottom-menu">
+				<li class="new-slide queue add"><a href="#">Add new slide</a></li>
+				<li class="delete-slide queue remove"><a href="#">Remove slide</a></li>
+				<li class="done-slide"><a href="#">Done</a></li>
+			</ul>
+		</div>
+	</div>
+<!--end-stripe-container-->

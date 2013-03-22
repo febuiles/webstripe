@@ -1,0 +1,98 @@
+/*p.controls
+  float: left
+  a
+    width: 100px
+    display: block
+    margin-bottom: 5px
+
+form, div.stripe
+  img
+    height: 100px
+
+a#remove-existing-item
+  color: #D7524D*/
+
+	/*Stripe page*/
+
+	/*New stripe*/
+
+
+	.new-stripe-container {
+		width: 570px;
+		margin: 0 auto;
+		padding-top: 50px;
+	}
+
+	.spripe-box-top {
+		width: 550px;
+		height: 350px;
+		border: 10px solid #050011;
+	}
+
+	.stripe-input {
+		margin: 15px;
+		height: 270px;
+		float:left;
+		width: 75%;
+		border: 2px solid #050011;
+	}
+
+	.stripe-options {
+		float: right;
+		margin-right: 20px;
+			text-align: center;
+	}
+
+	.stripe-number {
+		width: 25px;
+		height: 25px;
+		margin: 20px;
+	}
+	.number {
+		font: 12px verdana;
+		font-weight:bold;
+		text-align: center;
+	}
+
+	#stripe-menu{
+	}
+
+	#stripe-menu a{
+		font: 14px 'Vollkorn', Arial, sans-serif;
+		color: #cac7b8;
+		text-decoration: none;
+	}
+
+	#stripe-menu li{
+		margin-bottom:40px;
+	}
+
+	.arrow-up {
+
+		}
+
+	.arrow-down {
+
+	}
+
+	.delete-stripe {
+
+	}
+
+	.add-image-container {
+		clear: both;
+	}
+
+	.stripe-box-bottom {
+		width: 510px;
+		margin: 0 auto;
+		height: 150px;
+		border-left: 10px solid #d0ccbe;
+		border-right: 10px solid #d0ccbe;
+		border-bottom: 10px solid #d0ccbe;
+
+	}
+
+	.stripe-bottom-options {
+
+	}
