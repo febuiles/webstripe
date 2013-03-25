@@ -1,7 +1,7 @@
 <!--stripe-container-->
 	<div class="spripe-box-top">
 		<div class="stripe-input">
-
+			<textarea id="stripe-input-content" class="stripe-input-content">  </textarea>
 		</div>
 		<div class="stripe-options">
 			<div class="stripe-number"><span class="number"><%= @slide.get('position') %></span></div>
@@ -24,3 +24,4 @@
 		</div>
 	</div>
 <!--end-stripe-container-->
+
