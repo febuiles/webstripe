@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311231547) do
+ActiveRecord::Schema.define(:version => 20130318021025) do
 
   create_table "stripe_items", :force => true do |t|
     t.string   "item_type"
