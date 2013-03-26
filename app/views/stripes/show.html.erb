@@ -1,7 +1,7 @@
 <% if @stripe.premium? %>
   <div class="header">
     <span><%= @stripe.title %></span>
-    <%= link_to @stripe.company, @stripe.company_url %>
+    <%= link_to @stripe.company, "http://#{@stripe.company_url}" %>
     <%= image_tag @stripe.company_logo_url %>
   </div>
 <% end %>
@@ -33,7 +33,8 @@
 <% if @stripe.premium? %>
   <style>
     body { background-color: #<%= @stripe.page_bg_color %> !important; }
-    div.header, .item { background-color: #<%= @stripe.stripe_bg_color %> !important; }
+    div.header, .item, { background-color: #<%= @stripe.stripe_bg_color %> !important; }
+    div.header, .item, { border-color: #<%= @stripe.stripe_bg_color %> !important; }
     div.header a { color: #<%= @stripe.fg_color %> !important; }
     div.header span, div.stripe p { color: #<%= @stripe.text_color %> !important; }
   </style>
