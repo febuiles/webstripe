@@ -1,1 +1,31 @@
-<h2>Welcome. Ready to <%= link_to "create", new_admin_stripe_path  %>?</h2>
+<!--start intro-->
+ <section id="intro">
+   <div class="quote-container">
+   	<p class="quote">Welcome <%= current_user.name %>, you look good today. </br>Feel like <%= link_to "creating a new story", new_admin_stripe_path  %></a>?</p>
+   </div>
+ </section>
+ <!--end intro-->
+
+<!--start stories-->
+<section id="stories">
+<% @stripes.each do |stripe| %>
+<article>
+    <div class="story-menu">
+			<ul>
+    		<li><span class="dash">-</span> <%= link_to "View", path_to_stripe(stripe) %></li>
+				<li><span class="dash">-</span> <%= link_to "Edit", edit_admin_stripe_path(stripe) %></li>
+    		<li><span class="dash">-</span> <%= link_to "Delete", admin_stripe_path(stripe), :method => :delete %></li>
+    	</ul>
+		</div>
+		<div class="article-content">
+			<div class="story-title">
+				<%= link_to stripe.title, edit_admin_stripe_path(stripe) %>
+			</div>
+		</div>
+</article>
+<% end %>
+</section>
+ <!--end stories-->
+
+
+

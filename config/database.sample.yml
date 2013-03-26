@@ -4,6 +4,7 @@ default: &global
   pool: 5
   template: template1
   min_messages: warning
+  username: federico
   host: 127.0.0.1
 
 development:
