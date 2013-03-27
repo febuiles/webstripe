@@ -1,28 +1,48 @@
-/*p.controls
-  float: left
-  a
-    width: 100px
-    display: block
-    margin-bottom: 5px
+.controls {
+	p {
+		float: left;
+	}
+	a {
+		width: 100px;
+    display: block;
+    margin-bottom: 5px;
+	}
+}
 
-form, div.stripe
-  img
-    height: 100px
+.stripe {
+	form, div {
+/*		img {
+	 		height: 100px;
+		}*/
+	}
+}
 
-a#remove-existing-item
-  color: #D7524D*/
+.cp-input {
+	height: 50px;
+	clear: both;
+	* {
+		float: left;
+	}
+  
+	h4 {
+		width: 200px;
+	}
+}
 
-/*Stripe page*/
+.inline {
+  display: inline;
+}
 
-/*New stripe*/
-
+#remove-existing-item a{
+  color: #D7524D;
+}
 
 .new-stripe-container, .done-stripe-container{
 		width: 570px;
 		margin: 0 auto;
 		padding-top: 50px;
 	}
-	
+
 .spripe-box-top {
 		width: 550px;
 		height: 350px;
@@ -43,12 +63,12 @@ input[type="text"] {
 		-webkit-border-radius: 0 !important;
 		width: 80%;
 	}
-	
+
 .title {
 	font: 22px 'Vollkorn', Arial, sans-serif;
 	color: #050011;
 }
-	
+
 .stripe-input {
 		margin: 15px;
 		height: 270px;
@@ -56,14 +76,14 @@ input[type="text"] {
 		width: 75%;
 		border: 2px solid #050011;
 	}
-	
+
 .stripe-done-left {
 	margin: 15px;
 	height: 270px;
 	float:left;
 	width: 75%;
 }
-	
+
 .stripe-input-content {
 	border: none;
 	height: 262px;
@@ -87,7 +107,7 @@ input[type="text"] {
 	margin: 20px 30px 30px 30px;
 	border: 2px solid #050011;
 	}
-	
+
 .number {
 		font: 12px verdana;
 		font-weight:bold;
@@ -102,7 +122,7 @@ input[type="text"] {
 		font: 14px 'Vollkorn', Arial, sans-serif;
 		color: #cac7b8;
 		text-decoration: none;
-		
+
 		img {
 			margin-right: 45px;
 			margin-left: 38px;
@@ -119,12 +139,12 @@ input[type="text"] {
 		color: #050011;
 		margin: 10px 0px 0px 15px;
 	}
-	
+
 .add-image-container a {
 		color: #db0909;
 		text-decoration: none;
 	}
-	
+
 	.add-image-container a:hover {
 			text-decoration: underline;
 	}
@@ -144,12 +164,12 @@ input[type="text"] {
 	margin: 0 auto;
 	padding-top: 30px;
 	}
-	
+
 #stripe-bottom-menu a {
 	font: 18px 'Share', Arial, sans-serif;
 	color: #050011;
 	text-decoration: none;
-	
+
 	img {
 		margin-right: 5px;
 		margin-bottom: 5px;

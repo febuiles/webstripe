@@ -13,6 +13,8 @@ gem "seed-fu"
 gem "rails-backbone"
 gem "eco"
 gem 'backbone-support', github: 'nhocki/backbone-support'
+gem "less-rails"
+gem "therubyracer"
 
 group :development, :test do
   gem "rspec-rails"
