@@ -1,10 +1,10 @@
-class StripeAdmin.Views.StripeItem extends Backbone.View
-  template: JST['admin/slides/slide']
+class StripeAdmin.Views.EditStripeItem extends Backbone.View
+  template: JST['admin/stripe_items/slide']
   tagName:'div'
 
   events:
-    # 'click .queue.add': 'newSlide'
-    # 'click .queue.remove': 'removeSlide'
+    'click .queue.add': 'newSlide'
+    'click .queue.remove': 'removeSlide'
     'click .done-slide': 'saveStripe'
 
     'focus .stripe-input-content': 'hideBg'

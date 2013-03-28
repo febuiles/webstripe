@@ -13,6 +13,7 @@
 //= require bootstrap
 //= require underscore
 //= require backbone
+//= require backbone-support
 //= require backbone-relational
 //= require backbone_rails_sync
 //= require backbone_datalink
