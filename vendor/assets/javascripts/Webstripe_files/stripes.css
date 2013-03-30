@@ -1,0 +1,254 @@
+@charset "UTF-8";
+/* line 2, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.controls p {
+  float: left;
+}
+/* line 5, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.controls a {
+  width: 100px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* line 13, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.stripe form, .stripe div {
+  /*		img {
+  	 		height: 100px;
+  		}*/
+}
+
+/* line 20, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.cp-input {
+  height: 50px;
+  clear: both;
+}
+/* line 23, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.cp-input * {
+  float: left;
+}
+/* line 27, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.cp-input  
+h4 {
+  width: 200px;
+}
+
+/* line 32, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.inline {
+   display: inline;
+}
+
+/* line 36, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+#remove-existing-item a {
+  color: #D7524D;
+}
+
+/* line 40, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.new-stripe-container, .done-stripe-container {
+  width: 570px;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+/* line 46, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.spripe-box-top {
+  width: 550px;
+  height: 350px;
+  border: 10px solid #050011;
+}
+
+/* line 52, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+input[type="text"] {
+  display: block;
+  font-size: 18px;
+  outline: none !important;
+  color: #050011;
+  background-color: #f3f0dc;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  border: 0;
+  border-bottom: 1px solid #b7b4a9;
+  -webkit-box-shadow: none !important;
+  -webkit-border-radius: 0 !important;
+  width: 80%;
+}
+
+/* line 67, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.title {
+  font: 22px 'Vollkorn', Arial, sans-serif;
+  color: #050011;
+}
+
+/* line 72, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.stripe-input {
+  margin: 15px;
+  height: 270px;
+  float: left;
+  width: 75%;
+  border: 2px solid #050011;
+}
+
+/* line 80, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.stripe-done-left {
+  margin: 15px;
+  height: 270px;
+  float: left;
+  width: 75%;
+}
+
+/* line 87, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.stripe-input-content {
+  border: none;
+  height: 262px;
+  width: 400px;
+  font-size: 14px;
+  outline: none;
+  background: transparent;
+  line-height: 1;
+  background-image: url("/assets/stripeinputbg.png");
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
+/* line 100, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.stripe-options {
+  float: right;
+  margin-right: 7px;
+  text-align: center;
+}
+
+/* line 106, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.stripe-number {
+  margin: 20px 30px 30px 30px;
+  border: 2px solid #050011;
+}
+
+/* line 111, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.number {
+  font: 12px verdana;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* line 117, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+#stripe-menu {
+  width: 95px;
+}
+
+/* line 121, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+#stripe-menu a {
+  font: 14px 'Vollkorn', Arial, sans-serif;
+  color: #cac7b8;
+  text-decoration: none;
+}
+/* line 126, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+#stripe-menu a img {
+  margin-right: 45px;
+  margin-left: 38px;
+}
+
+/* line 132, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+#stripe-menu li {
+  margin-bottom: 20px;
+}
+
+/* line 136, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.add-image-container {
+  clear: both;
+  font: 20px 'Vollkorn', Arial, sans-serif;
+  color: #050011;
+  margin: 10px 0px 0px 15px;
+}
+
+/* line 143, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.add-image-container a {
+  color: #db0909;
+  text-decoration: none;
+}
+
+/* line 148, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.add-image-container a:hover {
+  text-decoration: underline;
+}
+
+/* line 152, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.stripe-box-bottom {
+  width: 510px;
+  margin: 0 auto;
+  height: 150px;
+  border-left: 10px solid #d0ccbe;
+  border-right: 10px solid #d0ccbe;
+  border-bottom: 10px solid #d0ccbe;
+}
+
+/* line 162, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.stripe-bottom-options {
+  width: 125px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+/* line 168, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+#stripe-bottom-menu a {
+  font: 18px 'Share', Arial, sans-serif;
+  color: #050011;
+  text-decoration: none;
+}
+/* line 173, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+#stripe-bottom-menu a img {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+/* line 179, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+#stripe-bottom-menu li {
+  margin-bottom: 20px;
+}
+
+/* line 183, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.back-to-editor {
+  margin-top: 20px;
+}
+
+/* line 187, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+#vertical {
+  margin: 10px;
+  padding: 5px;
+  float: left;
+  width: 110px;
+  height: 112px;
+  background-image: url("/assets/verticalalign.png");
+}
+
+/* line 196, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+#horizontal {
+  margin: 10px;
+  padding: 5px;
+  float: left;
+  width: 110px;
+  height: 112px;
+  background-image: url("/assets/horizontalalign.png");
+}
+
+/* line 205, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.done-button {
+  margin: 10px;
+  font: 18px 'Share', Arial, sans-serif;
+  color: #050011;
+}
+
+/* line 211, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.done-button a {
+  margin: 5px;
+  text-decoration: none;
+  color: #050011;
+}
+
+/* line 218, ../../../app/assets/stylesheets/admin/stripes.css.scss */
+.show-stripe-item {
+  opacity: 0.5;
+  width: 510px;
+  margin: 0 auto;
+  padding: 10px;
+  height: 150px;
+  border: 10px solid #d0ccbe;
+}

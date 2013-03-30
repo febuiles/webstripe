@@ -18,7 +18,7 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
     console?.log 'Leaving Stripe#new'
 
   renderSingleSlide: (stripe_item) =>
-    view = new StripeAdmin.Views.ShowStripeItem({model: stripe_item})
+    view = new StripeAdmin.Views.ShowStripeItem({model: stripe_item, collection: @collection})
     @appendChildTo(view, ".stripe-items")
 
   renderSlides: ->
@@ -26,13 +26,19 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
     @collection.each(@renderSingleSlide)
 
   createNewSlideForm: ->
-    view = new StripeAdmin.Views.NewStripeItem()
+    console.log "create new"
+    view = new StripeAdmin.Views.NewStripeItem({collection: @collection})
     @appendChildTo(view, ".new-stripe-item")
 
   addStripeItem: (stripeItemAttributes) ->
     console?.log("Creating new stripe item", stripeItemAttributes)
     @collection.create stripeItemAttributes,
+      silent: true
+      while: true
       success: (stripe_item) =>
+        @renderSingleSlide(stripe_item)
+        stripe_item.trigger("add_content")
+        @collection.trigger("update_position")
       error: ->
         @handleError
 

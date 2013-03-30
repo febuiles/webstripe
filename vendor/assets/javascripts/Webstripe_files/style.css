@@ -1,0 +1,271 @@
+/*Reset*/
+/* line 3, ../../../app/assets/stylesheets/admin/style.css.scss */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, ol, ul, li, form, label, legend, caption, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+/* line 15, ../../../app/assets/stylesheets/admin/style.css.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 19, ../../../app/assets/stylesheets/admin/style.css.scss */
+a img {
+  border: none;
+}
+
+/* line 22, ../../../app/assets/stylesheets/admin/style.css.scss */
+aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/*end-reset*/
+/* line 26, ../../../app/assets/stylesheets/admin/style.css.scss */
+html {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 31, ../../../app/assets/stylesheets/admin/style.css.scss */
+body {
+  background-color: #f3f0dc;
+  font: 14px 'Vollkorn', Arial, sans-serif;
+}
+
+/*Header*/
+/* line 38, ../../../app/assets/stylesheets/admin/style.css.scss */
+header {
+  position: relative;
+  background: black;
+  width: 100%;
+  height: 60px;
+  display: block;
+  -webkit-box-shadow: 0px 1px 2px #b8b8b8;
+}
+
+/* line 47, ../../../app/assets/stylesheets/admin/style.css.scss */
+#logo {
+  display: block;
+  margin: 5px 15px 0 18px;
+  width: 140px;
+  height: 44px;
+  background: url("/assets/logo.png") no-repeat;
+  text-indent: -9999em;
+  float: left;
+}
+
+/*Navigation Menu*/
+/* line 58, ../../../app/assets/stylesheets/admin/style.css.scss */
+#top-left {
+  float: left;
+}
+
+/* line 62, ../../../app/assets/stylesheets/admin/style.css.scss */
+#top-right {
+  float: right;
+}
+
+/* line 66, ../../../app/assets/stylesheets/admin/style.css.scss */
+#top-left ul li.last a {
+  border-right: 1px #bbb8ac solid;
+  color: rgba(219, 9, 9, 0.7);
+  text-decoration: line-through;
+}
+
+/* line 72, ../../../app/assets/stylesheets/admin/style.css.scss */
+#top-right ul li.first a {
+  border-left: none;
+  color: rgba(219, 9, 9, 0.7);
+  text-decoration: line-through;
+}
+
+/* line 78, ../../../app/assets/stylesheets/admin/style.css.scss */
+nav {
+  padding-top: 20px;
+}
+
+/* line 82, ../../../app/assets/stylesheets/admin/style.css.scss */
+nav ul {
+  list-style: none;
+  margin: 0;
+  text-align: center;
+}
+
+/* line 88, ../../../app/assets/stylesheets/admin/style.css.scss */
+nav ul li {
+  display: inline;
+  position: relative;
+  line-height: normal;
+}
+
+/* line 94, ../../../app/assets/stylesheets/admin/style.css.scss */
+nav ul li a {
+  border-left: 1px #bbb8ac solid;
+  font: 17px 'Share', Tahoma,sans-serif;
+  color: #db0909;
+  text-transform: capitalize;
+  font-weight: normal;
+  background-color: transparent;
+  text-decoration: none;
+  padding: 6px 20px 6px 20px;
+}
+
+/* line 105, ../../../app/assets/stylesheets/admin/style.css.scss */
+nav ul li a:hover {
+  color: #b51717;
+}
+
+/*content*/
+/* line 111, ../../../app/assets/stylesheets/admin/style.css.scss */
+.container {
+  width: 100%;
+}
+
+/* line 115, ../../../app/assets/stylesheets/admin/style.css.scss */
+#intro {
+  width: 400px;
+  margin: 30px 0 30px 195px;
+}
+
+/* line 120, ../../../app/assets/stylesheets/admin/style.css.scss */
+#intro a {
+  color: #db0909;
+  text-decoration: none;
+}
+
+/* line 125, ../../../app/assets/stylesheets/admin/style.css.scss */
+#intro a:hover {
+  text-decoration: underline;
+}
+
+/* line 129, ../../../app/assets/stylesheets/admin/style.css.scss */
+.quote {
+  font: 24px 'Vollkorn', Arial, sans-serif;
+  font-weight: normal;
+  color: #050011;
+}
+
+/* line 134, ../../../app/assets/stylesheets/admin/style.css.scss */
+.dash {
+  font: 17px 'Share', Tahoma,sans-serif;
+  color: #050011;
+  font-weight: bold;
+}
+
+/* line 140, ../../../app/assets/stylesheets/admin/style.css.scss */
+#stories {
+  margin: 10px 20px 10px 30px;
+}
+
+/* line 144, ../../../app/assets/stylesheets/admin/style.css.scss */
+article {
+  margin: 0;
+  border-bottom: 1px #d0ccbe solid;
+  padding: 20px 10px 120px 0px;
+}
+
+/* line 150, ../../../app/assets/stylesheets/admin/style.css.scss */
+article:first-child {
+  border-top: 1px #d0ccbe solid;
+}
+
+/* line 154, ../../../app/assets/stylesheets/admin/style.css.scss */
+.story-menu {
+  float: left;
+  display: block;
+  margin-top: 10px;
+}
+
+/* line 159, ../../../app/assets/stylesheets/admin/style.css.scss */
+.story-menu ul {
+  list-style: none;
+  margin: 0;
+  text-align: left;
+}
+
+/* line 165, ../../../app/assets/stylesheets/admin/style.css.scss */
+.story-menu ul li {
+  position: relative;
+  line-height: normal;
+  padding: 0 0 12px 5px;
+}
+
+/* line 171, ../../../app/assets/stylesheets/admin/style.css.scss */
+.story-menu ul li a {
+  position: relative;
+  line-height: normal;
+  font: 17px 'Share', Tahoma,sans-serif;
+  color: #db0909;
+  text-transform: capitalize;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+/* line 181, ../../../app/assets/stylesheets/admin/style.css.scss */
+.story-menu ul li a:hover {
+  text-decoration: underline;
+}
+
+/* line 185, ../../../app/assets/stylesheets/admin/style.css.scss */
+.article-content {
+  margin-left: 108px;
+  float: left;
+}
+
+/* line 189, ../../../app/assets/stylesheets/admin/style.css.scss */
+.story-title a {
+  font: 26px 'Vollkorn', Arial, sans-serif;
+  font-weight: normal;
+  color: #db0909 !important;
+}
+
+/*Footer*/
+/* line 196, ../../../app/assets/stylesheets/admin/style.css.scss */
+footer {
+  padding: 0 20px;
+  color: #333;
+  clear: both;
+  margin: 25px 10px 0 10px;
+  color: #d0ccbe;
+}
+
+/* line 204, ../../../app/assets/stylesheets/admin/style.css.scss */
+footer p {
+  text-align: left;
+  margin-left: 168px;
+  padding-bottom: 10px;
+}
+
+/* line 210, ../../../app/assets/stylesheets/admin/style.css.scss */
+footer a {
+  font: 16px 'Vollkorn', Arial, sans-serif;
+  color: #0088cc;
+}
+
+/* line 215, ../../../app/assets/stylesheets/admin/style.css.scss */
+#footer-data {
+  font: 18px 'Vollkorn', Arial, sans-serif;
+  color: #050011;
+}
+
+/* line 220, ../../../app/assets/stylesheets/admin/style.css.scss */
+#footer-tool {
+  font: 18px 'Vollkorn', Arial, sans-serif;
+  color: #b0ac9c;
+}
+
+/* line 225, ../../../app/assets/stylesheets/admin/style.css.scss */
+#footer-tool a {
+  font: 17px 'Vollkorn', Arial, sans-serif;
+  color: #b0ac9c;
+  text-decoration: underline;
+}

@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Share';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Share'), local('Share-Regular'), url(http://themes.googleusercontent.com/static/fonts/share/v1/V0tPyYest8OjeghtuqYjiaCWcynf_cDxXwCLxiixG1c.woff) format('woff');
+}
+@font-face {
+  font-family: 'Share';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Share Bold'), local('Share-Bold'), url(http://themes.googleusercontent.com/static/fonts/share/v1/vq-obeo4cskP3gCfYTOfG3YhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+}

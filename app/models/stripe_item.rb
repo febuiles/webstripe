@@ -4,7 +4,7 @@ class StripeItem < ActiveRecord::Base
   attr_accessible :content, :item_type, :stripe_id, :image, :_destroy, :position
   attr_accessor :_destroy
 
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
 
   default_scope order("created_at ASC")
 
