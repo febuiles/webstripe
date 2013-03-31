@@ -15,6 +15,7 @@ gem "eco"
 gem 'backbone-support', github: 'nhocki/backbone-support'
 gem "less-rails"
 gem "therubyracer"
+gem "jquery-fileupload-rails"
 
 group :development, :test do
   gem "rspec-rails"

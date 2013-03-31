@@ -6,6 +6,9 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
     'click .queue.add': 'createStripeItem'
     'click .queue.remove': 'removeSlide'
     'click .done-slide': 'saveStripe'
+    'click .upload-image-stripe-item': 'uploadImage'
+    'change #input-image-stripe-item': 'submitImage'
+
 
     'focus .stripe-input-content': 'hideBg'
     'blur .stripe-input-content': 'blurHandler'
@@ -42,15 +45,44 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
     @addStripeItem()
 
   addStripeItem: ->
-    if $.trim($('.stripe-input-content').val()) != ''
+    if @model.get("item_type") is "image"
+      @parent.addStripeItem(@model)
+    else if $.trim($('.stripe-input-content').val()) != ''
       attributes =
         position: @collection.length + 1
         content: $.trim($('.stripe-input-content').val())
         item_type: "text"
+      @parent.addStripeItem(attributes)
       # TODO - implement set item type
+      $(@el).find("#new_stripe_item")[0].reset()
 
-    @parent.addStripeItem(attributes)
-    $(@el).find("#new_stripe_item")[0].reset()
+  uploadImage: (e) ->
+    e.preventDefault()
+    e.stopPropagation()
+    @$("#input-image-stripe-item").trigger('click')
+
+  submitImage: ->
+    image_file = @$("form #input-image-stripe-item")[0].files
+    if image_file.length > 0
+      this.$("form").fileupload({ url: @collection.url })
+      this.$("form").fileupload('send', { files: image_file })
+        .success((result, textStatus, jqXHR) =>
+          @model.set(result)
+          @model.set({item_type: "image"})
+          @model.unset("created_at", {silent: true})
+          @model.unset("updated_at", {silent: true})
+
+          @showImage()
+          # @parent.addStripeItem(@model)
+        ).error((jqXHR, textStatus, errorThrown) =>
+          # @model.set({errors: $.parseJSON(jqXHR.responseText)})
+        )
+
+  showImage: ->
+    console.log "show image"
+    content = $(document.createElement('img'))
+    content.attr('src', @model.get('image')['url'])
+    @$("#content").prepend(content)
 
   leave: ->
     console.log "leave Show Stripe Item"

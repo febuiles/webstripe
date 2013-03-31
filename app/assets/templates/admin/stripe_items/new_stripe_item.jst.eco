@@ -1,8 +1,9 @@
 <!--stripe-container-->
 	<div class="spripe-box-top">
-	  <form id="new_stripe_item" action="#">
+	  <form id="new_stripe_item" name="stripe-item" enctype="multipart/form-data">
 			<div class="stripe-input">
-				<textarea id="stripe-input-content" class="stripe-input-content">  </textarea>
+				<textarea id="stripe-input-content" class="stripe-input-content"></textarea>
+				<div id="content" />
 			</div>
 			<div class="stripe-options">
 				<div class="stripe-number"><span class="number"><%= @position %></span></div>
@@ -13,7 +14,8 @@
 				</ul>
 			</div>
 			<div class="add-image-container">
-				<p>or <a href="#">select an image</a> to upload</p>
+				<input type="file" name="stripe_item[image]" id="input-image-stripe-item">
+				<p>or <a href="" class="upload-image-stripe-item">select an image</a> to upload</p>
 			</div>
 		</div>
 		<div class="stripe-box-bottom">

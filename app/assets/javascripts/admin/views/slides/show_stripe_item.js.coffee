@@ -18,7 +18,7 @@ class StripeAdmin.Views.ShowStripeItem extends Support.CompositeView
   addContent: ->
     if (@model.get("item_type") is "image")
       content = $(document.createElement('img'))
-      content.attr('src', @model.get('image'))
+      content.attr('src', @model.get('image')['url'])
 
     else if (@model.get("item_type") is "text")
       content = $(document.createElement('div'))

@@ -27,7 +27,8 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
 
   createNewSlideForm: ->
     console.log "create new"
-    view = new StripeAdmin.Views.NewStripeItem({collection: @collection})
+    stripe_item = new @collection.model()
+    view = new StripeAdmin.Views.NewStripeItem({model: stripe_item, collection: @collection})
     @appendChildTo(view, ".new-stripe-item")
 
   addStripeItem: (stripeItemAttributes) ->
