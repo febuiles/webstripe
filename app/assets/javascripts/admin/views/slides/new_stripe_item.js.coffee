@@ -8,7 +8,7 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
     'click .done-slide': 'saveStripe'
 
     'focus .stripe-input-content': 'hideBg'
-    'blur .stripe-input-content': 'showBg'
+    'blur .stripe-input-content': 'blurHandler'
 
   initialize: ->
     @collection.on('update_position', @render, this)
@@ -19,16 +19,7 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
 
   createStripeItem: (e) ->
     e.preventDefault()
-
-    if $.trim($('.stripe-input-content').val()) != ''
-      attributes =
-        position: @collection.length + 1
-        content: $.trim($('.stripe-input-content').val())
-        item_type: "text"
-        # TODO - implement set item type
-
-      @parent.addStripeItem(attributes)
-      $(@el).find("#new_stripe_item")[0].reset()
+    @addStripeItem()
 
   removeSlide: (e) ->
     e.preventDefault()
@@ -45,6 +36,21 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
 
   saveStripe: ->
     console?.log "Set stripe on published status"
+
+  blurHandler: ->
+    @showBg()
+    @addStripeItem()
+
+  addStripeItem: ->
+    if $.trim($('.stripe-input-content').val()) != ''
+      attributes =
+        position: @collection.length + 1
+        content: $.trim($('.stripe-input-content').val())
+        item_type: "text"
+      # TODO - implement set item type
+
+    @parent.addStripeItem(attributes)
+    $(@el).find("#new_stripe_item")[0].reset()
 
   leave: ->
     console.log "leave Show Stripe Item"
