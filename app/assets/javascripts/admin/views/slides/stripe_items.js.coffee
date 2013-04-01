@@ -26,7 +26,7 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
     @collection.each(@renderSingleSlide)
 
   createNewSlideForm: ->
-    console.log "create new"
+    $(@el).find(".new-stripe-item").empty()
     stripe_item = new @collection.model()
     view = new StripeAdmin.Views.NewStripeItem({model: stripe_item, collection: @collection})
     @appendChildTo(view, ".new-stripe-item")
@@ -40,6 +40,7 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
         @renderSingleSlide(stripe_item)
         stripe_item.trigger("add_content")
         @collection.trigger("update_position")
+        @createNewSlideForm()
       error: ->
         @handleError
 

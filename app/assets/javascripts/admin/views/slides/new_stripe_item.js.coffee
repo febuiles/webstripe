@@ -48,14 +48,15 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
   addStripeItem: ->
     if @model.get("item_type") is "image"
       @parent.addStripeItem(@model)
-    else if $.trim($('.stripe-input-content').val()) != ''
-      attributes =
-        position: @collection.length + 1
-        content: $.trim($('.stripe-input-content').val())
-        item_type: "text"
-      @parent.addStripeItem(attributes)
-      # TODO - implement set item type
-      $(@el).find("#new_stripe_item")[0].reset()
+    else if @model.get("item_type") is "text"
+      if $.trim($('.stripe-input-content').val()) != ''
+        attributes =
+          position: @collection.length + 1
+          content: $.trim($('.stripe-input-content').val())
+        @model.set(attributes)
+        @parent.addStripeItem(@model)
+        # TODO - implement set item type
+        $(@el).find("#new_stripe_item")[0].reset()
 
   uploadImage: (e) ->
     e.preventDefault()
@@ -83,13 +84,8 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
   showImage: ->
     @$('.loading').hide()
     @$('.stripe-input-content').attr("disabled","disabled");
-    console.log "show image"
-    # content = $(document.createElement('img'))
-    # content.attr('src', @model.get('image')['url'])
-    console.log @model.get('image')['url']
     url_image = @model.get('image')['url']
     @$('.stripe-input-content').css("background", "url('"+url_image+"') top left no-repeat")
 
   leave: ->
-    console.log "leave Show Stripe Item"
     @collection.off("update_position", @render, this)
