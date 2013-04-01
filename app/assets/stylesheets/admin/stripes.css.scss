@@ -214,16 +214,24 @@ input[type="text"] {
 	color: #050011;
 }
 
-
 .show-stripe-item {
 	opacity: 0.5;
 	width: 510px;
 	margin: 0 auto;
+	margin-bottom: 8px;
 	padding: 10px;
-	height: 150px;
+	min-height: 150px;
 	border: 10px solid #d0ccbe;
 }
 
+
 #input-image-stripe-item{
     display:none
+}
+
+.loading {
+	font: 14px 'Share', Arial, sans-serif;
+	float: right;
+	display: block;
+	margin-right: 20px;
 }

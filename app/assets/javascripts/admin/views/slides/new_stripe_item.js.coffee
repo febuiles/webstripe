@@ -18,6 +18,7 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
 
   render: ->
     $(@el).html @template(position: @collection.length + 1)
+    @$(".loading").hide()
     this
 
   createStripeItem: (e) ->
@@ -63,6 +64,7 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
 
   submitImage: ->
     image_file = @$("form #input-image-stripe-item")[0].files
+    @$('.loading').show()
     if image_file.length > 0
       this.$("form").fileupload({ url: @collection.url })
       this.$("form").fileupload('send', { files: image_file })
@@ -79,10 +81,14 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
         )
 
   showImage: ->
+    @$('.loading').hide()
+    @$('.stripe-input-content').attr("disabled","disabled");
     console.log "show image"
-    content = $(document.createElement('img'))
-    content.attr('src', @model.get('image')['url'])
-    @$("#content").prepend(content)
+    # content = $(document.createElement('img'))
+    # content.attr('src', @model.get('image')['url'])
+    console.log @model.get('image')['url']
+    url_image = @model.get('image')['url']
+    @$('.stripe-input-content').css("background", "url('"+url_image+"') top left no-repeat")
 
   leave: ->
     console.log "leave Show Stripe Item"
