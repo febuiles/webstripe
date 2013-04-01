@@ -71,7 +71,7 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
       this.$("form").fileupload('send', { files: image_file })
         .success((result, textStatus, jqXHR) =>
           @model.set(result)
-          @model.set({item_type: "image"})
+          @model.set({item_type: "image", position: @collection.length + 1})
           @model.unset("created_at", {silent: true})
           @model.unset("updated_at", {silent: true})
 
