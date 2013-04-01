@@ -17,7 +17,7 @@
 				<input type="file" name="stripe_item[image]" id="input-image-stripe-item">
 				<p>or <a href="" class="upload-image-stripe-item">select an image</a> to upload</p>
 			</div>
-			<div class="loading">LOADING...</div>
+			<div class="loading">LOADING...<img src ="/assets/ajax-loader.gif"/></div>
 		</div>
 		<div class="stripe-box-bottom">
 			<div class="stripe-bottom-options">

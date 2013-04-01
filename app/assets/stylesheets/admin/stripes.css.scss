@@ -232,6 +232,11 @@ input[type="text"] {
 .loading {
 	font: 14px 'Share', Arial, sans-serif;
 	float: right;
-	display: block;
 	margin-right: 20px;
+	margin-top: -25px;
+	
+	img {
+		margin-left: 5px;
+		margin-top: -3px;
+	}
 }
