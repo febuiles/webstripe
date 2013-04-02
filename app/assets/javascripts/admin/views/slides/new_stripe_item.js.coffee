@@ -85,7 +85,7 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
     @$('.loading').hide()
     @$('.stripe-input-content').attr("disabled","disabled");
     url_image = @model.get('image')['url']
-    @$('.stripe-input-content').css("background", "url('"+url_image+"') top left no-repeat")
+    @$('.stripe-input-content').css("background", "url('"+url_image+"') center center no-repeat")
 
   leave: ->
     @collection.off("update_position", @render, this)
