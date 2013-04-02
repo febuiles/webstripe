@@ -214,6 +214,7 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   less-rails
+  nokogiri
   pg
   pry
   rails (= 3.2.13)

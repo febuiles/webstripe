@@ -38,9 +38,8 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
       while: true
       success: (stripe_item) =>
         @renderSingleSlide(stripe_item)
-        stripe_item.trigger("add_content")
-        @collection.trigger("update_position")
         @createNewSlideForm()
+        stripe_item.trigger("add_content")
       error: ->
         @handleError
 
@@ -49,3 +48,7 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
       errors = $.parseJSON(response, responseText).errors
       for attribute, messages of errors
         alert "#{attribute} #{message}" for message in messages
+
+  leave: ->
+    @collection.off('reset', @renderSlides, this)
+    @collection.off('add', @renderSingleSlide, this)

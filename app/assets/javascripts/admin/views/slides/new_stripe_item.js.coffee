@@ -43,7 +43,6 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
 
   blurHandler: ->
     @showBg()
-    @addStripeItem()
 
   addStripeItem: ->
     if @model.get("item_type") is "image"
@@ -55,8 +54,6 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
           content: $.trim($('.stripe-input-content').val())
         @model.set(attributes)
         @parent.addStripeItem(@model)
-        # TODO - implement set item type
-        $(@el).find("#new_stripe_item")[0].reset()
 
   uploadImage: (e) ->
     e.preventDefault()

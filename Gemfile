@@ -16,6 +16,7 @@ gem 'backbone-support', github: 'nhocki/backbone-support'
 gem "less-rails"
 gem "therubyracer"
 gem "jquery-fileupload-rails"
+gem "nokogiri"
 
 group :development, :test do
   gem "rspec-rails"
