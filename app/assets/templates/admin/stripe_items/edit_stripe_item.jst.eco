@@ -17,15 +17,8 @@
 				<input type="file" name="stripe_item[image]" id="input-image-stripe-item">
 				<p>or <a href="" class="upload-image-stripe-item">select an image</a> to upload</p>
 			</div>
-			<div class="loading"><img src ="/assets/ajax-loader.gif"/></div>
+			<div class="loading">LOADING...<img src ="/assets/ajax-loader.gif"/></div>
 		</div>
-		<div class="stripe-box-bottom">
-			<div class="stripe-bottom-options">
-				<ul id="stripe-bottom-menu">
-					<li class="new-slide queue add"><a href=""><img src="/assets/addslideicon.png" alt="Add new slide"/>Add new slide</a></li>
-					<li class="done-slide"><a href=""><img src="/assets/doneicon.png" alt="Done"/>Done</a></li>
-				</ul>
-			</div>
 		</form>
 	</div>
 <!--end-stripe-container-->

@@ -8,6 +8,8 @@ class Stripe < ActiveRecord::Base
 
   mount_uploader :company_logo, ImageUploader
 
+  default_scope order("state, updated_at DESC")
+
   accepts_nested_attributes_for :stripe_items,
                                 :reject_if => lambda { |item| StripeItem.new(item).invalid? },
                                 :allow_destroy => true

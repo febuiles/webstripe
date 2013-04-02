@@ -47,7 +47,7 @@ class Admin::StripesController < ApplicationController
     respond_to do |format|
       if @stripe.update_attributes(params[:stripe])
         format.html { redirect_to admin_stripe_path(@stripe), :notice => "Your stripe has been updated." }
-        format.json { head :no_content }
+        format.json { render json: { redirect: admin_stripes_path } }
       else
         format.html { render :edit }
         format.json { render json: @stripe.errors, status: :unprocessable_entity }

@@ -27,18 +27,22 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
 
   createNewSlideForm: ->
     $(@el).find(".new-stripe-item").empty()
+    $(@el).find(".save-stripe").empty()
     stripe_item = new @collection.model()
     view = new StripeAdmin.Views.NewStripeItem({model: stripe_item, collection: @collection})
     @appendChildTo(view, ".new-stripe-item")
 
-  addStripeItem: (stripeItemAttributes) ->
-    console?.log("Creating new stripe item", stripeItemAttributes)
-    @collection.create stripeItemAttributes,
+  addStripeItem: (stripe_item, isDone) ->
+    console?.log("Creating new stripe item", stripe_item)
+    @collection.create stripe_item,
       silent: true
       while: true
       success: (stripe_item) =>
         @renderSingleSlide(stripe_item)
-        @createNewSlideForm()
+        if not isDone
+          @createNewSlideForm()
+        else
+          @createSaveForm()
         stripe_item.trigger("add_content")
       error: ->
         @handleError
@@ -48,6 +52,14 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
       errors = $.parseJSON(response, responseText).errors
       for attribute, messages of errors
         alert "#{attribute} #{message}" for message in messages
+
+  createSaveForm: ->
+    $(@el).find(".new-stripe-item").empty()
+    $(@el).find(".save-stripe").empty()
+    stripe_item = @collection.first()
+    stripe = stripe_item.get('stripe_id')
+    view = new StripeAdmin.Views.SaveStripe({model: stripe})
+    @appendChildTo(view,".save-stripe")
 
   leave: ->
     @collection.off('reset', @renderSlides, this)

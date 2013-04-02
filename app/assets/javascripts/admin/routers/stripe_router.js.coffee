@@ -10,4 +10,4 @@ class StripeAdmin.Routers.Stripe extends Support.SwappingRouter
     @stripe_items = @stripe.get('stripe_items')
 
   new: ->
-    @swap(new StripeAdmin.Views.StripeItems(collection: @stripe_items))
+    @swap(new StripeAdmin.Views.StripeItems({collection: @stripe_items}))

@@ -23,7 +23,7 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
 
   createStripeItem: (e) ->
     e.preventDefault()
-    @addStripeItem()
+    @addStripeItem(false)
 
   removeSlide: (e) ->
     e.preventDefault()
@@ -38,26 +38,29 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
       if ($.trim($(this).val()) == '')
         $(this).css("background", "url('/assets/stripeinputbg.png') top left no-repeat")
 
-  saveStripe: ->
-    console?.log "Set stripe on published status"
+  saveStripe: (e) ->
+    e.preventDefault()
+    e.stopPropagation()
+    @addStripeItem(true)
 
   blurHandler: ->
     @showBg()
 
-  addStripeItem: ->
+  addStripeItem: (isDone) ->
     if @model.get("item_type") is "image"
-      @parent.addStripeItem(@model)
+      @parent.addStripeItem(@model, isDone)
     else if @model.get("item_type") is "text"
       if $.trim($('.stripe-input-content').val()) != ''
         attributes =
           position: @collection.length + 1
           content: $.trim($('.stripe-input-content').val())
         @model.set(attributes)
-        @parent.addStripeItem(@model)
+        @parent.addStripeItem(@model, isDone)
 
   uploadImage: (e) ->
     e.preventDefault()
     e.stopPropagation()
+    $(@el).find("#new_stripe_item")[0].reset()
     @$("#input-image-stripe-item").trigger('click')
 
   submitImage: ->
