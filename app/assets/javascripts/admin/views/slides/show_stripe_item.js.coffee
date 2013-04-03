@@ -10,7 +10,7 @@ class StripeAdmin.Views.ShowStripeItem extends Support.CompositeView
     @model.on('add_content', @addContent, this)
 
   render: ->
-    $(@el).html(@template(stripe_item: @model))
+    $(@el).html(@template({stripe_item: @model, position: @model.get('position')}))
       # attr('id', "stripe-item-#{@model.get('id')}").
       # addClass(@model.class()).
     this

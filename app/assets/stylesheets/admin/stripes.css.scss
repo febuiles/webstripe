@@ -222,6 +222,14 @@ input[type="text"] {
 	margin-bottom: 8px;
 	min-height: 150px;
 	border: 10px solid #d0ccbe;
+	float: left;
+}
+
+.stripe-number-right{
+	float: right;
+	font: 14px 'Share', Arial, sans-serif;
+	font-weight: bold;
+	opacity: 0.5;
 }
 
 
