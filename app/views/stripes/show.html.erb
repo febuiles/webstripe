@@ -18,7 +18,7 @@
       <% end %>
     </div>
   <% end %>
-  <div class="item empty-stripe">
+  <div id="empty-stripe" class="item">
   </div>
 </div>
 
@@ -39,5 +39,7 @@
     div.header, .item, div.empty-stripe { border-color: #<%= @stripe.stripe_bg_color %> !important; }
     div.header a { color: #<%= @stripe.fg_color %> !important; }
     div.header span, div.stripe p { color: #<%= @stripe.text_color %> !important; }
+    div#empty-stripe { background-color: #<%= @stripe.page_bg_color %> !important; }
+    div#empty-stripe { border-color: #<%= @stripe.page_bg_color %> !important; }
   </style>
 <% end %>
