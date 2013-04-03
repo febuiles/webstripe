@@ -36,6 +36,13 @@ div.header
     margin-right: 40px
     margin-top: -25px
 
+div.empty-stripe
+  height: 300px
+  width: 300px
+  z-index: -1 !important
+  background-color: $light !important
+  border-color: $light !important
+
 #show-stripe
   margin: 0 auto
   text-align: center
@@ -52,6 +59,7 @@ div.stripe
   width: 760px
   margin: 0 auto
   .item
+    z-index: 2
     position: absolute
     display: inline-block
     text-align: center
@@ -83,6 +91,7 @@ body[data-alignment="horizontal"]
     min-width: 350px !important
     position: absolute
 footer
+  z-index: 3
   height: 75px
   background-color: $dark
   width: 100%

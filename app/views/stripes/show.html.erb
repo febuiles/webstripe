@@ -18,6 +18,8 @@
       <% end %>
     </div>
   <% end %>
+  <div class="item empty-stripe">
+  </div>
 </div>
 
 <% unless @stripe.premium? %>
@@ -33,8 +35,8 @@
 <% if @stripe.premium? %>
   <style>
     body { background-color: #<%= @stripe.page_bg_color %> !important; }
-    div.header, div.stripe .item { background-color: #<%= @stripe.stripe_bg_color %> !important; }
-    div.header, .item { border-color: #<%= @stripe.stripe_bg_color %> !important; }
+    div.header, div.stripe .item, div.empty-stripe { background-color: #<%= @stripe.stripe_bg_color %> !important; }
+    div.header, .item, div.empty-stripe { border-color: #<%= @stripe.stripe_bg_color %> !important; }
     div.header a { color: #<%= @stripe.fg_color %> !important; }
     div.header span, div.stripe p { color: #<%= @stripe.text_color %> !important; }
   </style>
