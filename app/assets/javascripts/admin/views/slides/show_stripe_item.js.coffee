@@ -11,8 +11,6 @@ class StripeAdmin.Views.ShowStripeItem extends Support.CompositeView
 
   render: ->
     $(@el).html(@template({stripe_item: @model, position: @model.get('position')}))
-      # attr('id', "stripe-item-#{@model.get('id')}").
-      # addClass(@model.class()).
     this
 
   addContent: ->
@@ -37,10 +35,13 @@ class StripeAdmin.Views.ShowStripeItem extends Support.CompositeView
 
   focusStripeItem: (e) ->
     e.preventDefault()
-    console?.log("Focusing on tool #{@model.get('id')} - #{@model.get('position')}")
-    # TODO- implements what happens when is focused.
+    console?.log("Focusing on stripe_item #{@model.get('id')} - #{@model.get('position')}")
+    edit_view = new StripeAdmin.Views.EditStripeItem({model: @model, collection: @collection})
+    @leave()
+    $(@el).empty()
+    $(@el).append(edit_view.render().el)
 
   leave: ->
-    console.log "leave Show Stripe Item"
+    $(@el).off()
     @model.off("change", @render, this)
     @model.off("add_content", @add_content, this)

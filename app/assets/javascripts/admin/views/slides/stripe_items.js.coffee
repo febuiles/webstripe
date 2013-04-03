@@ -1,10 +1,11 @@
 class StripeAdmin.Views.StripeItems extends Support.CompositeView
   template: JST['admin/stripe_items/stripe']
-  el: "<div class='stripe' id='stripe-new' />"
+  el: "<div class='stripe' id='stripe' />"
 
   initialize: ->
     @collection.on('reset', @renderSlides, this)
     @collection.on('add', @renderSingleSlide, this)
+    @collection.on('something', @renderSlides, this)
 
   render: ->
     console?.log 'Rendering Stripe#new'
@@ -18,7 +19,7 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
     console?.log 'Leaving Stripe#new'
 
   renderSingleSlide: (stripe_item) =>
-    view = new StripeAdmin.Views.ShowStripeItem({model: stripe_item, collection: @collection})
+    view = new StripeAdmin.Views.StripeItem({model: stripe_item, collection: @collection})
     @appendChildTo(view, ".stripe-items")
 
   renderSlides: ->
@@ -43,7 +44,6 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
           @createNewSlideForm()
         else
           @createSaveForm()
-        stripe_item.trigger("add_content")
       error: ->
         @handleError
 
@@ -64,3 +64,4 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
   leave: ->
     @collection.off('reset', @renderSlides, this)
     @collection.off('add', @renderSingleSlide, this)
+    @collection.off('something', @renderSlides, this)

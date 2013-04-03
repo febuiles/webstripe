@@ -38,3 +38,6 @@ class StripeAdmin.Views.SaveStripe extends Support.CompositeView
     e.preventDefault()
     e.stopPropagation()
     @parent.createNewSlideForm()
+
+  leave: ->
+    @remove()

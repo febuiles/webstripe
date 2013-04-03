@@ -4,12 +4,3 @@ class StripeAdmin.Models.StripeItem extends Backbone.RelationalModel
 
   defaults:
     item_type: "text"
-
-  drawNewLink: ->
-    @trigger("drawLink")
-
-  hideRemoveLink: ->
-    @trigger("removeLink")
-
-  showRemoveLink: ->
-    @trigger("showLink")

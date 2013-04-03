@@ -30,7 +30,7 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
     $(@el).find("#new_stripe_item")[0].reset()
 
   hideBg: ->
-    $('.stripe-input-content').focus ->
+    @$('.stripe-input-content').focus ->
       $(this).css("background", "none")
 
   showBg: ->
@@ -50,10 +50,10 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
     if @model.get("item_type") is "image"
       @parent.addStripeItem(@model, isDone)
     else if @model.get("item_type") is "text"
-      if $.trim($('.stripe-input-content').val()) != ''
+      if $.trim(@$('.stripe-input-content').val()) != ''
         attributes =
           position: @collection.length + 1
-          content: $.trim($('.stripe-input-content').val())
+          content: $.trim(@$('.stripe-input-content').val())
         @model.set(attributes)
         @parent.addStripeItem(@model, isDone)
 
@@ -76,9 +76,8 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
           @model.unset("updated_at", {silent: true})
 
           @showImage()
-          # @parent.addStripeItem(@model)
         ).error((jqXHR, textStatus, errorThrown) =>
-          # @model.set({errors: $.parseJSON(jqXHR.responseText)})
+          # @model.set({errors: $.parseJSON(jqXHR.responseText)})
         )
 
   showImage: ->
@@ -88,4 +87,5 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
     @$('.stripe-input-content').css("background", "url('"+url_image+"') center center no-repeat")
 
   leave: ->
-    @collection.off("update_position", @render, this)
+    @collection.off('update_position', @render, this)
+    @remove()
