@@ -5,7 +5,7 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
   initialize: ->
     @collection.on('reset', @renderSlides, this)
     @collection.on('add', @renderSingleSlide, this)
-    @collection.on('something', @renderSlides, this)
+    @collection.on('render_slides', @renderSlides, this)
 
   render: ->
     console?.log 'Rendering Stripe#new'
@@ -64,4 +64,4 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
   leave: ->
     @collection.off('reset', @renderSlides, this)
     @collection.off('add', @renderSingleSlide, this)
-    @collection.off('something', @renderSlides, this)
+    @collection.off('render_slides', @renderSlides, this)

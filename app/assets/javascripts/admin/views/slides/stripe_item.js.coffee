@@ -19,7 +19,6 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     $(@el).html(@template({stripe_item: @model, position: @model.get('position')}))
     @renderShow()
     @addContent()
-    @setPosition()
     this
 
   renderEdit: ->
@@ -61,7 +60,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     e.preventDefault()
     @model.destroy()
     @collection.trigger("update_position")
-    @collection.trigger("something")
+    @collection.trigger("render_slides")
 
   hideBg: ->
     @$('.stripe-input-content').focus ->
@@ -89,6 +88,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   uploadImage: (e) ->
     e.preventDefault()
     e.stopPropagation()
+    @$('.stripe-input-content').val('')
     @$("#input-image-stripe-item").trigger('click')
 
   submitImage: ->
