@@ -40,8 +40,12 @@
 .new-stripe-container, .done-stripe-container{
 		width: 570px;
 		margin: 0 auto;
-		padding-top: 50px;
+		padding-top: 30px;
 	}
+	
+.done-stripe-container {
+	padding-top: 0;
+}
 
 .spripe-box-top {
 		width: 550px;
@@ -151,7 +155,7 @@ input[type="text"] {
 	}
 
 .stripe-box-bottom {
-		width: 510px;
+		width: 520px;
 		margin: 0 auto;
 		height: 150px;
 		border-left: 10px solid #d0ccbe;
@@ -217,9 +221,10 @@ input[type="text"] {
 
 .show-stripe-item {
 	opacity: 0.5;
-	width: 530px;
+	width: 520px;
 	margin: 0 auto;
-	margin-bottom: 8px;
+	margin-bottom: 7px;
+	margin-left: 15px;
 	min-height: 150px;
 	border: 10px solid #d0ccbe;
 	float: left;
