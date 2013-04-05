@@ -61,6 +61,16 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
     view = new StripeAdmin.Views.SaveStripe({model: stripe})
     @appendChildTo(view,".save-stripe")
 
+  updateStripeView: ->
+    @children.each(@updateStripeItem)
+    @children.each(@renderShow)
+
+  renderShow: (view) =>
+    view.renderShow()
+
+  updateStripeItem: (view) =>
+    view.updateStripeItem()
+
   leave: ->
     @collection.off('reset', @renderSlides, this)
     @collection.off('add', @renderSingleSlide, this)

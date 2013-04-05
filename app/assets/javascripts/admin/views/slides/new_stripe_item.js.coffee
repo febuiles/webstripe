@@ -86,6 +86,12 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
     url_image = @model.get('image')['url']
     @$('.stripe-input-content').css("background", "url('"+url_image+"') center center no-repeat")
 
+  renderShow: ->
+    console.log "hola"
+
+  updateStripeItem: ->
+    console.log "hola save stripe item"
+
   leave: ->
     @collection.off('update_position', @render, this)
     @remove()

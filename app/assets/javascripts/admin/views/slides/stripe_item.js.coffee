@@ -54,6 +54,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   focusStripeItem: (e) ->
     e.preventDefault()
     console.log "focus stripe item"
+    @parent.updateStripeView()
     @renderEdit()
 
   removeSlide: (e) ->
@@ -80,7 +81,6 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     else if @model.get("item_type") is "text"
       if $.trim($('.stripe-input-content').val()) != ''
         attributes =
-          # position: @collection.length + 1
           content: $.trim($('.stripe-input-content').val())
         @model.set(attributes)
         @parent.addStripeItem(@model)
@@ -119,6 +119,25 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @model.unset("updated_at", {silent: true})
     @model.set({position: @collection.indexOf(@model)})
     @model.save()
+
+  updateStripeItem: ->
+    if @model.get("item_type") is "image"
+      @saveStripeItem(@model)
+    else if @model.get("item_type") is "text"
+      if $.trim(@$('.stripe-input-content').val()) != ''
+        attributes =
+          content: $.trim(@$('.stripe-input-content').val())
+        @model.set(attributes)
+        @saveStripeItem(@model)
+
+  saveStripeItem: ->
+    console?.log("Saving stripe item")
+    @model.save()
+    @render()
+
+  renderSingleSlide: (stripe_item) =>
+    view = new StripeAdmin.Views.StripeItem({model: stripe_item, collection: @collection})
+    @appendChildTo(view, ".stripe-items")
 
   leave: ->
     @model.off('remove', @remove, this)
