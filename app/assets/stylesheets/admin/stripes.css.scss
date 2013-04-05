@@ -155,7 +155,7 @@ input[type="text"] {
 	}
 
 .stripe-box-bottom {
-		width: 520px;
+		width: 510px;
 		margin: 0 auto;
 		height: 150px;
 		border-left: 10px solid #d0ccbe;
@@ -176,7 +176,7 @@ input[type="text"] {
 	text-decoration: none;
 
 	img {
-		margin-right: 5px;
+		margin-right: 7px;
 		margin-bottom: 5px;
 	}
 }
@@ -221,10 +221,10 @@ input[type="text"] {
 
 .show-stripe-item {
 	opacity: 0.5;
-	width: 520px;
+	width: 510px;
 	margin: 0 auto;
 	margin-bottom: 7px;
-	margin-left: 15px;
+	margin-left: 20px;
 	min-height: 150px;
 	border: 10px solid #d0ccbe;
 	float: left;
@@ -232,9 +232,12 @@ input[type="text"] {
 
 .stripe-number-right{
 	float: right;
+	margin-top: 9px;
 	font: 14px 'Share', Arial, sans-serif;
 	font-weight: bold;
-	opacity: 0.5;
+	border: 2px solid #cac7b8;
+	padding: 0px 4px 0px 4px;
+	color: #cac7b8;
 }
 
 
