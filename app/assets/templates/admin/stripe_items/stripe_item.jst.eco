@@ -12,6 +12,7 @@
 	<div class="spripe-box-top">
 		<form id="edit_stripe_item" name="stripe-item" enctype="multipart/form-data">
 			<div class="stripe-input">
+				<input type="hidden" name="stripe_item[id]" id="stripe_item_id" value="<%= @stripe_item.get('id')%>">
 				<textarea id="stripe-input-content" class="stripe-input-content"><%= @stripe_item.get('content') %></textarea>
 			</div>
 			<div class="stripe-options">

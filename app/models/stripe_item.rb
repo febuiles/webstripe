@@ -29,9 +29,12 @@ class StripeItem < ActiveRecord::Base
   private
 
   def update_item_type
+    print content
+    print item_type
     if (item_type == "text")
       doc = Nokogiri::HTML(content)
       if (not(doc.xpath("//iframe").empty? and doc.xpath("//embed").empty?))
+        print "embed"
         self.item_type = "embed"
       end
     end
