@@ -50,7 +50,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     else if (@model.get("item_type") is "embed")
       content = $(document.createElement('div'))
       content.attr('id', "content_embed")
-      embed = $(@model.get('content')).attr('width', "530")
+      embed = $(@model.get('content')).attr('width', "510")
       embed = embed.attr('height', "315")
       content.prepend(embed)
 

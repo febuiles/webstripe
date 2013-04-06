@@ -26,7 +26,7 @@ class StripeAdmin.Views.ShowStripeItem extends Support.CompositeView
     else if (@model.get("item_type") is "embed")
       content = $(document.createElement('div'))
       content.attr('id', "content_embed")
-      embed = $(@model.get('content')).attr('width', "530")
+      embed = $(@model.get('content')).attr('width', "510")
       embed = embed.attr('height', "315")
       content.prepend(embed)
       console.log "is embed"
