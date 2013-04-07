@@ -37,7 +37,7 @@ class StripeAdmin.Views.SaveStripe extends Support.CompositeView
   backToEditor: (e) ->
     e.preventDefault()
     e.stopPropagation()
-    @parent.createNewSlideForm()
+    @parent.render()
 
   renderShow: ->
 

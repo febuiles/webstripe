@@ -130,7 +130,6 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
         @saveStripeItem(@model)
 
   saveStripeItem: ->
-    console?.log("Saving stripe item")
     @model.unset("created_at", {silent: true})
     @model.unset("updated_at", {silent: true})
     @model.unset("edit", {silent: true})

@@ -15,9 +15,10 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
 
   initialize: ->
     @collection.on('update_position', @render, this)
+    @model.on('remove', @remove, this)
 
   render: ->
-    $(@el).html @template(position: @collection.length + 1)
+    $(@el).html @template(position: @collection.length)
     @$(".loading").hide()
     this
 
@@ -27,7 +28,8 @@ class StripeAdmin.Views.NewStripeItem extends Support.CompositeView
 
   removeSlide: (e) ->
     e.preventDefault()
-    $(@el).find("#new_stripe_item")[0].reset()
+    console.log "remove slide"
+    # @model.destroy()
 
   hideBg: ->
     @$('.stripe-input-content').focus ->

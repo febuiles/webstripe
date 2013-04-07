@@ -18,13 +18,21 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
     @collection.off()
     console?.log 'Leaving Stripe#new'
 
+  renderSlides: ->
+    $(@el).find(".stripe-items").empty()
+    @collection.each(@renderSingleSlide)
+
   renderSingleSlide: (stripe_item) =>
     view = new StripeAdmin.Views.StripeItem({model: stripe_item, collection: @collection})
     @appendChildTo(view, ".stripe-items")
 
-  renderSlides: ->
+  renderShowSlides: ->
     $(@el).find(".stripe-items").empty()
-    @collection.each(@renderSingleSlide)
+    @collection.each(@renderSingleShowSlide)
+
+  renderSingleShowSlide: (stripe_item) =>
+    view = new StripeAdmin.Views.ShowStripeItem({model: stripe_item, collection: @collection})
+    @appendChildTo(view, ".stripe-items")
 
   createNewSlideForm: ->
     $(@el).find(".new-stripe-item").empty()
@@ -43,6 +51,7 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
         if not isDone
           @createNewSlideForm()
         else
+          @renderShowSlides()
           @createSaveForm()
       error: ->
         @handleError
