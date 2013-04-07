@@ -109,7 +109,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @$('.loading').hide()
     @$('.stripe-input-content').attr("disabled","disabled");
     url_image = @model.get('image')['url']
-    @$('.stripe-input-content').css("background", "url('"+url_image+"') top left no-repeat")
+    @$('.stripe-input-content').css("background", "url('"+url_image+"') center center no-repeat")
 
   setPosition: ->
     @model.unset("created_at", {silent: true})
