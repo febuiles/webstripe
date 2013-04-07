@@ -6,6 +6,8 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     'click .wrap-stripe-item-show': 'focusStripeItem'
     'click .queue.remove': 'removeSlide'
     'click .upload-image-stripe-item': 'uploadImage'
+    'click .arrow-up' : 'moveUp'
+    'click .arrow-down' : 'moveDown'
     'change #input-image-stripe-item': 'submitImage'
 
     'focus .stripe-input-content': 'hideBg'
@@ -13,18 +15,31 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
 
   initialize: ->
     @model.on('remove', @remove, this)
-    @model.on('done', @done, this)
     @model.set({edit: false})
     @setPosition()
 
   render: ->
     $(@el).html(@template({stripe_item: @model, position: @model.get('position')}))
+
     if @model.get('edit') is true
       @renderEdit()
+      @moveUpHandler()
     else
       @renderShow()
     @addContent()
     this
+
+  moveUpHandler: ->
+    index = @model.get('position')
+    length = @collection.length
+
+    if index is 0
+      @$(".arrow-up").hide()
+      @$(".arrow-down").show()
+
+    if @model.isLastStripeItem(index, length)
+      @$(".arrow-up").show()
+      @$(".arrow-down").hide()
 
   renderEdit: ->
     @$(".wrap-stripe-item-show").hide()
@@ -58,10 +73,9 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
 
   focusStripeItem: (e) ->
     e.preventDefault()
-    console.log "focus stripe item"
     @parent.updateStripeView()
     @model.set({edit: true})
-    @renderEdit()
+    @render()
 
   removeSlide: (e) ->
     e.preventDefault()
@@ -141,9 +155,9 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
         @model.set({item_type: item_type})
         @render()
 
-  done: ->
-    @renderEdit()
+  moveUp: ->
+
+  moveDown: ->
 
   leave: ->
     @model.off('remove', @remove, this)
-    @model.off('done', @done, this)
