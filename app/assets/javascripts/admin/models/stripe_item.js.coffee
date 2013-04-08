@@ -1,5 +1,5 @@
 class StripeAdmin.Models.StripeItem extends Backbone.RelationalModel
-
+  urlRoot: '/admin/stripe_items'
   defaults:
     item_type: "text"
 
