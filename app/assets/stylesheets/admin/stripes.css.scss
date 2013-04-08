@@ -51,7 +51,8 @@
 		width: 550px;
 		height: 350px;
 		border: 10px solid #050011;
-		margin-top: 8px;
+		z-index: 2;
+		position: relative;
 	}
 
 input[type="text"] {
@@ -156,14 +157,14 @@ input[type="text"] {
 	}
 
 .stripe-box-bottom {
-		width: 510px;
-		margin: 0 auto;
-		height: 150px;
-		border-left: 10px solid #d0ccbe;
-		border-right: 10px solid #d0ccbe;
-		border-bottom: 10px solid #d0ccbe;
-
-	}
+	width: 510px;
+	margin: 0 auto;
+	height: 150px;
+	border: 10px solid #d0ccbe;
+	margin-top: -10px;
+	z-index: 0;
+	position: relative;
+}
 
 .stripe-bottom-options {
 	width: 125px;
@@ -229,7 +230,8 @@ input[type="text"] {
 	opacity: 0.5;
 	width: 510px;
 	margin: 0 auto;
-	margin-bottom: 7px;
+	margin-bottom: 12px;
+	margin-top: 4px;
 	margin-left: 20px;
 	min-height: 150px;
 	border: 10px solid #d0ccbe;
@@ -238,7 +240,7 @@ input[type="text"] {
 
 .stripe-number-right{
 	float: right;
-	margin-top: 9px;
+	margin-top: 13px;
 	font: 12px 'Share', Arial, sans-serif;
 	font-weight: bold;
 	border: 2px solid #cac7b8;
