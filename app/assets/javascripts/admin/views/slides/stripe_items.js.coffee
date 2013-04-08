@@ -2,6 +2,10 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
   template: JST['admin/stripe_items/stripe']
   el: "<div class='stripe' id='stripe' />"
 
+  events:
+    'click .queue.add': 'addFirstStripeItem'
+    'click .done-slide': 'saveStripe'
+
   initialize: ->
     @collection.on('reset', @renderSlides, this)
     @collection.on('add', @renderSingleSlide, this)
@@ -11,7 +15,10 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
     console?.log 'Rendering Stripe#new'
     $(@el).html(@template())
     @renderSlides() if @collection.any()
-    @createNewSlideForm()
+    if @options.isFirstSlide
+      @createStripeItem()
+    @options.isFirstSlide = false
+    @$(".stripe-box-bottom").show()
     @
 
   leave: ->
@@ -34,27 +41,15 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
     view = new StripeAdmin.Views.ShowStripeItem({model: stripe_item, collection: @collection})
     @appendChildTo(view, ".stripe-items")
 
-  createNewSlideForm: ->
-    $(@el).find(".new-stripe-item").empty()
-    $(@el).find(".save-stripe").empty()
-    stripe_item = new @collection.model()
-    view = new StripeAdmin.Views.NewStripeItem({model: stripe_item, collection: @collection})
-    @appendChildTo(view, ".new-stripe-item")
-
-  addStripeItem: (stripe_item, isDone) ->
+  addStripeItem: (stripe_item) ->
     console?.log("Creating new stripe item", stripe_item)
     @collection.create stripe_item,
       silent: true
       while: true
       success: (stripe_item) =>
-        @renderSingleSlide(stripe_item)
-        if not isDone
-          @updateStripeView()
-          @render()
-        else
-          @updateStripeView()
-          @renderShowSlides()
-          @createSaveForm()
+        @updateStripeView()
+        @render()
+        stripe_item.set({edit: true})
 
       error: ->
         @handleError
@@ -66,7 +61,7 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
         alert "#{attribute} #{message}" for message in messages
 
   createSaveForm: ->
-    $(@el).find(".new-stripe-item").empty()
+    @$(".stripe-box-bottom").hide()
     $(@el).find(".save-stripe").empty()
     stripe_item = @collection.first()
     stripe = stripe_item.get('stripe_id')
@@ -76,6 +71,23 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
   updateStripeView: ->
     @children.each(@updateStripeItem)
     @children.each(@renderShow)
+
+  addFirstStripeItem: (e) ->
+    e.preventDefault()
+    e.stopPropagation()
+    @createStripeItem()
+
+  createStripeItem: ->
+    stripe_item = new @collection.model()
+    @addStripeItem(stripe_item)
+
+  saveStripe: (e) ->
+    e.preventDefault()
+    e.stopPropagation()
+
+    @updateStripeView()
+    @renderShowSlides()
+    @createSaveForm()
 
   renderShow: (view) =>
     view.renderShow()
