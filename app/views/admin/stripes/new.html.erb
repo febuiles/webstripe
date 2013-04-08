@@ -1,35 +1,3 @@
-<%= render "templates" %>
-
-<%= form_for [:admin, @stripe], :html => {:multipart => true} do |f| %>
-<h4>Title</h4>
-<%= f.text_field :title, :class => "input-xxlarge" %>
-<br/><br/>
-<h4>Alignment</h4>
-<%= f.select :alignment, [["Vertical", "vertical"], ["Horizontal", "horizontal"]], :class => "input-xlarge" %>
-
-<% if @stripe.errors.any? %>
-  <ul>
-    <% @stripe.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<br/>
-<br/>
-<div class="stripe-items">
-  <div class="stripe-item">
-    <p class="controls">
-      <a href="javascript:void(0)" class="btn add-new-text-item">Add Text</a>
-      <a href="javascript:void(0)" class="btn add-new-image-item">Add Image</a>
-      <a href="javascript:void(0)" class="btn add-new-embed-item">Add Embed</a>
-    </p>
-
-    <div class="clearfix"></div>
-  </div>
+<div class="new-stripe-container">
 </div>
-
-<p>
-  <%= f.submit "Create Stripe", :class => "btn submit btn-inverse" %>
-</p>
-<% end %>
+<%= content_tag "div", "", id: "stripe_items_data", data: {stripe: @stripe.to_json({include: :stripe_items})} %>

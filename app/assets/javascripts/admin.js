@@ -9,10 +9,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-fileupload/basic
 //= require twitter/bootstrap
 //= require bootstrap
 //= require underscore
 //= require backbone
+//= require backbone-support
+//= require backbone-relational
+//= require backbone_rails_sync
+//= require backbone_datalink
 //= require ./admin/stripe_admin
 //= require_tree ../templates
 //= require_tree ./admin/models

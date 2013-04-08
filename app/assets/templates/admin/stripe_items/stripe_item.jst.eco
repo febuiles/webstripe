@@ -1,0 +1,36 @@
+<!--show-stripe-item-container-->
+<div class="wrap-stripe-item-show">
+	<div class="show-stripe-item">
+	  <div id="content"/>
+	</div>
+	<div class="stripe-number-right"><%= @position + 1 %></div>
+	<div class="clearfix"/>
+</div>
+<!--end-show-stripe-item-container-->
+<!--edit-stripe-container-->
+<div class="wrap-stripe-item-edit">
+	<div class="spripe-box-top">
+		<form id="edit_stripe_item" name="stripe-item" enctype="multipart/form-data" action="/admin/stripe_items/<%= @stripe_item.get('id') %>"  method="post">
+			<div class="stripe-input">
+				<input name="_method" type="hidden" value="put" />
+				<input type="hidden" name="stripe_item[id]" id="stripe_item_id" value="<%= @stripe_item.get('id')%>">
+				<textarea id="stripe-input-content" class="stripe-input-content"><%= @stripe_item.get('content') %></textarea>
+			</div>
+			<div class="stripe-options">
+				<div class="stripe-number"><span class="number"><%= @position + 1 %></span></div>
+				<ul id="stripe-menu">
+					<li class="arrow-up"><a href=""><img src="/assets/redarrow.png" alt="Move up"/><span class="link-text">Move up</span></a></li>
+					<li class="arrow-down"><a href=""><img src="/assets/redarrowdown.png" alt="Move down"/><span class="link-text">Move down</span></a></li>
+					<li class="delete-stripe queue remove"><a href="#"><img src="/assets/reddelete.png" alt="Delete"/><span class="link-text">Delete</span></a></li>
+				</ul>
+			</div>
+			<div class="add-image-container">
+				<input type="file" name="stripe_item[image]" id="input-image-stripe-item">
+				<p>or <a href="" class="upload-image-stripe-item">select an image</a> to upload</p>
+			</div>
+			<div class="loading"><img src ="/assets/ajax-loader.gif"/></div>
+		</div>
+		</form>
+	</div>
+<div>
+<!--end-edit-stripe-container-->
