@@ -33,13 +33,15 @@ class StripeAdmin.Views.StripeItem extends Support.CompositeView
     index = @model.get('position')
     length = @collection.length
 
-    if index is 0
-      @$(".arrow-up").hide()
-      @$(".arrow-down").show()
-
     if @model.isLastStripeItem(index, length)
       @$(".arrow-up").show()
       @$(".arrow-down").hide()
+
+    if index is 0
+      @$(".arrow-up").hide()
+      @$(".arrow-down").show()
+      if length is 1
+        @$(".arrow-down").hide()
 
   renderEdit: ->
     @$(".wrap-stripe-item-show").hide()
@@ -157,7 +159,9 @@ class StripeAdmin.Views.StripeItem extends Support.CompositeView
         item_type = stripe_item.get('item_type')
         @model.set({item_type: item_type})
 
-  moveUp: ->
+  moveUp: (e) ->
+    e.preventDefault()
+    e.stopPropagation()
     index_a = @model.get('position')
     index_b = index_a - 1
     @collection.swapStripeItems(index_a, index_b)
@@ -165,7 +169,9 @@ class StripeAdmin.Views.StripeItem extends Support.CompositeView
     @parent.render()
     @model.set({edit: true})
 
-  moveDown: ->
+  moveDown: (e) ->
+    e.preventDefault()
+    e.stopPropagation()
     index_a = @model.get('position')
     index_b = index_a + 1
     @collection.swapStripeItems(index_a, index_b)

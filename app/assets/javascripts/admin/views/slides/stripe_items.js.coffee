@@ -20,7 +20,6 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
 
   renderSlides: ->
     $(@el).find(".stripe-items").empty()
-    # $(@el).empty()
     @collection.each(@renderSingleSlide)
 
   renderSingleSlide: (stripe_item) =>
@@ -50,10 +49,13 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
       success: (stripe_item) =>
         @renderSingleSlide(stripe_item)
         if not isDone
-          @createNewSlideForm()
+          @updateStripeView()
+          @render()
         else
+          @updateStripeView()
           @renderShowSlides()
           @createSaveForm()
+
       error: ->
         @handleError
 
