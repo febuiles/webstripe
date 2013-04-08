@@ -15,12 +15,12 @@ class StripeAdmin.Views.StripeItem extends Support.CompositeView
 
   initialize: ->
     @model.on('remove', @remove, this)
+    @model.on('change', @render, this)
     @model.set({edit: false})
     @setPosition()
 
   render: ->
     $(@el).html(@template({stripe_item: @model, position: @model.get('position')}))
-
     if @model.get('edit') is true
       @renderEdit()
       @moveUpHandler()
@@ -154,26 +154,24 @@ class StripeAdmin.Views.StripeItem extends Support.CompositeView
       success: (stripe_item) =>
         item_type = stripe_item.get('item_type')
         @model.set({item_type: item_type})
-        @render()
 
   moveUp: ->
     index_a = @model.get('position')
     index_b = index_a - 1
     @collection.swapStripeItems(index_a, index_b)
-    @parent.render()
     @parent.updateStripeView()
+    @parent.render()
     @model.set({edit: true})
-    @render()
 
   moveDown: ->
     index_a = @model.get('position')
     index_b = index_a + 1
     @collection.swapStripeItems(index_a, index_b)
-    @parent.render()
     @parent.updateStripeView()
+    @parent.render()
     @model.set({edit: true})
-    @render()
 
   leave: ->
     @remove()
+    @model.off('change', @render, this)
     @model.off('remove', @remove, this)
