@@ -46,6 +46,8 @@ class StripeAdmin.Views.StripeItem extends Support.CompositeView
     @$(".wrap-stripe-item-edit").show()
     @$(".loading").hide()
     @$(".stripe-input-content").css("background", "none")
+    if (@model.get("item_type") is "image")
+      @showImage()
 
   renderShow: ->
     @$(".wrap-stripe-item-edit").hide()
@@ -75,7 +77,6 @@ class StripeAdmin.Views.StripeItem extends Support.CompositeView
     e.preventDefault()
     @parent.updateStripeView()
     @model.set({edit: true})
-    @render()
 
   removeSlide: (e) ->
     e.preventDefault()
@@ -106,11 +107,12 @@ class StripeAdmin.Views.StripeItem extends Support.CompositeView
     image_file = @$("form #input-image-stripe-item")[0].files
     @$('.loading').show()
     if image_file.length > 0
-      this.$("form").fileupload({ url: @collection.url })
+      this.$("form").fileupload({ url: @collection.url + "/" + @model.get('id') })
       this.$("form").fileupload('send', { files: image_file })
         .success((result, textStatus, jqXHR) =>
           @model.set(result)
           @model.set({item_type: "image"})
+          @model.set({content: ""})
           @model.unset("created_at", {silent: true})
           @model.unset("updated_at", {silent: true})
           @model.unset("edit", {silent: true})
