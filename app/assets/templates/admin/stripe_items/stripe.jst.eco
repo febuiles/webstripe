@@ -1,0 +1,12 @@
+<div class="stripe-items"></div>
+<!--add-stripe-item-container-->
+<div class="stripe-box-bottom">
+	<div class="stripe-bottom-options">
+		<ul id="stripe-bottom-menu">
+			<li class="new-slide queue add"><a href=""><img src="/assets/addslideicon.png" alt="Add new slide"/>Add new slide</a></li>
+			<li class="done-slide"><a href=""><img src="/assets/doneicon.png" alt="Done"/>Done</a></li>
+		</ul>
+	</div>
+</div>
+<!--end-add-stripe-item-container-->
+<div class="save-stripe"></div>

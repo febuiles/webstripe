@@ -1,0 +1,7 @@
+<!--show-stripe-item-container-->
+<div class="show-stripe-item">
+  <div id="content"/>
+</div>
+<div class="stripe-number-right"><%= @position + 1 %></div>
+<div class="clearfix"/>
+<!--end-show-stripe-item-container-->

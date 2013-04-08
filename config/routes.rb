@@ -10,6 +10,7 @@ Ov::Application.routes.draw do
 
   namespace :admin do
     resources :stripes
+    resources :stripe_items
     resources :users
   end
 
