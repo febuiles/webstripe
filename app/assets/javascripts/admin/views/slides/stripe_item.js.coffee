@@ -50,7 +50,7 @@ class StripeAdmin.Views.StripeItem extends Support.CompositeView
     @$(".stripe-input-content").css("background", "none")
     if (@model.get("item_type") is "image")
       @showImage()
-    if (@model.get("content") is "")
+    if (@model.get("content") is "" and @model.get("item_type") is "text")
       @$('.stripe-input-content').css("background", "url('/assets/stripeinputbg.png') top left no-repeat")
 
   renderShow: ->
