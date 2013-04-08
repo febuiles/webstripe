@@ -1,4 +1,4 @@
-class StripeAdmin.Views.StripeItem extends Backbone.View
+class StripeAdmin.Views.StripeItem extends Support.CompositeView
   template: JST['admin/stripe_items/stripe_item']
   el: "<div class='stripe-item' id='stripe-item' />"
 
@@ -80,8 +80,9 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   removeSlide: (e) ->
     e.preventDefault()
     @model.destroy()
+    @_removeFromParent(this)
     @collection.trigger("update_position")
-    @collection.trigger("render_slides")
+    @parent.render()
 
   hideBg: ->
     @$('.stripe-input-content').focus ->
@@ -156,8 +157,23 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
         @render()
 
   moveUp: ->
+    index_a = @model.get('position')
+    index_b = index_a - 1
+    @collection.swapStripeItems(index_a, index_b)
+    @parent.render()
+    @parent.updateStripeView()
+    @model.set({edit: true})
+    @render()
 
   moveDown: ->
+    index_a = @model.get('position')
+    index_b = index_a + 1
+    @collection.swapStripeItems(index_a, index_b)
+    @parent.render()
+    @parent.updateStripeView()
+    @model.set({edit: true})
+    @render()
 
   leave: ->
+    @remove()
     @model.off('remove', @remove, this)

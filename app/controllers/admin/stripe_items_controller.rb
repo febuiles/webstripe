@@ -37,7 +37,6 @@ class Admin::StripeItemsController < ApplicationController
     respond_to do |format|
       if @stripe_item.update_attributes(params[:stripe_item])
         format.json { render json: @stripe_item }
-        # format.json { head :no_content, json: @stripe_item }
       else
         format.json { render json: @stripe_item.errors, status: :unprocessable_entity }
       end

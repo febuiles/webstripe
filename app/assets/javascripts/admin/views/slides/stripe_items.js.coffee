@@ -20,6 +20,7 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
 
   renderSlides: ->
     $(@el).find(".stripe-items").empty()
+    # $(@el).empty()
     @collection.each(@renderSingleSlide)
 
   renderSingleSlide: (stripe_item) =>
