@@ -79,6 +79,8 @@ class StripeAdmin.Views.StripeItem extends Support.CompositeView
 
   focusStripeItem: (e) ->
     e.preventDefault()
+    console.log "focus: "
+    console.log @model
     @parent.updateStripeView()
     @model.set({edit: true})
 
