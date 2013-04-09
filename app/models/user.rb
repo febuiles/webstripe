@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :stripes
-
+  validates :username, presence: true, uniqueness: true
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :username
 
   def admin?
