@@ -83,7 +83,6 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
 
   saveStripe: (e) ->
     e.preventDefault()
-    e.stopPropagation()
 
     @updateStripeView()
     @renderShowSlides()

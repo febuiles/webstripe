@@ -79,8 +79,6 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
 
   focusStripeItem: (e) ->
     e.preventDefault()
-    console.log "focus: "
-    console.log @model
     @parent.updateStripeView()
     @model.set({edit: true})
 
@@ -153,21 +151,22 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
         @saveStripeItem(@model)
       else
         @model.destroy()
+        @parent._removeChild(this)
 
   saveStripeItem: ->
-    @model.unset("created_at", {silent: true})
-    @model.unset("updated_at", {silent: true})
-    @model.unset("edit", {silent: true})
+    if @model.hasChanged()
+      @model.unset("created_at", {silent: true})
+      @model.unset("updated_at", {silent: true})
+      @model.unset("edit", {silent: true})
 
-    @model.save {},
-      while: true
-      success: (stripe_item) =>
-        item_type = stripe_item.get('item_type')
-        @model.set({item_type: item_type})
+      @model.save {},
+        while: true
+        success: (stripe_item) =>
+          item_type = stripe_item.get('item_type')
+          @model.set({item_type: item_type})
 
   moveUp: (e) ->
     e.preventDefault()
-    e.stopPropagation()
     index_a = @model.get('position')
     index_b = index_a - 1
     @collection.swapStripeItems(index_a, index_b)
@@ -177,7 +176,6 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
 
   moveDown: (e) ->
     e.preventDefault()
-    e.stopPropagation()
     index_a = @model.get('position')
     index_b = index_a + 1
     @collection.swapStripeItems(index_a, index_b)
