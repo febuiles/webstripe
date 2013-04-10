@@ -273,3 +273,10 @@ input[type="text"] {
 #content_embed {
 	height: 315px;
 }
+
+#edit-event {
+	background-color: transparent;
+	height: auto;
+	position: relative;
+	z-index: 999;
+}
