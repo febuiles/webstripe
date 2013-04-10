@@ -37,12 +37,12 @@
   color: #D7524D;
 }
 
-.new-stripe-container, .done-stripe-container{
+.new-stripe-container, .edit-stripe-container, .done-stripe-container{
 		width: 590px;
 		margin: 0 auto;
 		padding-top: 30px;
 	}
-	
+
 .done-stripe-container {
 	padding-top: 0;
 }
@@ -212,7 +212,7 @@ input[type="text"] {
 	margin: 10px;
 	font: 18px 'Share', Arial, sans-serif;
 	color: #050011;
-	
+
 	img {
 			margin-right: 5px;
 			margin-top: -4px;

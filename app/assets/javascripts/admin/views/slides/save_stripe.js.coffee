@@ -39,4 +39,5 @@ class StripeAdmin.Views.SaveStripe extends Support.CompositeView
     @parent.createStripeItem()
 
   leave: ->
+    @unbindFromAll();
     @remove()
