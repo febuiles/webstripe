@@ -16,20 +16,19 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   initialize: ->
     @model.on('remove', @remove, this)
     @model.on('change', @render, this)
-    @model.set({edit: false})
     @setPosition()
 
   render: ->
     $(@el).html(@template({stripe_item: @model, position: @model.get('position')}))
     if @model.get('edit') is true
       @renderEdit()
-      @moveUpHandler()
+      @arrowsRender()
     else
       @renderShow()
     @addContent()
     this
 
-  moveUpHandler: ->
+  arrowsRender: ->
     index = @model.get('position')
     length = @collection.length
 
@@ -60,33 +59,39 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   addContent: ->
     @$("#content").empty()
     if (@model.get("item_type") is "image")
-      content = $(document.createElement('img'))
-      content.attr('src', @model.get('image')['url'])
-
+      content = @addImageContent()
     else if (@model.get("item_type") is "text")
-      content = $(document.createElement('div'))
-      content.attr('id', "content_text")
-      content.prepend(@model.get("content"))
-
+      content = @addTextContent()
     else if (@model.get("item_type") is "embed")
-      content = $(document.createElement('div'))
-      content.attr('id', "content_embed")
-      embed = $(@model.get('content')).attr('width', "510")
-      embed = embed.attr('height', "315")
-      content.prepend(embed)
-
+      content = @addEmbedContent()
     @$("#content").prepend(content)
+
+  addImageContent: ->
+    content = $(document.createElement('img'))
+    content.attr('src', @model.get('image')['url'])
+
+  addTextContent: ->
+    content = $(document.createElement('div'))
+    content.attr('id', "content_text")
+    content.prepend(@model.get("content"))
+
+  addEmbedContent: ->
+    content = $(document.createElement('div'))
+    content.attr('id', "content_embed")
+    embed = $(@model.get('content')).attr('width', "510")
+    embed = embed.attr('height', "315")
+    content.prepend(embed)
 
   focusStripeItem: (e) ->
     e.preventDefault()
     @parent.updateStripeView()
     @model.set({edit: true})
+    @render()
 
   removeSlide: (e) ->
     e.preventDefault()
     @model.destroy()
     @parent._removeChild(this)
-    @collection.trigger("update_position")
     @parent.render()
 
   hideBg: ->
@@ -103,7 +108,6 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
 
   uploadImage: (e) ->
     e.preventDefault()
-    e.stopPropagation()
     @$('.stripe-input-content').val('')
     @$("#input-image-stripe-item").trigger('click')
 
@@ -114,13 +118,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
       this.$("form").fileupload({ url: @collection.url + "/" + @model.get('id') })
       this.$("form").fileupload('send', { files: image_file })
         .success((result, textStatus, jqXHR) =>
-          @model.set(result)
-          @model.set({item_type: "image"})
-          @model.set({content: ""})
-          @model.unset("created_at", {silent: true})
-          @model.unset("updated_at", {silent: true})
-          @model.unset("edit", {silent: true})
-
+          @model.afterSaveImage(result)
           @showImage()
         ).error((jqXHR, textStatus, errorThrown) =>
           # @model.set({errors: $.parseJSON(jqXHR.responseText)})
@@ -133,39 +131,35 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @$('.stripe-input-content').css("background", "url('"+url_image+"') center center no-repeat")
 
   setPosition: ->
-    @model.unset("created_at", {silent: true})
-    @model.unset("updated_at", {silent: true})
-    @model.unset("edit", {silent: true})
-
-    @model.set({position: @collection.indexOf(@model)})
+    @model.setPosition()
     @model.save()
 
   updateStripeItem: ->
     if @model.get("item_type") is "image"
       @saveStripeItem(@model)
     else if @model.get("item_type") is "text" or @model.get("item_type") is "embed"
-      if $.trim(@$('.stripe-input-content').val()) != ''
-        attributes =
-          content: $.trim(@$('.stripe-input-content').val())
-        @model.set(attributes)
-        @saveStripeItem(@model)
-      else
-        @model.destroy()
-        @parent._removeChild(this)
+      @updateStripItemText()
+
+  updateStripItemText: ->
+    if $.trim(@$('.stripe-input-content').val()) != ''
+      attributes =
+        content: $.trim(@$('.stripe-input-content').val())
+      @model.set(attributes)
+      @saveStripeItem(@model)
+    else if (not @moving?)
+      @model.destroy()
+      @parent._removeChild(this)
 
   saveStripeItem: ->
     if @model.hasChanged()
-      @model.unset("created_at", {silent: true})
-      @model.unset("updated_at", {silent: true})
-      @model.unset("edit", {silent: true})
-
+      @model.beforeSave()
       @model.save {},
         while: true
         success: (stripe_item) =>
-          item_type = stripe_item.get('item_type')
-          @model.set({item_type: item_type})
+          @model.afterSaveStripeItem(stripe_item)
 
   moveUp: (e) ->
+    @moving = true
     e.preventDefault()
     index_a = @model.get('position')
     index_b = index_a - 1
@@ -175,6 +169,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @model.set({edit: true})
 
   moveDown: (e) ->
+    @moving = true
     e.preventDefault()
     index_a = @model.get('position')
     index_b = index_a + 1

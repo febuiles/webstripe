@@ -26,8 +26,6 @@ class StripeAdmin.Views.ShowStripeItem extends Support.CompositeView
       embed = $(@model.get('content')).attr('width', "510")
       embed = embed.attr('height', "315")
       content.prepend(embed)
-      console.log "is embed"
-
     @$("#content").prepend(content)
 
   renderShow: ->

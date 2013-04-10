@@ -74,7 +74,6 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
 
   addFirstStripeItem: (e) ->
     e.preventDefault()
-    e.stopPropagation()
     @createStripeItem()
 
   createStripeItem: ->

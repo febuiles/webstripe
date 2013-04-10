@@ -13,8 +13,6 @@ class StripeAdmin.Views.SaveStripe extends Support.CompositeView
 
   saveStripe: (e) ->
     e.preventDefault()
-    e.stopPropagation()
-
     title = $.trim(@$('.stripe-name-input').val())
     orientation = @$('input:radio[name=alignment]:checked').val()
 
@@ -36,13 +34,9 @@ class StripeAdmin.Views.SaveStripe extends Support.CompositeView
 
   backToEditor: (e) ->
     e.preventDefault()
-    e.stopPropagation()
+    @parent._removeChild(this)
     @parent.render()
     @parent.createStripeItem()
-
-  renderShow: ->
-
-  updateStripeItem: ->
 
   leave: ->
     @remove()
