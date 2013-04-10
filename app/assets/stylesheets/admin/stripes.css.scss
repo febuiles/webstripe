@@ -38,7 +38,7 @@
 }
 
 .new-stripe-container, .done-stripe-container{
-		width: 570px;
+		width: 590px;
 		margin: 0 auto;
 		padding-top: 30px;
 	}
@@ -158,7 +158,7 @@ input[type="text"] {
 
 .stripe-box-bottom {
 	width: 510px;
-	margin: 0 auto;
+	margin-left: 20px;
 	height: 150px;
 	border: 10px solid #d0ccbe;
 	margin-top: -10px;
@@ -167,9 +167,8 @@ input[type="text"] {
 }
 
 .stripe-bottom-options {
-	width: 125px;
-	margin: 0 auto;
 	padding-top: 30px;
+	margin-left: 195px;
 	}
 
 #stripe-bottom-menu a {
@@ -242,10 +241,10 @@ input[type="text"] {
 	float: right;
 	margin-top: 13px;
 	font: 12px 'Share', Arial, sans-serif;
-	font-weight: bold;
+	font-weight: normal;
 	border: 2px solid #cac7b8;
-	padding: 0px 4px 0px 4px;
 	color: #cac7b8;
+	padding: 3px 11px 3px 11px;
 }
 
 
@@ -273,4 +272,11 @@ input[type="text"] {
 
 #content_embed {
 	height: 315px;
+}
+
+#edit-event {
+	background-color: transparent;
+	height: auto;
+	position: relative;
+	z-index: 999;
 }
