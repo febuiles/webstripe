@@ -11,7 +11,6 @@
 <!--end-show-stripe-item-container-->
 <!--edit-stripe-container-->
 <div class="wrap-stripe-item-edit">
-	<!-- <div class="arrow-box-right" id="edit-tooltip">To save changes and go back to the editor, simply click outside this slide</div> -->
 	<div class="spripe-box-top">
 		<form id="edit_stripe_item" name="stripe-item" enctype="multipart/form-data" action="/admin/stripe_items/<%= @stripe_item.get('id') %>"  method="post">
 			<div class="stripe-input">
