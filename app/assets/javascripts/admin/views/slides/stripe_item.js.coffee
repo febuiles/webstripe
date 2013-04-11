@@ -6,9 +6,11 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     'click .wrap-stripe-item-show': 'focusStripeItem'
     'click .queue.remove': 'removeSlide'
     'click .upload-image-stripe-item': 'uploadImage'
+    'click .put-upload-image-stripe-item': 'uploadImage'
     'click .arrow-up' : 'moveUp'
     'click .arrow-down' : 'moveDown'
     'change #input-image-stripe-item': 'submitImage'
+    'click .switch-to-text-stripe-item': 'switchToText'
 
     'focus .stripe-input-content': 'hideBg'
     'blur .stripe-input-content': 'blurHandler'
@@ -21,7 +23,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   render: ->
     $(@el).html(@template({stripe_item: @model, position: @model.get('position')}))
     if @model.get('edit') is true
-      @renderEdit()
+      @renderNewSlide()
       @arrowsRender()
     else
       @renderShow()
@@ -42,11 +44,12 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
       if length is 1
         @$(".arrow-down").hide()
 
-  renderEdit: ->
+  renderNewSlide: ->
     @$(".wrap-stripe-item-show").hide()
     @$(".wrap-stripe-item-edit").show()
     @$(".loading").hide()
     @$(".stripe-input-content").css("background", "none")
+    @$('#container-image-links').hide()
     if (@model.get("item_type") is "image")
       @showImage()
     if (@model.get("content") is "" and @model.get("item_type") is "text")
@@ -55,6 +58,14 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   renderShow: ->
     @$(".wrap-stripe-item-edit").hide()
     @$(".wrap-stripe-item-show").show()
+
+  switchToText: (e) ->
+    e.preventDefault()
+    console.log "switch to text"
+
+  showLinksEditImage: ->
+    @$('#container-new-links').hide()
+    @$('#container-image-links').show()
 
   addContent: ->
     @$("#content").empty()
@@ -129,6 +140,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @$('.stripe-input-content').attr("disabled","disabled");
     url_image = @model.get('image')['url']
     @$('.stripe-input-content').css("background", "url('"+url_image+"') center center no-repeat")
+    @showLinksEditImage()
 
   setPosition: ->
     @model.setPosition()
