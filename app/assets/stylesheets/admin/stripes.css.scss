@@ -323,9 +323,13 @@ input[type="text"] {
 	height: 31px;
 	background-image: url("/assets/infoicon.png");
 }
+
+.wrap-stripe-item-edit {
+	width: 800px;
+}
 /*Tooltips*/
 
-.arrow_box {
+.arrow-box {
 	padding: 20px;
 	color: #f3f0dc;
 	font: 14px 'Share', Arial, sans-serif;
@@ -335,7 +339,7 @@ input[type="text"] {
 	background: #db090a;
 }
 
-.arrow_box:after {
+.arrow-box:after {
 	left: 100%;
 	border: solid transparent;
 	content: " ";
@@ -345,10 +349,42 @@ input[type="text"] {
 	pointer-events: none;
 }
 
-.arrow_box:after {
+.arrow-box:after {
 	border-color: rgba(219, 9, 10, 0);
 	border-left-color: #db090a;
 	border-width: 10px;
 	top: 50%;
 	margin-top: -10px;
+}
+
+
+
+.arrow-box-right {
+	padding: 20px;
+	color: #f3f0dc;
+	font: 14px 'Share', Arial, sans-serif;
+	width: 130px;
+	position: relative;
+	margin-right: 40px;
+	float: right;
+	z-index: 999;
+	background: #db090a;
+}
+
+.arrow-box-right:after {
+	right: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow-box-right:after {
+	border-color: rgba(219, 9, 10, 0);
+	border-right-color: #db090a;
+	border-width: 7px;
+	top: 50%;
+	margin-top: -7px;
 }
