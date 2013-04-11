@@ -6,17 +6,14 @@ class StripeAdmin.Routers.Stripe extends Support.SwappingRouter
 
   initialize: ->
     console?.log("stripe router")
+    @stripe = new StripeAdmin.Models.Stripe($('#stripe_items_data').data('stripe'))
+    @stripe_items = new StripeAdmin.Collections.StripeItems()
+    @stripe_items = @stripe.get('stripe_items')
 
   new: ->
     @el = $("div.new-stripe-container")
-    @stripe = new StripeAdmin.Models.Stripe($('#stripe_items_data').data('stripe'))
-    @stripe_items = new StripeAdmin.Collections.StripeItems()
-    @stripe_items = @stripe.get('stripe_items')
-    @swap(new StripeAdmin.Views.StripeItems({collection: @stripe_items, isFirstSlide: true}))
+    @swap(new StripeAdmin.Views.StripeItems({collection: @stripe_items, isEmptySlide: true}))
 
   edit: (id) ->
     @el = $("div.edit-stripe-container")
-    @stripe = new StripeAdmin.Models.Stripe($('#stripe_items_data').data('stripe'))
-    @stripe_items = new StripeAdmin.Collections.StripeItems()
-    @stripe_items = @stripe.get('stripe_items')
-    @swap(new StripeAdmin.Views.StripeItems({collection: @stripe_items, isFirstSlide: false}))
+    @swap(new StripeAdmin.Views.StripeItems({collection: @stripe_items, isEmptySlide: true, edition: true}))

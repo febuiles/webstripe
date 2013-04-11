@@ -36,7 +36,8 @@ class StripeAdmin.Views.SaveStripe extends Support.CompositeView
     e.preventDefault()
     @parent._removeChild(this)
     @parent.render()
-    @parent.createStripeItem()
+    @parent.createEmptySlide()
+    @parent.$(".stripe-box-bottom").show
 
   leave: ->
     @unbindFromAll();

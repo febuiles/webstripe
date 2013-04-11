@@ -15,15 +15,22 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
     console?.log 'Rendering Stripe#new'
     $(@el).html(@template())
     @renderSlides() if @collection.any()
-    if @options.isFirstSlide
-      @createStripeItem()
-    @options.isFirstSlide = false
-    @$(".stripe-box-bottom").show()
+    @renderEmptySlide()
+    @options.isEmptySlide = false
+    @renderStripeBasicInfo()
     @
 
-  leave: ->
-    @collection.off()
-    console?.log 'Leaving Stripe#new'
+  renderEmptySlide: ->
+    if @options.isEmptySlide
+      @createEmptySlide()
+
+  renderStripeBasicInfo: ->
+    if @options.edition?
+      $(@el).find(".stripe-basic-data").empty()
+      stripe_item = @collection.first()
+      stripe = stripe_item.get('stripe_id')
+      view = new StripeAdmin.Views.StripeBasicInfo({model: stripe})
+      @appendChildTo(view,".stripe-basic-data")
 
   renderSlides: ->
     $(@el).find(".stripe-items").empty()
@@ -74,9 +81,9 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
 
   addFirstStripeItem: (e) ->
     e.preventDefault()
-    @createStripeItem()
+    @createEmptySlide()
 
-  createStripeItem: ->
+  createEmptySlide: ->
     stripe_item = new @collection.model()
     @addStripeItem(stripe_item)
 
