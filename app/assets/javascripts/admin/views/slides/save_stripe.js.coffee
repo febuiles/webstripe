@@ -9,7 +9,13 @@ class StripeAdmin.Views.SaveStripe extends Support.CompositeView
   render: ->
     console.log "render save stripe"
     $(@el).html(@template())
+    @setInfo()
     this
+
+  setInfo: ->
+    if @model.get('title') != "Untitled"
+      @$('input:text[name=stripe-name]').val(@model.get('title'))
+      @$('input:radio[name=alignment][value=' + @model.get('alignment') + ']').prop("checked",true);
 
   saveStripe: (e) ->
     e.preventDefault()
