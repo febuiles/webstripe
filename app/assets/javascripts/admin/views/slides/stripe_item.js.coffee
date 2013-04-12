@@ -64,9 +64,13 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @$(".stripe-input-content").css("background", "none")
 
   switchToText: (e) ->
+    @moving = true
     e.preventDefault()
-    @model.set({item_type:"text", content: "", edited: true})
-    @renderNewSlide()
+    @cleanStripeItemView()
+    @model.set({item_type:"text", content:"", edited: true})
+    @parent.updateStripeView()
+    @model.set({edit: true})
+    @render()
 
   showLinksEditImage: ->
     @$('#container-new-links').hide()
@@ -141,7 +145,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
         )
 
   showImage: ->
-    @$('.loading').hide()
+    @cleanStripeItemView()
     @$('.stripe-input-content').attr("disabled","disabled");
     url_image = @model.get('image')['url']
     @$('.stripe-input-content').css("background", "url('"+url_image+"') center center no-repeat")
@@ -163,10 +167,10 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
         content: $.trim(@$('.stripe-input-content').val())
       @model.set(attributes)
       @saveStripeItem(@model)
-    else if (not @moving?)
-      if (not @model.get('edited'))
-        @model.destroy()
-        @parent._removeChild(this)
+    else if (not @moving? and not @model.get('edited')?)
+      @model.destroy()
+      @parent._removeChild(this)
+      @parent.render()
 
   saveStripeItem: ->
     if @model.hasChanged()
@@ -185,6 +189,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @parent.updateStripeView()
     @parent.render()
     @model.set({edit: true})
+    @render()
 
   moveDown: (e) ->
     @moving = true
@@ -195,6 +200,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @parent.updateStripeView()
     @parent.render()
     @model.set({edit: true})
+    @render()
 
   leave: ->
     @unbindFromAll();
