@@ -6,9 +6,11 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     'click .wrap-stripe-item-show': 'focusStripeItem'
     'click .queue.remove': 'removeSlide'
     'click .upload-image-stripe-item': 'uploadImage'
+    'click .put-upload-image-stripe-item': 'uploadImage'
     'click .arrow-up' : 'moveUp'
     'click .arrow-down' : 'moveDown'
     'change #input-image-stripe-item': 'submitImage'
+    'click .switch-to-text-stripe-item': 'switchToText'
 
     'focus .stripe-input-content': 'hideBg'
     'blur .stripe-input-content': 'blurHandler'
@@ -21,7 +23,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   render: ->
     $(@el).html(@template({stripe_item: @model, position: @model.get('position')}))
     if @model.get('edit') is true
-      @renderEdit()
+      @renderNewSlide()
       @arrowsRender()
     else
       @renderShow()
@@ -42,10 +44,9 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
       if length is 1
         @$(".arrow-down").hide()
 
-  renderEdit: ->
-    @$(".wrap-stripe-item-show").hide()
-    @$(".wrap-stripe-item-edit").show()
-    @$(".loading").hide()
+  renderNewSlide: ->
+    @cleanStripeItemView()
+    @$('#container-image-links').hide()
     @$(".stripe-input-content").css("background", "none")
     if (@model.get("item_type") is "image")
       @showImage()
@@ -55,6 +56,25 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   renderShow: ->
     @$(".wrap-stripe-item-edit").hide()
     @$(".wrap-stripe-item-show").show()
+
+  cleanStripeItemView: ->
+    @$(".wrap-stripe-item-show").hide()
+    @$(".wrap-stripe-item-edit").show()
+    @$(".loading").hide()
+    @$(".stripe-input-content").css("background", "none")
+
+  switchToText: (e) ->
+    @moving = true
+    e.preventDefault()
+    @cleanStripeItemView()
+    @model.set({item_type:"text", content:"", edited: true})
+    @parent.updateStripeView()
+    @model.set({edit: true})
+    @render()
+
+  showLinksEditImage: ->
+    @$('#container-new-links').hide()
+    @$('#container-image-links').show()
 
   addContent: ->
     @$("#content").empty()
@@ -125,10 +145,11 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
         )
 
   showImage: ->
-    @$('.loading').hide()
+    @cleanStripeItemView()
     @$('.stripe-input-content').attr("disabled","disabled");
     url_image = @model.get('image')['url']
     @$('.stripe-input-content').css("background", "url('"+url_image+"') center center no-repeat")
+    @showLinksEditImage()
 
   setPosition: ->
     @model.setPosition()
@@ -146,9 +167,10 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
         content: $.trim(@$('.stripe-input-content').val())
       @model.set(attributes)
       @saveStripeItem(@model)
-    else if (not @moving?)
+    else if (not @moving? and not @model.get('edited')?)
       @model.destroy()
       @parent._removeChild(this)
+      @parent.render()
 
   saveStripeItem: ->
     if @model.hasChanged()
@@ -167,6 +189,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @parent.updateStripeView()
     @parent.render()
     @model.set({edit: true})
+    @render()
 
   moveDown: (e) ->
     @moving = true
@@ -177,6 +200,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @parent.updateStripeView()
     @parent.render()
     @model.set({edit: true})
+    @render()
 
   leave: ->
     @unbindFromAll();

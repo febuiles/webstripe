@@ -1,0 +1,22 @@
+<!--basic-info-stripe-container-->
+	<div class="arrow-box" id="basic-info-tooltip">To save changes and go back to the editor, simply click outside this slide</div>
+	<div class="basic-info-stripe-container" id="basic-info-stripe-container">
+		<form id="save-basic-stripe-info" name="save-basic-stripe-info">
+			<div class="basic-info-spripe-box-top">
+				<div class="basic-info-stripe-done-left">
+					<div class="info-icon"></div>
+					<div class="stripe-name">
+						<input name="stripe-name" type="text" class="stripe-name-input" value="<%= @stripe.get('title') %>">
+					</div>
+					<div class="align-options">
+						<div id="vertical">
+					<input type="radio" name="alignment" value="vertical" /><br /></div>
+						<div id="horizontal">
+					<input type="radio" name="alignment" value="horizontal" /><br /></div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+<!--basic-info-stripe-container-->

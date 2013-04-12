@@ -11,6 +11,7 @@
 <!--end-show-stripe-item-container-->
 <!--edit-stripe-container-->
 <div class="wrap-stripe-item-edit">
+	<!-- <div class="arrow-box-right" id="edit-tooltip">To save changes and go back to the editor, simply click outside this slide</div> -->
 	<div class="spripe-box-top">
 		<form id="edit_stripe_item" name="stripe-item" enctype="multipart/form-data" action="/admin/stripe_items/<%= @stripe_item.get('id') %>"  method="post">
 			<div class="stripe-input">
@@ -26,10 +27,17 @@
 					<li class="delete-stripe queue remove"><a href="#"><img src="/assets/reddelete.png" alt="Delete"/><span class="link-text">Delete</span></a></li>
 				</ul>
 			</div>
-			<div class="add-image-container">
-				<input type="file" name="stripe_item[image]" id="input-image-stripe-item">
-				<p>or <a href="" class="upload-image-stripe-item">select an image</a> to upload</p>
-			</div>
+      <div id="container-new-links">
+				<div class="add-image-container">
+					<input type="file" name="stripe_item[image]" id="input-image-stripe-item">
+					<p>or <a href="" class="upload-image-stripe-item">select an image</a> to upload</p>
+				</div>
+      </div>
+      <div id="container-image-links">
+				<div class="add-image-container">
+					<p><a href="" class="put-upload-image-stripe-item">select another image</a> or <a href="" class="switch-to-text-stripe-item">switch to text</a></p>
+				</div>
+      </div>
 			<div class="loading"><img src ="/assets/ajax-loader.gif"/></div>
 		</div>
 		</form>

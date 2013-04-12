@@ -3,8 +3,8 @@
   <head>
 	  <meta charset="utf-8" />
 	  <title>Webstripe</title>
-		<%= stylesheet_link_tag    "admin", :media => "all" %>
-    <%= javascript_include_tag "admin" %>
+		<%= stylesheet_link_tag    "static", :media => "all" %>
+    <%= javascript_include_tag "static" %>
 		<link href="/assets/favicon.ico" rel="icon">
     <link href="http://fonts.googleapis.com/css?family=Vollkorn:400italic,400,700" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Share:400,700' rel='stylesheet' type='text/css'>
@@ -33,23 +33,7 @@
 		<!--end header-->
 		<!--container-->
       <div class="container">
-				<h2><%= t 'devise.invitations.edit.header' %></h2>
-
-				<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
-				  <%= devise_error_messages! %>
-
-				  <%= f.hidden_field :invitation_token %>
-				  <p><%= f.label :username %><br />
-				  <%= f.text_field :username %></p>
-
-				  <p><%= f.label :password %><br />
-				  <%= f.password_field :password %></p>
-
-				  <p><%= f.label :password_confirmation %><br />
-				  <%= f.password_field :password_confirmation %></p>
-
-				  <p><%= f.submit t("devise.invitations.edit.submit_button") %></p>
-				<% end %>
+				<%= yield %>
       </div>
 		<!--end-container-->
 		<!--footer-->
