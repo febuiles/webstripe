@@ -15,6 +15,7 @@ class StripeAdmin.Models.StripeItem extends Backbone.RelationalModel
     @unset("created_at", {silent: true})
     @unset("updated_at", {silent: true})
     @unset("edit", {silent: true})
+    @unset("edited", {silent: true})
 
   afterSaveImage: (result) =>
     console.log result

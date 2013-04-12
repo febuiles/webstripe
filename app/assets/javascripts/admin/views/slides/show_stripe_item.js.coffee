@@ -33,5 +33,7 @@ class StripeAdmin.Views.ShowStripeItem extends Support.CompositeView
   updateStripeItem: ->
 
   leave: ->
+    @unbindFromAll();
+    @remove()
     $(@el).off()
     @model.off("change", @render, this)

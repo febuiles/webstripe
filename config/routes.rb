@@ -7,7 +7,6 @@ Ov::Application.routes.draw do
   resources :stripes
   get "/admin", to: "admin::stripes#index"
 
-
   namespace :admin do
     resources :stripes
     resources :stripe_items
@@ -15,4 +14,7 @@ Ov::Application.routes.draw do
   end
 
   root :to => "pages#index"
+  
+  match "/terms", :to => "static#terms"
+  match "/help", :to => "static#help"
 end
