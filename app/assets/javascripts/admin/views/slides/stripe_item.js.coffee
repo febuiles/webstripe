@@ -45,11 +45,9 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
         @$(".arrow-down").hide()
 
   renderNewSlide: ->
-    @$(".wrap-stripe-item-show").hide()
-    @$(".wrap-stripe-item-edit").show()
-    @$(".loading").hide()
-    @$(".stripe-input-content").css("background", "none")
+    @cleanStripeItemView()
     @$('#container-image-links').hide()
+    @$(".stripe-input-content").css("background", "none")
     if (@model.get("item_type") is "image")
       @showImage()
     if (@model.get("content") is "" and @model.get("item_type") is "text")
@@ -59,9 +57,16 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @$(".wrap-stripe-item-edit").hide()
     @$(".wrap-stripe-item-show").show()
 
+  cleanStripeItemView: ->
+    @$(".wrap-stripe-item-show").hide()
+    @$(".wrap-stripe-item-edit").show()
+    @$(".loading").hide()
+    @$(".stripe-input-content").css("background", "none")
+
   switchToText: (e) ->
     e.preventDefault()
-    console.log "switch to text"
+    @model.set({item_type:"text", content: "", edited: true})
+    @renderNewSlide()
 
   showLinksEditImage: ->
     @$('#container-new-links').hide()
@@ -159,8 +164,9 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
       @model.set(attributes)
       @saveStripeItem(@model)
     else if (not @moving?)
-      @model.destroy()
-      @parent._removeChild(this)
+      if (not @model.get('edited'))
+        @model.destroy()
+        @parent._removeChild(this)
 
   saveStripeItem: ->
     if @model.hasChanged()
