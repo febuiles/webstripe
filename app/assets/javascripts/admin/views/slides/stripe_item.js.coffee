@@ -181,6 +181,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
           @model.afterSaveStripeItem(stripe_item)
 
   moveUp: (e) ->
+    # @$('.stripe-input-content').unbind('blur');
     @moving = true
     e.preventDefault()
     index_a = @model.get('position')
@@ -192,6 +193,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @render()
 
   moveDown: (e) ->
+    # @$('.stripe-input-content').unbind('blur');
     @moving = true
     e.preventDefault()
     index_a = @model.get('position')

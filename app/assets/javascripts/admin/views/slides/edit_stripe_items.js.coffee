@@ -1,6 +1,10 @@
 #= require ./stripe_items
 class StripeAdmin.Views.EditStripeItems extends StripeAdmin.Views.StripeItems
 
+  initialize: ->
+    super
+    @render()
+
   render: ->
     super
     @renderStripeBasicInfo()
@@ -11,8 +15,9 @@ class StripeAdmin.Views.EditStripeItems extends StripeAdmin.Views.StripeItems
     @appendChildTo(view, ".stripe-items")
 
   renderStripeBasicInfo: ->
+    console.log "render basic info"
     $(@el).find(".stripe-basic-data").empty()
     stripe_item = @collection.first()
     stripe = stripe_item.get('stripe_id')
     view = new StripeAdmin.Views.StripeBasicInfo({model: stripe})
-    @appendChildTo(view,".stripe-basic-data")
+    @$(".stripe-basic-data").append(view.el)

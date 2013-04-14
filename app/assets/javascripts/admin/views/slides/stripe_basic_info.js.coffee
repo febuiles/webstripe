@@ -6,8 +6,10 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
     'change input:radio[name=alignment]' : 'selectTitle'
     'blur #basic-info-stripe-container': 'saveStripe'
 
+  initialize: ->
+    @render()
+
   render: ->
-    console.log "render save stripe"
     $(@el).html(@template(stripe: @model))
     @setStripeValues()
     this
@@ -34,11 +36,6 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
   selectTitle: (e) ->
     e.preventDefault()
     @$('.stripe-name-input').focus()
-
-
-  renderShow: ->
-
-  updateStripeItem: ->
 
   leave: ->
     @unbindFromAll();
