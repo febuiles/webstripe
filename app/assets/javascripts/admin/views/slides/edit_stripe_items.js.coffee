@@ -20,3 +20,8 @@ class StripeAdmin.Views.EditStripeItems extends StripeAdmin.Views.StripeItems
     stripe = stripe_item.get('stripe_id')
     view = new StripeAdmin.Views.StripeBasicInfo({model: stripe})
     @$(".stripe-basic-data").append(view.el)
+
+  saveStripe: (e) ->
+    e.preventDefault()
+    @updateStripeView()
+    window.location = "/admin/stripes"
