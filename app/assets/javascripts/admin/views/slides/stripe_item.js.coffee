@@ -24,7 +24,6 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     $(@el).html(@template({stripe_item: @model, position: @model.get('position')}))
     if @model.get('edit') is true
       @renderNewSlide()
-      @arrowsRender()
     else
       @renderShow()
     @addContent()
@@ -46,6 +45,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
 
   renderNewSlide: ->
     @cleanStripeItemView()
+    @arrowsRender()
     @$('#container-image-links').hide()
     @$(".stripe-input-content").css("background", "none")
     if (@model.get("item_type") is "image")

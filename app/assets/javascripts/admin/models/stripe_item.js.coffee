@@ -3,7 +3,6 @@ class StripeAdmin.Models.StripeItem extends Backbone.RelationalModel
   defaults:
     item_type: "text"
     content: ""
-    edit: false
 
   isFirstStripeItem: (index) ->
     return index is 0

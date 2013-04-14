@@ -10,7 +10,7 @@
 </div>
 <!--end-show-stripe-item-container-->
 <!--edit-stripe-container-->
-<div class="wrap-stripe-item-edit">
+<div class="wrap-stripe-item-edit" id="wrap-stripe-item-edit">
 	<div class="spripe-box-top">
 		<form id="edit_stripe_item" name="stripe-item" enctype="multipart/form-data" action="/admin/stripe_items/<%= @stripe_item.get('id') %>"  method="post">
 			<div class="stripe-input">

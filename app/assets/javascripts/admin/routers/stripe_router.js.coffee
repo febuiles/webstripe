@@ -16,4 +16,4 @@ class StripeAdmin.Routers.Stripe extends Support.SwappingRouter
 
   edit: (id) ->
     @el = $("div.edit-stripe-container")
-    @swap(new StripeAdmin.Views.StripeItems({collection: @stripe_items, isEmptySlide: true, edition: true}))
+    @swap(new StripeAdmin.Views.EditStripeItems({collection: @stripe_items, isEmptySlide: true}))
