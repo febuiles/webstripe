@@ -11,5 +11,8 @@
  *= require_self
  *= require bootstrap_and_overrides
  *= require modern-pictograms
- *= require_tree ./admin
+ *= require general
+ *= require admin/style
+ *= require admin/stripes
+ *= require admin/users_panel
  */

@@ -17,7 +17,6 @@ gem "less-rails"
 gem "therubyracer"
 gem "jquery-fileupload-rails"
 gem "nokogiri"
-gem "modern-pictograms-rails"
 
 group :development, :test do
   gem "rspec-rails"
