@@ -28,3 +28,7 @@ class StripeAdmin.Views.EditStripeItem extends StripeAdmin.Views.StripeItem
 
   autoSave: (e) ->
     @$("#edit-tooltip").hide()
+
+  renderShow: ->
+    super
+    @$("#show-stripe-item").attr('class',"edition-show-stripe-item")

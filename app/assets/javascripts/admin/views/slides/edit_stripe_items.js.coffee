@@ -15,7 +15,6 @@ class StripeAdmin.Views.EditStripeItems extends StripeAdmin.Views.StripeItems
     @appendChildTo(view, ".stripe-items")
 
   renderStripeBasicInfo: ->
-    console.log "render basic info"
     $(@el).find(".stripe-basic-data").empty()
     stripe_item = @collection.first()
     stripe = stripe_item.get('stripe_id')
