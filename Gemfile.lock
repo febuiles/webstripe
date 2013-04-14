@@ -4,6 +4,14 @@ GIT
   specs:
     backbone-support (0.3.0)
 
+GIT
+  remote: https://github.com/charliesome/better_errors.git
+  revision: d9fd157fbf2676f40d808d831376113e99ee563c
+  specs:
+    better_errors (0.8.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -40,6 +48,8 @@ GEM
       json
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    binding_of_caller (0.7.1)
+      debug_inspector (>= 0.0.1)
     builder (3.0.4)
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
@@ -53,6 +63,7 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     commonjs (0.2.6)
+    debug_inspector (0.0.2)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -111,6 +122,8 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.21)
+    modern-pictograms-rails (0.0.5)
+      railties (~> 3.1)
     multi_json (1.7.2)
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
@@ -205,6 +218,8 @@ PLATFORMS
 DEPENDENCIES
   airbrake
   backbone-support!
+  better_errors!
+  binding_of_caller
   carrierwave
   devise
   devise_invitable
@@ -214,6 +229,7 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   less-rails
+  modern-pictograms-rails
   nokogiri
   pg
   pry

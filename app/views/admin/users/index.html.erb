@@ -1,21 +1,72 @@
-<h2>Usuarios</h2>
-<p>Usuarios registrados: <%= User.invitation_accepted.count %></p>
-<p>Usuarios totales (con invitados): <%= User.count %></p>
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th># of Stripes</th>
-      <th>Accepted Invitation?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.stripes.count %></td>
-        <td><%= user.accepted_invitation? ? "Yes" : "No" %></td>
-      </tr>
+<div class="row users-panel">
+  <div class="span3">
+    <span class="section-name">Manage</span>
+  </div>
+
+  <div class="span5 invites">
+    <h1>Invite:</h1>
+    <%= form_tag admin_invite_user_path, method: :post do  %>
+      <%= text_field_tag :email %>
+      <%= submit_tag "Invite" %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+
+  <div class="span2 offset2 xls">
+    <%= link_to "Download as XLS", "" %>
+  </div>
+</div>
+
+<%= flash[:notice]  %>
+
+<div class="row">
+  <div class="span12">
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Date</th>
+          <th>Type</th>
+          <th>Stripes</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%= user.username %></td>
+          <td><%= link_to user.email, "mailto:#{user.email}" %></td>
+          <td><%= user.created_at.strftime("%d/%m/%y") %></td>
+          <td><%= user.role.capitalize %></td>
+          <td><%= user.stripes.count %></td>
+          <td>Active</td>
+          <td class="action-links">
+            <%= link_to "E", "" %>
+            <%= link_to "n", "" %>
+            <%= link_to ")", "" %>
+            <%= link_to "(", "" %>
+          </td>
+        </tr>
+        <% end %>
+        <tr><td class="td-empty" colspan="7">&nbsp</td></tr>
+        <tr class="tr-data">
+          <td colspan="3">
+            <%= User.count.to_s.rjust(4, "0") %>
+          </td>
+          <td>
+            <%= User.admin.count.to_s.rjust(3, "0") %> Z<br/>
+            <%= User.pro.count.to_s.rjust(3, "0") %> P<br/>
+            <%= User.basic.count.to_s.rjust(3, "0") %> B<br/>
+          </td>
+          <td>
+            <%= Stripe.count.to_s.rjust(3, "0") %>
+          </td>
+          <td colspan="2">
+            <%= User.count.to_s.rjust(4, "0") %> A
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

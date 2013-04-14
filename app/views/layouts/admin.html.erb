@@ -1,60 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	  <meta charset="utf-8" />
-	  <title>Webstripe</title>
-		<%= stylesheet_link_tag    "admin", :media => "all" %>
+    <meta charset="utf-8" />
+    <title>Webstripe</title>
+    <%= stylesheet_link_tag    "admin", :media => "all" %>
     <%= javascript_include_tag "admin" %>
-		<link href="/assets/favicon.ico" rel="icon">
+    <link href="/assets/favicon.ico" rel="icon">
     <link href="http://fonts.googleapis.com/css?family=Vollkorn:400italic,400,700" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Share:400,700' rel='stylesheet' type='text/css'>
-	  <!--[if lt IE 9]>
-	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	  <![endif]-->
-		<%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= render "shared/ga" %>
-	</head>
+  </head>
   <body>
-		<!--start header-->
-  	<header>
-		<%= link_to "", admin_path, :id => "logo"%>
-			<nav id="top-left">
+    <!--start header-->
+    <header>
+      <%= link_to "", admin_path, :id => "logo"%>
+      <nav id="top-left">
       	<ul>
-      		<li><%= link_to "New", new_admin_stripe_path%></li>
-      		<li class="last"><%= link_to "Help", "" %></li>
+      	  <li><%= link_to "New", new_admin_stripe_path%></li>
+      	  <li class="last"><%= link_to "Help", "" %></li>
       	</ul>
       </nav>
-			<nav id="top-right">
+      <nav id="top-right">
       	<ul>
-      		<li class="first"><%= link_to "Profile", "" %></li>
-					<% if current_user.admin? %>
-            <li><%= link_to "Invite User", new_user_invitation_path %></li>
-            <li><%= link_to "View Users", admin_users_path %></li>
+      	  <li class="first"><%= link_to "Profile", "" %></li>
+	  <% if current_user.admin? %>
+            <li><%= link_to "Manage", admin_users_path %></li>
           <% end %>
-					<% if user_signed_in? %>
-      		<li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+	  <% if user_signed_in? %>
+      	    <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
           <% else %>
-					<li><%= link_to "Login", new_user_session_path, :method => :delete %></li>
-					<%end%>
+	    <li><%= link_to "Login", new_user_session_path, :method => :delete %></li>
+	    <%end%>
       	</ul>
       </nav>
-		</header>
-		<!--end header-->
-		<!--container-->
-      <div class="container">
-        <%= yield %>
-      </div>
-		<!--end-container-->
-		<!--footer-->
-				<footer>
-					<p id="footer-data">
-						Webstripe | All rights reserved © 2013</br>
-		        <%= link_to "info@webstripe.co", "mailto:info@webstripe.co" %></br>
-		        <%= link_to "@WebstripeCo", "http://twitter.com/webstripeco", :target => "_blank" %>
-		      </p></br>
-					<p id="footer-tool">A tool by <%= link_to "OFICIOSVARIOS", "http://oficiosvarios.co", :target => "_blank" %></p>
-				</footer>
-		<!--end-footer-->
+    </header>
+    <!--end header-->
+    <!--container-->
+    <div class="container">
+      <%= yield %>
+    </div>
+    <!--end-container-->
+    <!--footer-->
+    <footer>
+      <p id="footer-data">
+	Webstripe | All rights reserved © 2013</br>
+	<%= link_to "info@webstripe.co", "mailto:info@webstripe.co" %></br>
+	<%= link_to "@WebstripeCo", "http://twitter.com/webstripeco", :target => "_blank" %>
+      </p></br>
+      <p id="footer-tool">A tool by <%= link_to "OFICIOSVARIOS", "http://oficiosvarios.co", :target => "_blank" %></p>
+    </footer>
+    <!--end-footer-->
   </body>
 </html>

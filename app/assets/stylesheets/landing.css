@@ -10,5 +10,7 @@
  *
  *= require_self
  *= require bootstrap_and_overrides
+ *= require general
+ *= require modern-pictograms
  *= require_tree ./pages
 */

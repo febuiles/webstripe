@@ -17,11 +17,14 @@ gem "less-rails"
 gem "therubyracer"
 gem "jquery-fileupload-rails"
 gem "nokogiri"
+gem "modern-pictograms-rails"
 
 group :development, :test do
   gem "rspec-rails"
   gem "pry"
   gem "jasminerice"
+  gem "better_errors", :git => "https://github.com/charliesome/better_errors.git"
+  gem "binding_of_caller"
 end
 
 group :assets do

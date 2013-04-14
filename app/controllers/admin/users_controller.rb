@@ -7,4 +7,9 @@ class Admin::UsersController < ApplicationController
   def index
     @users = User.all
   end
+
+  def invite
+    User.invite!(email: params[:email])
+    redirect_to admin_users_path, notice: "Invitation has been sent"
+  end
 end
