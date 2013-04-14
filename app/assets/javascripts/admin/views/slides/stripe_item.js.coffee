@@ -4,7 +4,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
 
   events:
     'click .wrap-stripe-item-show': 'focusStripeItem'
-    'click .queue.remove': 'removeSlide'
+    'click .queue.remove': 'deleteSlide'
     'click .upload-image-stripe-item': 'uploadImage'
     'click .put-upload-image-stripe-item': 'uploadImage'
     'click .arrow-up' : 'moveUp'
@@ -108,8 +108,11 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @model.set({edit: true})
     @render()
 
-  removeSlide: (e) ->
+  deleteSlide: (e) ->
     e.preventDefault()
+    @removeSlide()
+
+  removeSlide: ->
     @model.destroy()
     @parent._removeChild(this)
     @parent.render()
@@ -168,9 +171,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
       @model.set(attributes)
       @saveStripeItem(@model)
     else if (not @moving? and not @model.get('edited')?)
-      @model.destroy()
-      @parent._removeChild(this)
-      @parent.render()
+      @removeSlide()
 
   saveStripeItem: ->
     if @model.hasChanged()
@@ -181,7 +182,6 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
           @model.afterSaveStripeItem(stripe_item)
 
   moveUp: (e) ->
-    # @$('.stripe-input-content').unbind('blur');
     @moving = true
     e.preventDefault()
     index_a = @model.get('position')
@@ -193,7 +193,6 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @render()
 
   moveDown: (e) ->
-    # @$('.stripe-input-content').unbind('blur');
     @moving = true
     e.preventDefault()
     index_a = @model.get('position')

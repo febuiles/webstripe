@@ -16,8 +16,7 @@ class StripeAdmin.Views.EditStripeItems extends StripeAdmin.Views.StripeItems
 
   renderStripeBasicInfo: ->
     $(@el).find(".stripe-basic-data").empty()
-    stripe_item = @collection.first()
-    stripe = stripe_item.get('stripe_id')
+    stripe = @collection['stripe_id']
     view = new StripeAdmin.Views.StripeBasicInfo({model: stripe})
     @$(".stripe-basic-data").append(view.el)
 
