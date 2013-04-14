@@ -1,5 +1,5 @@
 <!--basic-info-stripe-container-->
-	<div class="arrow-box" id="basic-info-tooltip">To save changes and go back to the editor, simply click outside this slide</div>
+	<div class="arrow-box" id="basic-info-tooltip">Here you can edit the name and orientation. To save changes, click outside this slide.</div>
 	<div class="basic-info-stripe-container" id="basic-info-stripe-container">
 		<form id="save-basic-stripe-info" name="save-basic-stripe-info">
 			<div class="basic-info-spripe-box-top">

@@ -3,7 +3,8 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
   el: "<div class='stripe-basic-info' />"
 
   events:
-    'change input:radio[name=alignment]' : 'selectTitle'
+    'change input:radio[name=alignment]' : 'showTooltip'
+    'keypress .stripe-name-input': 'showTooltip'
     'blur #basic-info-stripe-container': 'saveStripe'
 
   initialize: ->
@@ -12,6 +13,7 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
   render: ->
     $(@el).html(@template(stripe: @model))
     @setStripeValues()
+    @hideTooltip()
     this
 
   setStripeValues: ->
@@ -26,6 +28,7 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
       @model.set({title: title, alignment: orientation})
       if @model.hasChanged()
         @model.save()
+        @hideTooltip()
 
   handleError: (entry, response) ->
     if response.status == 422
@@ -33,9 +36,12 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
       for attribute, messages of errors
         alert "#{attribute} #{message}" for message in messages
 
-  selectTitle: (e) ->
-    e.preventDefault()
+  showTooltip: ->
+    @$("#basic-info-tooltip").show()
     @$('.stripe-name-input').focus()
+
+  hideTooltip: ->
+    @$("#basic-info-tooltip").hide()
 
   leave: ->
     @unbindFromAll();
