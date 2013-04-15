@@ -1,12 +1,38 @@
-<h2>Forgot your password?</h2>
+<div class="row">
+  <div class="span2 offset1 dark-bg" id="landing-logo">
+    <%= link_to image_tag("logo-landing.png"), root_path %>
+  </div>
+</div>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
+  <div class="span6 offset2 dark-bg" id="landing-intro">
+    <p>
+      Forgot your password? Hey, it happens to the best of us! <br/>Give us your email and we'll send you a request to create<br/> a new one.
+    </p>
+  </div>
+</div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<div class="row">
+  <div class="span3 offset1 dark-bg landing-small" id="landing-login">
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
 
-<%= render "devise/shared/links" %>
+      <%= f.submit "Submit" %>
+    <% end %>
+  </div>
+</div>
+
+<footer class="row">
+  <div class="span10 offset1">
+    <nav>
+      <%= link_to "-contact", "mailto:info@webstripe.co" %>
+      <%= link_to "-about", "http://oficiosvarios.tumblr.com/post/34606969687/aboutwebstripe", :target => "_blank"%>
+      <%= link_to "-blog", "http://oficiosvarios.tumblr.com", :target => "_blank" %>
+      <%= link_to "-@webstripeco", "http://twitter.com/webstripeco", :target => "_blank" %>
+    </nav>
+  </div>
+</footer>
+
+

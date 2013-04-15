@@ -27,7 +27,7 @@ p
       margin-top: 30px
 
 #landing-login
-  height: 250px
+  height: 280px
   div.red
     background-color: $red
     height: 30px
@@ -46,8 +46,9 @@ p
     margin-bottom: 10px
     text-transform: uppercase
     letter-spacing: 1px
-  input[type="text"], input[type="password"]
+  input[type="text"], input[type="password"], input[type="email"]
     background-color: $dark
+    border-radius: 0
     font-family: $sans
     font-size: 22px
     color: $light
@@ -68,6 +69,9 @@ p
     color: $red
     background-color: $dark
 
+.landing-small
+  height: 180px !important
+
 footer
   height: 40px
   margin-top: 100px
@@ -81,3 +85,8 @@ footer
     margin-right: 40px
     font-family: $sans
     letter-spacing: 1px
+
+a.forgot
+  color: $red
+  font-size: 16px
+  margin-left: 20px
