@@ -23,6 +23,7 @@
     <table class="table table-condensed">
       <thead>
         <tr>
+          <th>ID</th>
           <th>Username</th>
           <th>Email</th>
           <th>Date</th>
@@ -35,6 +36,7 @@
       <tbody>
         <% @users.each do |user| %>
         <tr>
+          <td><%= user.id %></td>
           <td><%= user.username %></td>
           <td><%= link_to user.email, "mailto:#{user.email}" %></td>
           <td><%= user.created_at.strftime("%d/%m/%y") %></td>
@@ -49,9 +51,9 @@
           </td>
         </tr>
         <% end %>
-        <tr><td class="td-empty" colspan="7">&nbsp</td></tr>
+        <tr><td class="td-empty" colspan="8">&nbsp</td></tr>
         <tr class="tr-data">
-          <td colspan="3">
+          <td colspan="4">
             <%= User.count.to_s.rjust(4, "0") %>
           </td>
           <td>
