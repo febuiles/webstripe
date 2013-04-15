@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414214058) do
+ActiveRecord::Schema.define(:version => 20130415144053) do
 
   create_table "allies", :force => true do |t|
     t.string   "name"
@@ -284,6 +284,7 @@ ActiveRecord::Schema.define(:version => 20130414214058) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.string   "role",                                 :default => "basic"
+    t.string   "status"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

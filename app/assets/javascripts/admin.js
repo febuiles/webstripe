@@ -18,6 +18,7 @@
 //= require backbone-relational
 //= require backbone_rails_sync
 //= require backbone_datalink
+//= require best_in_place
 //= require ./admin/stripe_admin
 //= require_tree ../templates
 //= require_tree ./admin/models
@@ -54,5 +55,6 @@ var restartEventHandlers = function() {
   $(".add-new-image-item").click(clickHandler("image"));
   $("a.remove-stripe-item").click(removeNewItem);
   $("a#remove-existing-item").click(removeExistingItem);
+  $(".best_in_place").best_in_place();
 }
 

@@ -5,8 +5,6 @@ window.StripeAdmin =
   Routers: {}
 
   initialize: ->
-    console?.log "StripeAdmin initialization point"
-
     @router = new StripeAdmin.Routers.Stripe()
     Backbone.history.start(pushState: true)
 

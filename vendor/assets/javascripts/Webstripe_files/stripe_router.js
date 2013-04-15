@@ -16,9 +16,6 @@
     };
 
     Stripe.prototype.initialize = function() {
-      if (typeof console !== "undefined" && console !== null) {
-        console.log("New stripe router");
-      }
       this.el = $("div.new-stripe-container");
       this.stripe = new StripeAdmin.Models.Stripe($('#stripe_items_data').data('stripe'));
       this.stripe_items = new StripeAdmin.Collections.StripeItems();

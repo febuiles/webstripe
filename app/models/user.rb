@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
 
   has_many :stripes
   validates :username, presence: true, uniqueness: true
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :username
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :username, :role, :status
+
+  ROLES = ["admin", "basic", "pro"]
+  STATUS = ["active", "inactive"]
 
   scope :admin, where(role: "admin")
   scope :basic, where(role: "basic")
