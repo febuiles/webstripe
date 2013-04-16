@@ -3,7 +3,7 @@
   <head>
 	  <meta charset="utf-8" />
 	  <title>Webstripe</title>
-		<%= stylesheet_link_tag    "static", :media => "all" %>
+		<%= stylesheet_link_tag "static"%>
     <%= javascript_include_tag "static" %>
 		<link href="/assets/favicon.ico" rel="icon">
     <link href="http://fonts.googleapis.com/css?family=Vollkorn:400italic,400,700" rel="stylesheet" type="text/css">
@@ -26,24 +26,23 @@
       </nav>
 			<nav id="top-right">
       	<ul>
-					<li><%= link_to "Login", new_user_session_path, :method => :delete %></li>
+					<li><%= link_to "Login", new_user_session_path %></li>
       	</ul>
       </nav>
 		</header>
 		<!--end header-->
 		<!--container-->
-      <div class="container">
-				<%= yield %>
-      </div>
+		<div class="container">
+		 <%= yield %>
+    </div>
 		<!--end-container-->
 		<!--footer-->
 				<footer>
-					<p id="footer-data">
+					<p id="footer-data-static">
 						Webstripe | All rights reserved © 2013</br>
 		        <%= link_to "info@webstripe.co", "mailto:info@webstripe.co" %></br>
 		        <%= link_to "@WebstripeCo", "http://twitter.com/webstripeco", :target => "_blank" %>
 		      </p></br>
-					<p id="footer-tool">A tool by <%= link_to "OFICIOSVARIOS", "http://oficiosvarios.co", :target => "_blank" %></p>
 				</footer>
 		<!--end-footer-->
   </body>
