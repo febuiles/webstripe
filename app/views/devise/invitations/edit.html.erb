@@ -21,16 +21,11 @@
 		<%= link_to "", admin_path, :id => "logo"%>
 			<nav id="top-left">
       	<ul>
-      		<li><%= link_to "New", new_admin_stripe_path%></li>
-      		<li class="last"><%= link_to "Help", "" %></li>
+      		<li><%= link_to "Help", help_path %></li>
       	</ul>
       </nav>
 			<nav id="top-right">
       	<ul>
-      		<li class="first"><%= link_to "Profile", "" %></li>
-            <li><%= link_to "Invite User", new_user_invitation_path %></li>
-            <li><%= link_to "View Users", admin_users_path %></li>
-      		<li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
 					<li><%= link_to "Login", new_user_session_path, :method => :delete %></li>
       	</ul>
       </nav>
