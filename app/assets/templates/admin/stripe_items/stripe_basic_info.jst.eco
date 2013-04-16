@@ -15,8 +15,8 @@
 					<input type="radio" name="alignment" value="horizontal" /><br /></div>
 					</div>
 					<div class="clearfix"></div>
-					<div id="premium-fields-container" />
 				</div>
+        <div id="premium-fields-container" />
 			</div>
 		</form>
 	</div>

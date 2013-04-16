@@ -14,6 +14,7 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
     $(@el).html(@template(stripe: @model))
     @setStripeValues()
     @hideTooltip()
+    @renderPremiumFields()
     this
 
   setStripeValues: ->

@@ -262,7 +262,7 @@ input[type="text"] {
 
 
 #input-image-stripe-item, #input-logo{
-    display:none
+    display:none !important;
 }
 
 .loading {
@@ -298,7 +298,7 @@ input[type="text"] {
 
 .basic-info-spripe-box-top {
 	width: 375px;
-	height: 350px;
+	min-height: 350px;
 	margin-left: 190px;
 	margin-bottom: 10px;
 	border: 10px solid #050011;
@@ -313,16 +313,13 @@ input[type="text"] {
 .basic-info-stripe-done-left {
 	margin: 15px;
 	height: 270px;
-	float:left;
 	margin-left: 50px;
 	width: 75%;
 
-	.stripe-name{
-		margin-left: 35px;
-	}
 	input {
 		text-align: center;
 		font: 21px 'Vollkorn', Arial, sans-serif;
+		width: 270px;
 	}
 }
 
@@ -399,4 +396,49 @@ input[type="text"] {
 	border-width: 10px;
 	top: 50%;
 	margin-top: -10px;
+}
+
+/*Premium options*/
+
+#premium-fields-container{
+	margin: 0px 0px 30px 50px;
+	.title{
+		font: 21px 'Vollkorn', Arial, sans-serif;
+		margin: 10px 0px 10px 0px;
+	}
+	label{
+		font: 19px 'Vollkorn', Arial, sans-serif;
+		cursor: auto;
+		float:left;
+		margin-bottom: 15px;
+		margin-top: 3px;
+	}
+	input[name="stripe-author"],	input[name="stripe-url"] {
+		width: 200px;		
+	}
+	input{
+		margin-left: 60px;
+		width: 150px;
+		display: block;
+		font-size: 18px;
+		outline: none !important;
+		color: #050011;
+		background-color: #f3f0dc;
+		margin-bottom: 15px;
+		margin-top: 0px;
+		border: 0;
+		border-bottom: 1px solid #b7b4a9;
+		-webkit-box-shadow: none !important;
+		-webkit-border-radius: 0 !important;
+	}
+	.photo-link{
+		margin-top: 20px;
+		margin-left: 10px;
+	}
+	a {
+		margin-left: 14px;
+		font-size: 18px;
+		color: #db0909;
+		text-decoration: none;
+	}
 }
