@@ -16,7 +16,25 @@
 					</div>
 					<div class="clearfix"></div>
 				</div>
-        <div id="premium-fields-container" />
+        <div id="premium-fields-container" class="premium-options-container">
+						<p class="title">Colors -</p>
+						<label for="Page">Page:</label>
+						<input name="stripe-page-color" id="stripe-page-color" type="text" value="<%= @stripe.get('page_bg_color') %>">
+						<label for="Stripe">Stripe:</label><input name="stripe-color" id="stripe-color" type="text" value="<%= @stripe.get('stripe_bg_color') %>">
+						<label for="Text">Text:</label><input name="stripe-text" id="stripe-text" type="text" value="<%= @stripe.get('text_color') %>">
+						<label for="Link">Link:</label><input name="stripe-link" id="stripe-link" type="text" value="<%= @stripe.get('fg_color') %>">
+
+						<p class="title">Author -</p>
+						<label for="Name">Name:</label><input name="stripe-author" id="stripe-author" type="text" value="<%= @stripe.get('company') %>">
+						<label for="Url">URL:</label><input name="stripe-url" id="stripe-url" type="text" value="<%= @stripe.get('company_url') %>">
+						<label for="Logo">Logo:</label><p class="photo-link"><a href="" class="upload-logo">Upload image</a></p>
+						<div class="loading"><img src ="/assets/ajax-loader.gif"/></div>
+					<div class="upload-logo-container">
+						<input name="_method" type="hidden" value="put" />
+						<input type="hidden" name="stripe[id]" id="stripe_id" value="<%= @stripe.get('id')%>">
+						<input type="file" name="stripe[company_logo]" id="input-logo">
+					</div>
+        </div>
 			</div>
 		</form>
 	</div>

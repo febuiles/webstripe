@@ -30,4 +30,14 @@ class StripeAdmin.Views.PremiumFields extends Backbone.View
         )
 
   savePremiumData: ->
-    #return attributes
+    page_bg_color = $.trim(@$('#stripe-page-color').val())
+    stripe_bg_color = $.trim(@$('#stripe-color').val())
+    text_color = $.trim(@$('#stripe-text').val())
+    fg_color = $.trim(@$('#stripe-link').val())
+    company = $.trim(@$('#stripe-author').val())
+    company_url = $.trim(@$('#stripe-url').val())
+
+    attributes = {page_bg_color: page_bg_color, stripe_bg_color: stripe_bg_color, text_color: text_color, fg_color: fg_color, company: company, company_url: company_url}
+    #console.log attributes
+    # @parent.model.set(attributes)
+    return attributes
