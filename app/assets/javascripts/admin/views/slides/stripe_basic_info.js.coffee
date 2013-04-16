@@ -1,4 +1,4 @@
-class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
+class StripeAdmin.Views.StripeBasicInfo extends Support.CompositeView
   template: JST['admin/stripe_items/stripe_basic_info']
   el: "<div class='stripe-basic-info' />"
 
@@ -14,10 +14,18 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
     $(@el).html(@template(stripe: @model))
     @setStripeValues()
     @hideTooltip()
+    @renderPremiumFields()
     this
 
   setStripeValues: ->
     @$('input:radio[name=alignment][value=' + @model.get('alignment') + ']').prop("checked",true);
+
+  renderPremiumFields: ->
+    if not (@model.get('user')["role"] is "basic")
+      console.log "Oh yeah!!"
+      view = new StripeAdmin.Views.PremiumFields({model: @model})
+      @appendChildTo(view, "#premium-fields-container")
+
 
   saveStripe: (e) ->
     e.preventDefault()
