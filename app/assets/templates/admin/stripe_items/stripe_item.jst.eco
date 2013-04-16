@@ -1,6 +1,6 @@
 <!--show-stripe-item-container-->
 <div class="wrap-stripe-item-show">
-	<div class="show-stripe-item">
+	<div id="show-stripe-item" class="show-stripe-item">
 		<div id="edit-event">
 	  	<div id="content"/>
 			</div>
@@ -10,14 +10,14 @@
 </div>
 <!--end-show-stripe-item-container-->
 <!--edit-stripe-container-->
-<div class="wrap-stripe-item-edit">
-	<!-- <div class="arrow-box-right" id="edit-tooltip">To save changes and go back to the editor, simply click outside this slide</div> -->
+<div class="wrap-stripe-item-edit" id="wrap-stripe-item-edit">
 	<div class="spripe-box-top">
 		<form id="edit_stripe_item" name="stripe-item" enctype="multipart/form-data" action="/admin/stripe_items/<%= @stripe_item.get('id') %>"  method="post">
 			<div class="stripe-input">
 				<input name="_method" type="hidden" value="put" />
 				<input type="hidden" name="stripe_item[id]" id="stripe_item_id" value="<%= @stripe_item.get('id')%>">
 				<textarea id="stripe-input-content" class="stripe-input-content"><%= @stripe_item.get('content') %></textarea>
+				<div id="embed_content" />
 			</div>
 			<div class="stripe-options">
 				<div class="stripe-number"><span class="number"><%= @position + 1 %></span></div>
@@ -36,6 +36,11 @@
       <div id="container-image-links">
 				<div class="add-image-container">
 					<p><a href="" class="put-upload-image-stripe-item">select another image</a> or <a href="" class="switch-to-text-stripe-item">switch to text</a></p>
+				</div>
+      </div>
+      <div id="container-embed-links">
+				<div class="add-image-container">
+					<p><a href="" class="switch-to-text-stripe-item">edit with text editor</a> or <a href="" class="put-upload-image-stripe-item">replace with image</a></p>
 				</div>
       </div>
 			<div class="loading"><img src ="/assets/ajax-loader.gif"/></div>

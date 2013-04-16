@@ -1,19 +1,31 @@
-class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
+class StripeAdmin.Views.StripeBasicInfo extends Support.CompositeView
   template: JST['admin/stripe_items/stripe_basic_info']
   el: "<div class='stripe-basic-info' />"
 
   events:
-    'change input:radio[name=alignment]' : 'selectTitle'
+    'change input:radio[name=alignment]' : 'showTooltip'
+    'keypress .stripe-name-input': 'showTooltip'
     'blur #basic-info-stripe-container': 'saveStripe'
 
+  initialize: ->
+    @render()
+
   render: ->
-    console.log "render save stripe"
     $(@el).html(@template(stripe: @model))
     @setStripeValues()
+    @hideTooltip()
+    # @renderPremiumFields()
     this
 
   setStripeValues: ->
     @$('input:radio[name=alignment][value=' + @model.get('alignment') + ']').prop("checked",true);
+
+  renderPremiumFields: ->
+    if not (@model.get('user')["role"] is "basic")
+      console.log "Oh yeah!!"
+      view = new StripeAdmin.Views.PremiumFields({model: @model})
+      @appendChildTo(view, "#premium-fields-container")
+
 
   saveStripe: (e) ->
     e.preventDefault()
@@ -24,6 +36,7 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
       @model.set({title: title, alignment: orientation})
       if @model.hasChanged()
         @model.save()
+        @hideTooltip()
 
   handleError: (entry, response) ->
     if response.status == 422
@@ -31,14 +44,12 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
       for attribute, messages of errors
         alert "#{attribute} #{message}" for message in messages
 
-  selectTitle: (e) ->
-    e.preventDefault()
+  showTooltip: ->
+    @$("#basic-info-tooltip").show()
     @$('.stripe-name-input').focus()
 
-
-  renderShow: ->
-
-  updateStripeItem: ->
+  hideTooltip: ->
+    @$("#basic-info-tooltip").hide()
 
   leave: ->
     @unbindFromAll();

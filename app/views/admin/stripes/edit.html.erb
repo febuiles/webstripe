@@ -1,3 +1,4 @@
 <div class="edit-stripe-container">
 </div>
-<%= content_tag "div", "", id: "stripe_items_data", data: {stripe: @stripe.to_json({include: :stripe_items})} %>
+<%= content_tag "div", "", id: "stripe_items_data",data: {stripe: @stripe.to_json(include: {
+  stripe_items: {}, user: {only: :role}})} %>

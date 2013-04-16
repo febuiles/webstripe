@@ -1,0 +1,10 @@
+<%= @stripe.get('page_bg_color') %>
+<%= @stripe.get('stripe_bg_color') %>
+<%= @stripe.get('fg_color') %>
+<%= @stripe.get('text_color') %>
+<div class="upload-logo-container">
+	<input name="_method" type="hidden" value="put" />
+	<input type="hidden" name="stripe[id]" id="stripe_id" value="<%= @stripe.get('id')%>">
+	<input type="file" name="stripe[company_logo]" id="input-logo">
+	<p><a href="" class="upload-logo">select an image</a></p>
+</div>

@@ -4,7 +4,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
 
   events:
     'click .wrap-stripe-item-show': 'focusStripeItem'
-    'click .queue.remove': 'removeSlide'
+    'click .queue.remove': 'deleteSlide'
     'click .upload-image-stripe-item': 'uploadImage'
     'click .put-upload-image-stripe-item': 'uploadImage'
     'click .arrow-up' : 'moveUp'
@@ -24,7 +24,6 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     $(@el).html(@template({stripe_item: @model, position: @model.get('position')}))
     if @model.get('edit') is true
       @renderNewSlide()
-      @arrowsRender()
     else
       @renderShow()
     @addContent()
@@ -46,12 +45,16 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
 
   renderNewSlide: ->
     @cleanStripeItemView()
+    @arrowsRender()
     @$('#container-image-links').hide()
+    @$('#container-embed-links').hide()
     @$(".stripe-input-content").css("background", "none")
     if (@model.get("item_type") is "image")
       @showImage()
     if (@model.get("content") is "" and @model.get("item_type") is "text")
       @$('.stripe-input-content').css("background", "url('/assets/stripeinputbg.png') top left no-repeat")
+    if (@model.get("item_type") is "embed")
+      @showEmbed()
 
   renderShow: ->
     @$(".wrap-stripe-item-edit").hide()
@@ -60,6 +63,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   cleanStripeItemView: ->
     @$(".wrap-stripe-item-show").hide()
     @$(".wrap-stripe-item-edit").show()
+    @$('.stripe-input-content').show()
     @$(".loading").hide()
     @$(".stripe-input-content").css("background", "none")
 
@@ -74,7 +78,13 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
 
   showLinksEditImage: ->
     @$('#container-new-links').hide()
+    @$('#container-embed-links').hide()
     @$('#container-image-links').show()
+
+  showLinksEditEmbed: ->
+    @$('#container-new-links').hide()
+    @$('#container-image-links').hide()
+    @$('#container-embed-links').show()
 
   addContent: ->
     @$("#content").empty()
@@ -108,8 +118,11 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @model.set({edit: true})
     @render()
 
-  removeSlide: (e) ->
+  deleteSlide: (e) ->
     e.preventDefault()
+    @removeSlide()
+
+  removeSlide: ->
     @model.destroy()
     @parent._removeChild(this)
     @parent.render()
@@ -151,6 +164,15 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @$('.stripe-input-content').css("background", "url('"+url_image+"') center center no-repeat")
     @showLinksEditImage()
 
+  showEmbed: ->
+    @cleanStripeItemView()
+    embed = @model.get('content')
+    embed = $(@model.get('content')).attr('width', "412")
+    embed = embed.attr('height', "270")
+    @$('.stripe-input-content').hide()
+    @$("#embed_content").append(embed)
+    @showLinksEditEmbed()
+
   setPosition: ->
     @model.setPosition()
     @model.save()
@@ -168,9 +190,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
       @model.set(attributes)
       @saveStripeItem(@model)
     else if (not @moving? and not @model.get('edited')?)
-      @model.destroy()
-      @parent._removeChild(this)
-      @parent.render()
+      @removeSlide()
 
   saveStripeItem: ->
     if @model.hasChanged()

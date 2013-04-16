@@ -113,8 +113,8 @@ input[type="text"] {
 
 .stripe-number {
 	margin: 16px 30px 30px 30px;
-	padding-top: 2px;
-	border: 2px solid #050011;
+	padding-top: 3px;
+	border: 3px solid #050011;
 	}
 
 .number {
@@ -239,6 +239,17 @@ input[type="text"] {
 	float: left;
 }
 
+.edition-show-stripe-item {
+	width: 510px;
+	margin: 0 auto;
+	margin-bottom: 12px;
+	margin-top: 4px;
+	margin-left: 20px;
+	min-height: 150px;
+	border: 10px solid #050011;
+	float: left;
+}
+
 .stripe-number-right{
 	float: right;
 	margin-top: 13px;
@@ -250,7 +261,7 @@ input[type="text"] {
 }
 
 
-#input-image-stripe-item{
+#input-image-stripe-item, #input-logo{
     display:none
 }
 
@@ -269,7 +280,7 @@ input[type="text"] {
 
 #content_text {
 	font: 24px 'Vollkorn', Arial, sans-serif;
-	padding: 2px;
+	padding: 8px;
 }
 
 #content_embed {
@@ -322,6 +333,7 @@ input[type="text"] {
 	width: 32px;
 	height: 31px;
 	background-image: url("/assets/infoicon.png");
+	background-repeat: no-repeat;
 }
 
 .wrap-stripe-item-edit {
