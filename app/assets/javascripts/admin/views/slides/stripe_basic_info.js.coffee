@@ -14,7 +14,7 @@ class StripeAdmin.Views.StripeBasicInfo extends Support.CompositeView
     $(@el).html(@template(stripe: @model))
     @setStripeValues()
     @hideTooltip()
-    @renderPremiumFields()
+    # @renderPremiumFields()
     this
 
   setStripeValues: ->

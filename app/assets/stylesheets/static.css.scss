@@ -253,7 +253,6 @@ input[type="submit"]{
 	font-weight: bold;
 }
 
-
 /*Footer*/
 footer {
 	padding: 0 20px;
@@ -271,17 +270,10 @@ footer p {
 
 footer a {
 	font: 16px 'Vollkorn', Arial, sans-serif;
-	color: #0088cc;
-	text-transform: none;
+	color: #0088cc;;
 }
 
-footer a:hover {
-	font: 16px 'Vollkorn', Arial, sans-serif;
-	color: #0088cc;
-	text-transform: none;
-}
-
-#footer-data-static {
+#footer-data {
 	font: 18px 'Vollkorn', Arial, sans-serif;
 	color: #050011;
 }
@@ -295,4 +287,8 @@ footer a:hover {
 	font: 17px 'Vollkorn', Arial, sans-serif;
 	color: #b0ac9c;
 	text-decoration: underline;
+}
+
+div.row {
+  margin-left: 0px;
 }
