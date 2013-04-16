@@ -3,8 +3,8 @@
   <head>
 	  <meta charset="utf-8" />
 	  <title>Webstripe</title>
-		<%= stylesheet_link_tag    "admin", :media => "all" %>
-    <%= javascript_include_tag "admin" %>
+		<%= stylesheet_link_tag "static" %>
+    <%= javascript_include_tag "static" %>
 		<link href="/assets/favicon.ico" rel="icon">
     <link href="http://fonts.googleapis.com/css?family=Vollkorn:400italic,400,700" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Share:400,700' rel='stylesheet' type='text/css'>
@@ -18,49 +18,60 @@
   <body>
 		<!--start header-->
   	<header>
-		<%= link_to "", admin_path, :id => "logo"%>
+		<%= link_to "", root_path, :id => "logo"%>
 			<nav id="top-left">
       	<ul>
-      		<li class="last"><%= link_to "Help", "" %></li>
+      		<li><%= link_to "Help", help_path %></li>
       	</ul>
       </nav>
 			<nav id="top-right">
       	<ul>
-					<li><%= link_to "Login", new_user_session_path, :method => :delete %></li>
+					<li><%= link_to "Login", new_user_session_path %></li>
       	</ul>
       </nav>
 		</header>
 		<!--end header-->
 		<!--container-->
-      <div class="container">
-				<h2><%= t 'devise.invitations.edit.header' %></h2>
+		<div class="container">
+		  <div class="page-title">
+		    <div class="title-flag">Sign in</div>
+		  </div>
+      <div class="data-container">
+          
+        <div class="quote">Just four details please --</div>
 
 				<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
-				  <%= devise_error_messages! %>
+				<%= devise_error_messages! %>
 
-				  <%= f.hidden_field :invitation_token %>
-				  <p><%= f.label :username %><br />
-				  <%= f.text_field :username %></p>
+				<%= f.hidden_field :invitation_token %>
+				<p><%= f.label "Name:" %>
+				<%= f.text_field :name %></p>
+				
+				<p><%= f.label "Email:" %>
+				<%= f.password_field :email %></p>
+				
+				<p><%= f.label "Username:" %>
+				<%= f.text_field :username %></p>
 
-				  <p><%= f.label :password %><br />
-				  <%= f.password_field :password %></p>
+				<p><%= f.label "Password:" %>
+				<%= f.password_field :password %></p>
 
-				  <p><%= f.label :password_confirmation %><br />
-				  <%= f.password_field :password_confirmation %></p>
-
-				  <p><%= f.submit t("devise.invitations.edit.submit_button") %></p>
+				<p><%= f.submit "Submit" %></p>
 				<% end %>
+				
+				<p class="terms-text">- by clicking you accept our <%= link_to "terms & conditions", terms_path , :target => "_blank" %></p></br>
       </div>
+    </div>
 		<!--end-container-->
 		<!--footer-->
-				<footer>
-					<p id="footer-data">
-						Webstripe | All rights reserved © 2013</br>
-		        <%= link_to "info@webstripe.co", "mailto:info@webstripe.co" %></br>
-		        <%= link_to "@WebstripeCo", "http://twitter.com/webstripeco", :target => "_blank" %>
-		      </p></br>
-					<p id="footer-tool">A tool by <%= link_to "OFICIOSVARIOS", "http://oficiosvarios.co", :target => "_blank" %></p>
-				</footer>
-		<!--end-footer-->
+    <footer>
+      <p id="footer-data">
+	Webstripe | All rights reserved © 2013</br>
+	<%= link_to "info@webstripe.co", "mailto:info@webstripe.co" %></br>
+	<%= link_to "@WebstripeCo", "http://twitter.com/webstripeco", :target => "_blank" %>
+      </p></br>
+      <p id="footer-tool">A tool by <%= link_to "OFICIOSVARIOS", "http://oficiosvarios.co", :target => "_blank" %></p>
+    </footer>
+    <!--end-footer-->
   </body>
 </html>

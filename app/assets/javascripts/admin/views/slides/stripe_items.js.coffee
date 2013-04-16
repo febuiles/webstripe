@@ -17,20 +17,11 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
     @renderSlides() if @collection.any()
     @renderEmptySlide()
     @options.isEmptySlide = false
-    @renderStripeBasicInfo()
     @
 
   renderEmptySlide: ->
     if @options.isEmptySlide
       @createEmptySlide()
-
-  renderStripeBasicInfo: ->
-    if @options.edition?
-      $(@el).find(".stripe-basic-data").empty()
-      stripe_item = @collection.first()
-      stripe = stripe_item.get('stripe_id')
-      view = new StripeAdmin.Views.StripeBasicInfo({model: stripe})
-      @appendChildTo(view,".stripe-basic-data")
 
   renderSlides: ->
     $(@el).find(".stripe-items").empty()
