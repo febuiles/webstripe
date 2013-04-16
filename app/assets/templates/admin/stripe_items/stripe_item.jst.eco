@@ -38,6 +38,11 @@
 					<p><a href="" class="put-upload-image-stripe-item">select another image</a> or <a href="" class="switch-to-text-stripe-item">switch to text</a></p>
 				</div>
       </div>
+      <div id="container-embed-links">
+				<div class="add-image-container">
+					<p><a href="" class="switch-to-text-stripe-item">edit with text editor</a> or <a href="" class="put-upload-image-stripe-item">replace with image</a></p>
+				</div>
+      </div>
 			<div class="loading"><img src ="/assets/ajax-loader.gif"/></div>
 		</div>
 		</form>

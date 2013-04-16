@@ -47,6 +47,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @cleanStripeItemView()
     @arrowsRender()
     @$('#container-image-links').hide()
+    @$('#container-embed-links').hide()
     @$(".stripe-input-content").css("background", "none")
     if (@model.get("item_type") is "image")
       @showImage()
@@ -77,10 +78,13 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
 
   showLinksEditImage: ->
     @$('#container-new-links').hide()
+    @$('#container-embed-links').hide()
     @$('#container-image-links').show()
 
   showLinksEditEmbed: ->
-    console.log "show links edit embed"
+    @$('#container-new-links').hide()
+    @$('#container-image-links').hide()
+    @$('#container-embed-links').show()
 
   addContent: ->
     @$("#content").empty()
@@ -163,6 +167,8 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   showEmbed: ->
     @cleanStripeItemView()
     embed = @model.get('content')
+    embed = $(@model.get('content')).attr('width', "412")
+    embed = embed.attr('height', "270")
     @$('.stripe-input-content').hide()
     @$("#embed_content").append(embed)
     @showLinksEditEmbed()
