@@ -17,6 +17,7 @@
 				<input name="_method" type="hidden" value="put" />
 				<input type="hidden" name="stripe_item[id]" id="stripe_item_id" value="<%= @stripe_item.get('id')%>">
 				<textarea id="stripe-input-content" class="stripe-input-content"><%= @stripe_item.get('content') %></textarea>
+				<div id="embed_content" />
 			</div>
 			<div class="stripe-options">
 				<div class="stripe-number"><span class="number"><%= @position + 1 %></span></div>

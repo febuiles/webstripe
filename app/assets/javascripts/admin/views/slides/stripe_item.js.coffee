@@ -52,6 +52,8 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
       @showImage()
     if (@model.get("content") is "" and @model.get("item_type") is "text")
       @$('.stripe-input-content').css("background", "url('/assets/stripeinputbg.png') top left no-repeat")
+    if (@model.get("item_type") is "embed")
+      @showEmbed()
 
   renderShow: ->
     @$(".wrap-stripe-item-edit").hide()
@@ -60,6 +62,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   cleanStripeItemView: ->
     @$(".wrap-stripe-item-show").hide()
     @$(".wrap-stripe-item-edit").show()
+    @$('.stripe-input-content').show()
     @$(".loading").hide()
     @$(".stripe-input-content").css("background", "none")
 
@@ -75,6 +78,9 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   showLinksEditImage: ->
     @$('#container-new-links').hide()
     @$('#container-image-links').show()
+
+  showLinksEditEmbed: ->
+    console.log "show links edit embed"
 
   addContent: ->
     @$("#content").empty()
@@ -153,6 +159,13 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     url_image = @model.get('image')['url']
     @$('.stripe-input-content').css("background", "url('"+url_image+"') center center no-repeat")
     @showLinksEditImage()
+
+  showEmbed: ->
+    @cleanStripeItemView()
+    embed = @model.get('content')
+    @$('.stripe-input-content').hide()
+    @$("#embed_content").append(embed)
+    @showLinksEditEmbed()
 
   setPosition: ->
     @model.setPosition()
