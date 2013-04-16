@@ -38,7 +38,6 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
       @model.unset("user")
       @setPremiumData()
       @model.set({title: title, alignment: orientation})
-
       if @model.hasChanged()
         @model.save()
         @hideTooltip()
