@@ -27,8 +27,7 @@ class StripeAdmin.Views.SaveStripe extends Support.CompositeView
         silent: true
         while: true
         success: (stripe) =>
-          if stripe.get('redirect')
-            window.location = stripe.get('redirect')
+          window.location = "/admin/stripes"
         error: ->
           @handleError
 

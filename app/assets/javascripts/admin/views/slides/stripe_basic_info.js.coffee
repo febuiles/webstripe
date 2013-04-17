@@ -34,8 +34,6 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
     title = $.trim(@$('.stripe-name-input').val())
     orientation = @$('input:radio[name=alignment]:checked').val()
     if ((title != '') and (orientation != ''))
-      @model.unset("redirect")
-      @model.unset("user")
       @setPremiumData()
       @model.set({title: title, alignment: orientation})
       if @model.hasChanged()
