@@ -37,7 +37,7 @@
 		    <div class="title-flag">Sign in</div>
 		  </div>
       <div class="data-container">
-          
+
         <div class="quote">Just four details please --</div>
 
 				<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
@@ -46,10 +46,10 @@
 				<%= f.hidden_field :invitation_token %>
 				<p><%= f.label "Name:" %>
 				<%= f.text_field :name %></p>
-				
+
 				<p><%= f.label "Email:" %>
-				<%= f.password_field :email %></p>
-				
+				<%= f.email_field :email %></p>
+
 				<p><%= f.label "Username:" %>
 				<%= f.text_field :username %></p>
 
@@ -58,7 +58,7 @@
 
 				<p><%= f.submit "Submit" %></p>
 				<% end %>
-				
+
 				<p class="terms-text">- by clicking you accept our <%= link_to "terms & conditions", terms_path , :target => "_blank" %></p></br>
       </div>
     </div>
