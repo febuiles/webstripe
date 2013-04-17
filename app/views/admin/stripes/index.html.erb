@@ -13,19 +13,13 @@
 		<div class="story-menu">
 			<ul>
 				<li><span class="dash">-</span> <%= link_to "View", path_to_stripe(stripe) %></li>
-				<% if current_user.admin? %>
 				<li><span class="dash">-</span> <%= link_to "Edit", edit_admin_stripe_path(stripe) %></li>
-				<% end %>
 				<li><span class="dash">-</span> <%= link_to "Delete", admin_stripe_path(stripe), :method => :delete %></li>
 			</ul>
 		</div>
 		<div class="article-content">
 			<div class="story-title">
-				<% if current_user.admin? %>
-				<%= link_to stripe.title, edit_admin_stripe_path(stripe) %>
-				<% else %>
 				<%= link_to stripe.title, path_to_stripe(stripe) %>
-				<% end %>
 			</div>
 		</div>
 </article>
