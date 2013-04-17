@@ -10,8 +10,8 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
     'change #input-logo': 'submitImage'
 
   initialize: ->
-    @render()
     @role = @model.get('user')["role"]
+    @render()
 
   render: ->
     $(@el).html(@template(stripe: @model))
