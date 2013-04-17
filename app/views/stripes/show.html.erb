@@ -1,4 +1,4 @@
-<% if @stripe.premium? %>
+<% if @stripe.user.premium? %>
   <div class="header">
     <span><%= @stripe.title %></span>
     <%= link_to @stripe.company, "http://#{@stripe.company_url}", target: "_blank" %>
@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<% unless @stripe.premium? %>
+<% unless @stripe.user.premium? %>
   <footer>
     <span><%= @stripe.title %></span>
     <div id="slider">
@@ -32,7 +32,7 @@
 <% end %>
 
 
-<% if @stripe.premium? %>
+<% if @stripe.user.premium? %>
   <style>
     body { background-color: #<%= @stripe.page_bg_color %> !important; }
     div.header, div.stripe .item, div.empty-stripe { background-color: #<%= @stripe.stripe_bg_color %> !important; }

@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
     role == "admin"
   end
 
+  def premium?
+    role != "basic"
+  end
+
   def accepted_invitation?
     invitation_accepted_at.present?
   end

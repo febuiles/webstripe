@@ -38,7 +38,12 @@ class Admin::StripesController < ApplicationController
   end
 
   def edit
-    @stripe = current_user.stripes.find(params[:id])
+    if current_user.admin?
+      @stripe = Stripe.find(params[:id])
+    else
+      @stripe = current_user.stripes.find(params[:id])
+    end
+
   end
 
   def update
