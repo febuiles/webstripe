@@ -37,7 +37,7 @@ class StripeAdmin.Views.StripeItems extends Support.CompositeView
 
   renderSingleShowSlide: (stripe_item) =>
     view = new StripeAdmin.Views.ShowStripeItem({model: stripe_item, collection: @collection})
-    @appendChildTo(view, ".stripe-items")
+    @$(".stripe-items").append(view.el)
 
   addStripeItem: (stripe_item) ->
     console?.log("Creating new stripe item", stripe_item)

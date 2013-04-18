@@ -2,6 +2,7 @@ class Admin::StripesController < ApplicationController
   layout "admin"
   before_filter :authenticate_user!
   before_filter :load_stripes
+  before_filter :remove_user, only: [:create, :update]
 
   respond_to :json
 
@@ -48,11 +49,10 @@ class Admin::StripesController < ApplicationController
 
   def update
     @stripe = Stripe.find(params[:id])
-
     respond_to do |format|
       if @stripe.update_attributes(params[:stripe])
         format.html { redirect_to admin_stripe_path(@stripe), :notice => "Your stripe has been updated." }
-        format.json { render json: { redirect: admin_stripes_path } }
+        format.json { render json: @stripe }
       else
         format.html { render :edit }
         format.json { render json: @stripe.errors, status: :unprocessable_entity }
@@ -74,5 +74,9 @@ class Admin::StripesController < ApplicationController
 
   def load_stripes
     @stripes = current_user.stripes
+  end
+
+  def remove_user
+    params[:stripe].delete :user
   end
 end
