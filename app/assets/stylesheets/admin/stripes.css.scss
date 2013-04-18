@@ -327,6 +327,9 @@ input[type="text"] {
 		font: 21px 'Vollkorn', Arial, sans-serif;
 		width: 270px;
 	}
+	input[type="radio"]{
+		width: auto;
+	}
 }
 
 .info-icon{
