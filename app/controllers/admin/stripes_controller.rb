@@ -30,7 +30,6 @@ class Admin::StripesController < ApplicationController
     @stripe = current_user.stripes.build(params[:stripe])
     respond_to do |format|
       if @stripe.save
-        NotificationsMailer.new_stripe(@stripe).deliver
         format.json { render json: @stripe, status: :created }
       else
         format.json { render json: @stripe.errors, status: :unprocessable_entity }
@@ -49,8 +48,11 @@ class Admin::StripesController < ApplicationController
 
   def update
     @stripe = Stripe.find(params[:id])
+    old_status = @stripe.state
     respond_to do |format|
       if @stripe.update_attributes(params[:stripe])
+        # send the mail notification if it was just published
+        NotificationsMailer.new_stripe(@stripe).deliver if @stripe.state != old_status
         format.html { redirect_to admin_stripe_path(@stripe), :notice => "Your stripe has been updated." }
         format.json { render json: @stripe }
       else
