@@ -13,7 +13,9 @@
 		<div class="story-menu">
 			<ul>
 				<li><span class="dash">-</span> <%= link_to "View", path_to_stripe(stripe) %></li>
+
 				<li><span class="dash">-</span> <%= link_to "Edit", edit_admin_stripe_path(stripe) %></li>
+
 				<li><span class="dash">-</span> <%= link_to "Delete", admin_stripe_path(stripe), :method => :delete %></li>
 			</ul>
 		</div>

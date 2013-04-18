@@ -3,6 +3,7 @@ class StripeAdmin.Views.ShowStripeItem extends Support.CompositeView
   el: "<div class='stripe-item' />"
 
   initialize: ->
+    @render()
     @model.on('change', @render, this)
 
   render: ->
@@ -27,10 +28,6 @@ class StripeAdmin.Views.ShowStripeItem extends Support.CompositeView
       embed = embed.attr('height', "315")
       content.prepend(embed)
     @$("#content").prepend(content)
-
-  renderShow: ->
-
-  updateStripeItem: ->
 
   leave: ->
     @unbindFromAll();
