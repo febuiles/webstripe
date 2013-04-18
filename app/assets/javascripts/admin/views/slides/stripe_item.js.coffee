@@ -175,7 +175,8 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
 
   setPosition: ->
     @model.setPosition()
-    @model.save()
+    if @model.hasChanged()
+      @model.save()
 
   updateStripeItem: ->
     if @model.get("item_type") is "image"
