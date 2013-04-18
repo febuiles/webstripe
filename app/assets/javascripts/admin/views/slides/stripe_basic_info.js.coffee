@@ -82,7 +82,3 @@ class StripeAdmin.Views.StripeBasicInfo extends Backbone.View
           @$('.loading').hide()
         ).error((jqXHR, textStatus, errorThrown) =>
         )
-
-  leave: ->
-    @unbindFromAll();
-    @remove()
