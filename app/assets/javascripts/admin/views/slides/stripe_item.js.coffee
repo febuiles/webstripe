@@ -152,8 +152,8 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
       this.$("form").fileupload('send', { files: image_file })
         .success((result, textStatus, jqXHR) =>
           @model.afterSaveImage(result)
+          @saveStripeItemWithImage()
           @showImage()
-          @saveStripeItem()
         ).error((jqXHR, textStatus, errorThrown) =>
           # @model.set({errors: $.parseJSON(jqXHR.responseText)})
         )
@@ -201,6 +201,14 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
         while: true
         success: (stripe_item) =>
           @model.afterSaveStripeItem(stripe_item)
+
+  saveStripeItemWithImage: ->
+    if @model.hasChanged()
+      @model.save {},
+        while: true
+        success: (stripe_item) =>
+          if @model.get("item_type") is "image"
+            @model.set({edit: true})
 
   moveUp: (e) ->
     @moving = true
