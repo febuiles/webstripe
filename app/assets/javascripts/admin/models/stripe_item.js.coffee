@@ -17,11 +17,7 @@ class StripeAdmin.Models.StripeItem extends Backbone.RelationalModel
     @unset("edited", {silent: true})
 
   afterSaveImage: (result) =>
-    console.log result
-    @set(result)
-    @set({item_type: "image"})
-    @set({content: ""})
-    @beforeSave()
+    @set({item_type: "image", content: null , image: result["image"]})
 
   afterSaveStripeItem: (stripe_item) =>
     item_type = stripe_item.get('item_type')

@@ -71,7 +71,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @moving = true
     e.preventDefault()
     @cleanStripeItemView()
-    @model.set({item_type:"text", content:"", edited: true})
+    @model.set({item_type:"text", content:"", edited: true, image: null})
     @parent.updateStripeView()
     @model.set({edit: true})
     @render()
@@ -153,6 +153,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
         .success((result, textStatus, jqXHR) =>
           @model.afterSaveImage(result)
           @showImage()
+          @saveStripeItem()
         ).error((jqXHR, textStatus, errorThrown) =>
           # @model.set({errors: $.parseJSON(jqXHR.responseText)})
         )
