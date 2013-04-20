@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
   before_filter :load_stripes
 
   def index
-    @users = User.all
+    @users = User.order(:id)
   end
 
   def invite

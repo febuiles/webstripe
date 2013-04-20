@@ -45,9 +45,6 @@
           <td><%= best_in_place user, :status, type: :select, path: admin_user_path(user), collection: User::STATUS.map {|status| [status, status.capitalize] } %></td>
           <td class="action-links">
             <%= link_to "E", "" %>
-            <%= link_to "n", "" %>
-            <%= link_to ")", "" %>
-            <%= link_to "(", "" %>
           </td>
         </tr>
         <% end %>
