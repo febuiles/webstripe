@@ -11,6 +11,7 @@ Ov::Application.routes.draw do
     resources :stripe_items
     resources :users
     post "/invite", to: "users#invite", as: :invite_user
+    get "/reports/xls", to: "reports#xls", as: :xls_report
   end
 
   root :to => "pages#index"
