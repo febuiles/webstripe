@@ -1,45 +1,5 @@
 <% if @stripe.user.premium? %>
-  <div class="header">
-    <span><%= @stripe.title %></span>
-    <%= link_to @stripe.company, "http://#{@stripe.company_url}", target: "_blank" %>
-    <%= unless @stripe.company_logo_url.nil?; image_tag @stripe.company_logo_url; else image_tag "logo.png"; end %>
-  </div>
-<% end %>
-
-<div id="show-stripe" class="stripe">
-  <% @stripe.stripe_items.each do |item| %>
-    <div class="item">
-      <% if item.image? %>
-        <%= image_tag item.image_url %>
-      <% elsif item.text? %>
-        <p class="text-stripe"><%= item.content %></p>
-      <% else %>
-        <%= item.content.html_safe %>
-      <% end %>
-    </div>
-  <% end %>
-  <div id="empty-stripe" class="item">
-  </div>
-</div>
-
-<% unless @stripe.user.premium? %>
-  <footer>
-    <span><%= @stripe.title %></span>
-    <div id="slider">
-    </div>
-    <%= link_to image_tag("powered-by.png"), root_path %>
-  </footer>
-<% end %>
-
-
-<% if @stripe.user.premium? %>
-  <style>
-    body { background-color: #<%= @stripe.page_bg_color %> !important; }
-    div.header, div.stripe .item, div.empty-stripe { background-color: #<%= @stripe.stripe_bg_color %> !important; }
-    div.header, .item, div.empty-stripe { border-color: #<%= @stripe.stripe_bg_color %> !important; }
-    div.header a { color: #<%= @stripe.fg_color %> !important; }
-    div.header span, div.stripe p { color: #<%= @stripe.text_color %> !important; }
-    div#empty-stripe { background-color: #<%= @stripe.page_bg_color %> !important; }
-    div#empty-stripe { border-color: #<%= @stripe.page_bg_color %> !important; }
-  </style>
+  <%= render "premium_stripe" %>
+<% else %>
+  <%= render "basic_stripe" %>
 <% end %>

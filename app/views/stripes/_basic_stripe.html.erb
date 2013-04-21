@@ -1,0 +1,21 @@
+<div class="basic-header">
+  <%= image_tag "stripe-red-icon.png" %>
+  <%= @stripe.title %> by <%= @stripe.user.name %>
+  <span class="right">A <a href="/">WEBSTRIPE</a></span>
+</div>
+
+<div id="show-stripe" class="stripe">
+  <% @stripe.stripe_items.each do |item| %>
+    <div class="item">
+      <% if item.image? %>
+        <%= image_tag item.image_url %>
+      <% elsif item.text? %>
+        <p class="text-stripe"><%= item.content %></p>
+      <% else %>
+        <%= item.content.html_safe %>
+      <% end %>
+    </div>
+  <% end %>
+  <div id="empty-stripe" class="item">
+  </div>
+</div>
