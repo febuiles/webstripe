@@ -169,7 +169,7 @@ input[type="text"] {
 	margin-left: 120px;
 	height: 150px;
 	border: 10px solid #d0ccbe;
-	margin-top: -10px;
+	margin-top: 6px;
 	z-index: 0;
 	position: relative;
 }
@@ -348,6 +348,8 @@ input[type="text"] {
 
 .wrap-stripe-item-edit {
 	width: 800px;
+	margin-top: 5px;
+	margin-bottom: 15px;
 }
 /*Tooltips*/
 
