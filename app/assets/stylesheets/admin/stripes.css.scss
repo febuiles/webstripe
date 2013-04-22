@@ -119,6 +119,7 @@ input[type="text"] {
 .stripe-number {
 	margin: 16px 30px 30px 30px;
 	padding-top: 3px;
+	text-align: center;
 	border: 3px solid #050011;
 	}
 
@@ -256,13 +257,16 @@ input[type="text"] {
 }
 
 .stripe-number-right{
-	float: right;
-	margin-top: 13px;
-	font: 12px 'Share', Arial, sans-serif;
-	font-weight: normal;
-	border: 2px solid #cac7b8;
-	color: #cac7b8;
-	padding: 3px 11px 3px 11px;
+  float: right;
+  margin-top: 13px;
+  min-width: 11px;
+  text-align: center;
+  font: 12px 'Share', Arial, sans-serif;
+  font-weight: normal;
+  border: 3px solid #cac7b8;
+  color: #cac7b8;
+  padding: 3px 11px 3px 11px;
+  margin-right: -8px;
 }
 
 
