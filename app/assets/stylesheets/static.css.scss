@@ -118,7 +118,7 @@ color: #b51717;
 }
 
 .data-container{
-	margin-top: 20px;
+  margin-top: 23px;
 	width: 700px;
 	float: left;
 }
@@ -205,7 +205,7 @@ input[type="submit"]{
 	}
 
 	h2{
-		font-weight: bold;
+		font-weight: normal;
 		margin: 10px 0px 10px 0px;
 	}
 }
@@ -291,4 +291,10 @@ footer a {
 
 div.row {
   margin-left: 0px;
+}
+
+.last-update {
+  font: 22px 'Vollkorn', Arial, sans-serif;
+	color: #db0909;
+	font-style: italic;
 }
