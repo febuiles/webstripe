@@ -1,5 +1,5 @@
 Ov::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { passwords: "passwords", sessions: "sessions" }
   get "/bienhecho", to: "stripes#show", :id => 28
   get '/:id' => 'stripes#show', :constraints => {:id => /\d+/}
 
