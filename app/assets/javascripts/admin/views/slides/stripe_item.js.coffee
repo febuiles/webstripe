@@ -46,9 +46,6 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   renderNewSlide: ->
     @cleanStripeItemView()
     @arrowsRender()
-    @$('#container-image-links').hide()
-    @$('#container-embed-links').hide()
-    @$(".stripe-input-content").css("background", "none")
     if (@model.get("item_type") is "image")
       @showImage()
     if (@model.get("content") is "" and @model.get("item_type") is "text")
@@ -66,6 +63,8 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @$('.stripe-input-content').show()
     @$(".loading").hide()
     @$(".stripe-input-content").css("background", "none")
+    @$('#container-image-links').hide()
+    @$('#container-embed-links').hide()
 
   switchToText: (e) ->
     @moving = true
@@ -153,7 +152,6 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
         .success((result, textStatus, jqXHR) =>
           @model.afterSaveImage(result)
           @saveStripeItemWithImage()
-          @showImage()
         ).error((jqXHR, textStatus, errorThrown) =>
           # @model.set({errors: $.parseJSON(jqXHR.responseText)})
         )
@@ -207,8 +205,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
       @model.save {},
         while: true
         success: (stripe_item) =>
-          if @model.get("item_type") is "image"
-            @model.set({edit: true})
+          @model.set({edit: true})
 
   moveUp: (e) ->
     @moving = true
