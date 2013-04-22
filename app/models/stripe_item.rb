@@ -36,7 +36,7 @@ class StripeItem < ActiveRecord::Base
   end
 
   def update_item_type(doc)
-    if (not(doc.xpath("//iframe").empty? and doc.xpath("//embed").empty? and doc.xpath("//blockquote").empty?))
+    if (not(doc.xpath("//iframe").empty? and doc.xpath("//embed").empty? and doc.xpath("//blockquote").empty? and doc.xpath("//div").empty?))
       self.item_type = "embed"
       update_embed_content(doc)
     end

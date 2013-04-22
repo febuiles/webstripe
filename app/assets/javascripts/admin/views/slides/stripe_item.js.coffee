@@ -166,11 +166,21 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
   showEmbed: ->
     @cleanStripeItemView()
     embed = @model.get('content')
-    embed = $(@model.get('content')).attr('width', "412")
-    embed = embed.attr('height', "270")
+    embed_html = $(embed)
+
+    if embed_html.find("img").attr("src")?
+      @showPinterestEmbed(embed_html)
+    else
+      embed = $(@model.get('content')).attr('width', "412")
+      embed = embed.attr('height', "270")
+      @$("#embed_content").append(embed)
+
     @$('.stripe-input-content').hide()
-    @$("#embed_content").append(embed)
     @showLinksEditEmbed()
+
+  showPinterestEmbed: (embed_html) =>
+    url_image = embed_html.find("img").attr("src")
+    @$('.stripe-input').css("background", "url('"+url_image+"') center center no-repeat")
 
   setPosition: ->
     @model.setPosition()
