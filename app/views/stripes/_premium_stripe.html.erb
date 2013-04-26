@@ -1,6 +1,6 @@
 <div class="header">
   <span><%= @stripe.title %></span>
-  <%= link_to @stripe.company, "http://#{@stripe.company_url}", target: "_blank" %>
+  <%= link_to @stripe.company, unless @stripe.company_url.empty?; "http://#{@stripe.company_url}"; end, target: "_blank" %>
   <%= unless @stripe.company_logo_url.nil?; image_tag @stripe.company_logo_url; else image_tag "logo.png"; end %>
 </div>
 
