@@ -1,7 +1,7 @@
 <div class="header">
   <span><%= @stripe.title %></span>
   <% if @stripe.company.present? %>
-    <%= link_to @stripe.company, "http://#{@stripe.company_url}", target: "_blank" %>
+    <%= link_to @stripe.company, clean_url(@stripe.company_url), target: "_blank" %>
   <% end %>
 
   <%= image_tag (@stripe.company_logo_url || "logo.png") %>
