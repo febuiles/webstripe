@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415144053) do
+ActiveRecord::Schema.define(:version => 20130430153404) do
 
   create_table "allies", :force => true do |t|
     t.string   "name"
@@ -251,8 +251,8 @@ ActiveRecord::Schema.define(:version => 20130415144053) do
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
     t.text     "alignment"
-    t.string   "company"
-    t.string   "company_url"
+    t.string   "company",         :default => ""
+    t.string   "company_url",     :default => ""
     t.string   "page_bg_color",   :default => "e9e5ca"
     t.string   "stripe_bg_color", :default => "050011"
     t.string   "fg_color",        :default => "db0909"
