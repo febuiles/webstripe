@@ -2,6 +2,7 @@ Ov::Application.routes.draw do
   devise_for :users, :controllers => { passwords: "passwords", sessions: "sessions" }
   get "/bienhecho", to: "stripes#show", :id => 28
   get "/ejemplo", to: "stripes#show", :id => 75
+  get "/fractal", to: "stripes#show", :id => 126
   get '/:id' => 'stripes#show', :constraints => {:id => /\d+/}
 
   resources :stripes
