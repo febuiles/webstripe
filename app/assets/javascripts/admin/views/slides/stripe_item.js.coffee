@@ -19,6 +19,7 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @model.on('remove', @remove, this)
     @model.on('change', @render, this)
     @setPosition()
+    @switched = false
 
   render: ->
     $(@el).html(@template({stripe_item: @model, position: @model.get('position')}))
@@ -70,10 +71,22 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
     @moving = true
     e.preventDefault()
     @cleanStripeItemView()
-    @model.set({item_type:"text", content:"", edited: true, image: null})
+    if @model.get("item_type") is "embed"
+      @model.set({item_type:"text", image: null})
+    else
+      @model.set({item_type:"text", content:"", edited: true, image: null})
     @parent.updateStripeView()
     @model.set({edit: true})
+    @switched = true
     @render()
+
+  switchToTextFromEmbed: (item_type) ->
+    if (item_type is "embed")
+      @model.set({item_type:"text", image: null})
+      @parent.updateStripeView() # over here
+      @model.set({edit: true})
+      @something = true
+      @render()
 
   showLinksEditImage: ->
     @$('#container-new-links').hide()
@@ -203,12 +216,13 @@ class StripeAdmin.Views.StripeItem extends Backbone.View
       @removeSlide()
 
   saveStripeItem: ->
-    if @model.hasChanged()
+    if @model.hasChanged() or @switched
       @model.beforeSave()
       @model.save {},
         while: true
         success: (stripe_item) =>
           @model.afterSaveStripeItem(stripe_item)
+          @switched = false
 
   saveStripeItemWithImage: ->
     if @model.hasChanged()
