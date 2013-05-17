@@ -18,10 +18,10 @@ gem "jquery-fileupload-rails", "0.4.1"
 gem "nokogiri", "~> 1.5.9"
 gem "best_in_place", "~> 2.1.0"
 gem "simple_xlsx_writer", "0.5.3"
+gem "therubyracer", "~> 0.10.2"
 
 group :development, :test do
   gem "rspec-rails"
-  gem "therubyracer"
   gem "pry"
   gem "jasminerice"
   gem "better_errors", :git => "https://github.com/charliesome/better_errors.git"
