@@ -19,6 +19,7 @@ gem "jquery-fileupload-rails"
 gem "nokogiri"
 gem "best_in_place"
 gem "simple_xlsx_writer"
+gem "airbrake"
 
 group :development, :test do
   gem "rspec-rails"
