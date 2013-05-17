@@ -6,7 +6,9 @@ window.StripeAdmin =
 
   initialize: ->
     @router = new StripeAdmin.Routers.Stripe()
-    Backbone.history.start(pushState: true)
+    @enablePushState = true
+    @pushState = !!(@enablePushState && window.history && window.history.pushState)
+    Backbone.history.start(pushState: @pushState)
 
 $(document).ready ->
   StripeAdmin.initialize()
