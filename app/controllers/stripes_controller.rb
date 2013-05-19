@@ -5,5 +5,6 @@ class StripesController < ApplicationController
 
   def show
     @stripe = Stripe.find(params[:id])
+    not_found unless @stripe
   end
 end

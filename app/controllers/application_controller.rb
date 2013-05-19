@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
   def admin_only
     redirect_to admin_stripes_path unless current_user.admin?
   end
