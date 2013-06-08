@@ -1,8 +1,8 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
     :provider               => 'AWS',
-    :aws_access_key_id      => 'AKIAJEJ5VCRBGO7O2S7Q',
-    :aws_secret_access_key  => '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'
+    :aws_access_key_id      => ENV["AWS_ACCESS_KEY"],
+    :aws_secret_access_key  => ENV["AWS_SECRET_KEY"],
   }
   config.fog_directory  = "webstripe"
 end
