@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "3.2.13"
+gem "rails", "3.2.14"
 gem "jquery-rails"
 gem "twitter-bootstrap-rails", "2.2.6"
 gem "devise", "2.2.4"
