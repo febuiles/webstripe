@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
     invitation_accepted_at.present?
   end
 
+  def inactive?
+    status == "inactive"
+  end
+
 end

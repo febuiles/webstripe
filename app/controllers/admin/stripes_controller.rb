@@ -3,6 +3,7 @@ class Admin::StripesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :load_stripes
   before_filter :remove_user, only: [:create, :update]
+  before_filter :disable_inactive_users, only: [:new, :create, :edit, :update]
 
   respond_to :json
 
@@ -80,5 +81,9 @@ class Admin::StripesController < ApplicationController
 
   def remove_user
     params[:stripe].delete :user
+  end
+
+  def disable_inactive_users
+    render "disabled" if current_user.inactive?
   end
 end
