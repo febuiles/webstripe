@@ -7,12 +7,12 @@ $(window).load(function(){
   }
 
   var numItems = $("div.item").length;
-  var slider = new Slider("slider", 800, 65);
-  $("div.item").each(function(i, item) {
-    slider.addSquare(item);
-  });
+//  var slider = new Slider("slider", 800, 65);
+  // $("div.item").each(function(i, item) {
+  //   slider.addSquare(item);
+  // });
 
-  slider.initViewport();
+  // slider.initViewport();
 });
 
 var alignVertically = function() {
