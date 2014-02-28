@@ -5,14 +5,6 @@ $(window).load(function(){
   } else {
     alignVertically();
   }
-
-  var numItems = $("div.item").length;
-//  var slider = new Slider("slider", 800, 65);
-  // $("div.item").each(function(i, item) {
-  //   slider.addSquare(item);
-  // });
-
-  // slider.initViewport();
 });
 
 var alignVertically = function() {
