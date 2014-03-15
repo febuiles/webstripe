@@ -19,6 +19,7 @@ gem "nokogiri", "~> 1.5.9"
 gem "best_in_place", "~> 2.1.0"
 gem "simple_xlsx_writer", "0.5.3"
 gem "therubyracer", "~> 0.12.1"
+gem "jbuilder"
 
 group :development, :test do
   gem "rspec-rails"

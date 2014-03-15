@@ -1,10 +1,9 @@
 class ImageUploader < CarrierWave::Uploader::Base
-  # if Rails.env.production?
-  #   storage :fog
-  # else
-  #   storage :file
-  # end
-  storage :fog
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
 
   def filename
     @name ||= "#{timestamp}-#{super}" if original_filename.present? and super.present?

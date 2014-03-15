@@ -95,6 +95,9 @@ GEM
     jasminerice (0.0.10)
       coffee-rails
       haml
+    jbuilder (2.0.4)
+      activesupport (>= 3.0.0)
+      multi_json (>= 1.2.0)
     journey (1.0.4)
     jquery-fileupload-rails (0.4.1)
       actionpack (>= 3.1)
@@ -219,6 +222,7 @@ DEPENDENCIES
   eco (~> 1.0.0)
   fog (~> 1.10.0)
   jasminerice
+  jbuilder
   jquery-fileupload-rails (= 0.4.1)
   jquery-rails
   less-rails (~> 2.3.2)
