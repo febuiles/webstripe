@@ -48,7 +48,7 @@ Webstripe.createItemContainer = (bg_color, fg_color) ->
 
 Webstripe.getItemHTML = (item) ->
   if item.item_type == "image"
-    $("<img>").attr("src", "http://webstripe.dev/#{item.image.image.url}").css("max-width", "600px")
+    $("<img>").attr("src", item.image.image.url).css("max-width", "600px")
   else if item.item_type == "embed"
     item.content
   else
