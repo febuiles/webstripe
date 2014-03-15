@@ -60,7 +60,7 @@ module Ov
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
-    config.assets.precompile += ["admin.css", "admin.js", "landing.css", "landing.js", "static.css", "static.js"]
+    config.assets.precompile += ["admin.css", "admin.js", "landing.css", "landing.js", "static.css", "static.js", "webstripe.js"]
     config.action_mailer.default_url_options = { host: 'webstripe.co' }
   end
 end
