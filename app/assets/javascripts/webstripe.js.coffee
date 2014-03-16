@@ -4,7 +4,7 @@ Webstripe.load = (stripe_id, container) ->
   console.log("Container does not exist: #{container}") unless $(container)?
   Webstripe.stripe_id = stripe_id
   Webstripe.container = $(container)
-  url = "http://webstripe.dev/stripes/#{stripe_id}.json"
+  url = "http://webstripe.co/stripes/#{stripe_id}.json"
 
   Webstripe.setupContainer()
   $.get(url, Webstripe.setupStripe)
