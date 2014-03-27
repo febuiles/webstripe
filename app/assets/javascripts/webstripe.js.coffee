@@ -40,7 +40,6 @@ Webstripe.createItemContainer = (bg_color, fg_color) ->
   container.css("border-color", bg_color)
   container.css("color", fg_color)
   container.css("border-width", "15px")
-  container.css("font-family", "'Vollkorn', serif")
   container.css("max-width", "720px")
   container.css("font-size", "24px")
   container.css("position", "relative")
